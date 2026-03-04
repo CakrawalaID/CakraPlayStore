@@ -5,3 +5,33 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    
+<div id="particles-js"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
+<script>
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 80 },
+    color: { value: "#000000" },
+    shape: { type: "circle" },
+    opacity: { value: 0.5 },
+    size: { value: 3 },
+    line_linked: {
+      enable: true,
+      distance: 150,
+      color: "#000000",
+      opacity: 0.4,
+      width: 1
+    },
+    move: { enable: true, speed: 2 }
+  }
+});
+</script>
+
+css:
+body {
+  margin: 0;
+  background: #f5f5f5;
+}
