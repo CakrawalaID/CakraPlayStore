@@ -82,14 +82,11 @@ body {
 
 .search-box button:hover {
     background-color: #ffffff;
-}
-
-.search-icon{
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 24px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
 }
 
 .nav-btn .btn-daftar {
