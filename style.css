@@ -73,7 +73,7 @@ body {
 
 .search-box button {
     padding: 8px 12px;
-    background-color: #000000;
+    background-color: #ffffff;
     border: none;
     color: white;
     border-radius: 0 5px 5px 0;
@@ -82,11 +82,6 @@ body {
 
 .search-box button:hover {
     background-color: #ffffff;
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 24px;
 }
 
 .nav-btn .btn-daftar {
