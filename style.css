@@ -64,7 +64,7 @@ body {
   max-width: 100%; /* responsive di mobile */
   border: 1px solid #ccc;
   border-radius: 6px;
-  padding: 5px 60px;
+  padding: 5px 10px;
   box-sizing: border-box;
 }
 
