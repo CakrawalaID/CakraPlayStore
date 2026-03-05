@@ -96,3 +96,29 @@ body {
 .nav-btn .btn-daftar:hover {
     background-color: #d14e1f;
 }
+
+@media (max-width: 768px){
+
+  .navbar{
+    gap:8px;
+  }
+
+  .logo{
+    font-size:18px;
+  }
+
+  .search-box input{
+    padding:6px;
+    font-size:12px;
+  }
+
+  .search-box button{
+    padding:6px 8px;
+  }
+
+  .daftar{
+    padding:6px 10px;
+    font-size:12px;
+  }
+
+}
