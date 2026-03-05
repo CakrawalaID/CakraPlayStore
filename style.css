@@ -57,18 +57,6 @@ body {
     color: #222;
 }
 
-.search-box {
-    display: flex;
-    flex: 1;
-    margin: 0 20px;
-}
-
-.search-icon {
-  font-size: 18px;
-  color: #888;
-  margin-right: 8px;
-}
-
 .search-box input {
     width: 100%;
     padding: 8px 12px;
@@ -98,16 +86,6 @@ body {
 
   .logo{
     font-size:18px;
-  }
-
-  .search-box {
-    width: 100%;
-    padding: 8px 12px;
-  }
-
-  .search-icon {
-    font-size: 20px;
-    margin-right: 10px;
   }
 
   .search-box input{
