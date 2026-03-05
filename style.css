@@ -63,25 +63,18 @@ body {
     margin: 0 20px;
 }
 
+.search-icon {
+  font-size: 18px;
+  color: #888;
+  margin-right: 8px;
+}
+
 .search-box input {
     width: 100%;
     padding: 8px 12px;
     border: 1px solid #ccc;
     border-radius: 5px 0 0 5px;
     outline: none;
-}
-
-.search-box button {
-    padding: 8px 16px;
-    background-color: #ffffff;
-    border: 1px solid #ccc;
-    color: white;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-}
-
-.search-box button:hover {
-    background-color: #ffffff;
 }
 
 .nav-btn .btn-daftar {
@@ -107,13 +100,19 @@ body {
     font-size:18px;
   }
 
+  .search-box {
+    width: 100%;
+    padding: 8px 12px;
+  }
+
+  .search-icon {
+    font-size: 20px;
+    margin-right: 10px;
+  }
+
   .search-box input{
     padding:6px;
     font-size:12px;
-  }
-
-  .search-box button{
-    padding:6px 8px;
   }
 
   .daftar{
