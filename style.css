@@ -84,6 +84,14 @@ body {
     background-color: #ffffff;
 }
 
+.search-icon{
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+}
+
 .nav-btn .btn-daftar {
     text-decoration: none;
     padding: 8px 16px;
