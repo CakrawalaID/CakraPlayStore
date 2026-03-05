@@ -57,12 +57,23 @@ body {
     color: #222;
 }
 
+.search-box {
+  display: flex;
+  align-items: center;
+  width: 400px;   /* tetap lebar desktop */
+  max-width: 100%; /* responsive di mobile */
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 5px 10px;
+  box-sizing: border-box;
+}
+
 .search-box input {
-    width: 100%;
-    padding: 8px 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px 0 0 5px;
-    outline: none;
+  border: none;
+  outline: none;
+  flex-grow: 1; /* input mengisi sisa wrapper */
+  font-size: 14px;
+  padding: 8px 0;
 }
 
 .nav-btn .btn-daftar {
