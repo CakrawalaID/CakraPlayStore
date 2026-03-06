@@ -23,57 +23,42 @@ button:hover {
     background: red;
 }
 
-body{
-    margin:0;
-    font-family:Arial;
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 40px;
+    background: #eaeaea;
 }
 
-/* NAVBAR */
-
-.navbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:12px 40px;
-    background:#eaeaea;
+.logo img {
+    height: 40px;
 }
 
-/* LOGO */
-
-.logo img{
-    height:40px;
+.nav-right {
+    display: flex;       /* PENTING */
+    align-items: center; /* PENTING */
 }
 
-/* RIGHT MENU */
-
-.nav-right{
-    display:flex;
-    align-items:center;
+.search-box input {
+    width: 320px;
+    padding: 10px 15px;
+    border-radius: 25px 0 0 25px;
+    border: 1px solid #bbb;
+    outline: none;
 }
 
-/* SEARCH */
-
-.search-box input{
-    width:320px;
-    padding:10px 15px;
-    border-radius:25px 0 0 25px;
-    border:1px solid #bbb;
-    outline:none;
+.login-btn {
+    padding: 10px 20px;
+    border-radius: 0 25px 25px 0;
+    border: 1px solid #3f3cff;
+    background: white;
+    color: #3f3cff;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-/* LOGIN BUTTON */
-
-.login-btn{
-    padding:10px 20px;
-    border-radius:0 25px 25px 0;
-    border:1px solid #3f3cff;
-    background:white;
-    color:#3f3cff;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.login-btn:hover{
-    background:#3f3cff;
-    color:white;
+.login-btn:hover {
+    background: #3f3cff;
+    color: white;
 }
