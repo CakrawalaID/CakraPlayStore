@@ -1,53 +1,61 @@
+/* ===== Reset CSS ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== Body ===== */
 body {
-    font-family: Arial;
+    font-family: Arial, sans-serif;
     background: #FFFFFF;
-    color: white;
-    text-align: center;
+    color: black;
 }
 
-header {
-    background: #1e1e1e;
-    padding: 20px;
+/* ===== Particles Background ===== */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;  /* di belakang navbar */
 }
 
-button {
-    padding: 10px 20px;
-    margin: 10px;
-    background: orange;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: red;
-}
-
+/* ===== Navbar ===== */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 12px 40px;
     background: #eaeaea;
+    color: black;
+    position: relative;
+    z-index: 10;  /* di atas particles */
 }
 
+/* Logo */
 .logo img {
     height: 40px;
 }
 
+/* Nav Right */
 .nav-right {
-    display: flex;       /* PENTING */
-    align-items: center; /* PENTING */
+    display: flex;
+    align-items: center;
+    gap: 10px;  /* jarak antara search dan tombol */
 }
 
+/* Search Box */
 .search-box input {
-    width: 320px;
+    width: 250px; /* bisa sesuaikan */
     padding: 10px 15px;
     border-radius: 25px 0 0 25px;
     border: 1px solid #bbb;
     outline: none;
 }
 
+/* Login Button */
 .login-btn {
     padding: 10px 20px;
     border-radius: 0 25px 25px 0;
@@ -56,9 +64,35 @@ button:hover {
     color: #3f3cff;
     font-weight: bold;
     cursor: pointer;
+    transition: all 0.3s;
 }
 
 .login-btn:hover {
     background: #3f3cff;
     color: white;
+}
+
+/* ===== Optional: Responsif ===== */
+@media screen and (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+    }
+
+    .nav-right {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .search-box input {
+        width: 100%;
+        border-radius: 25px;
+        margin-bottom: 10px;
+    }
+
+    .login-btn {
+        width: 100%;
+        border-radius: 25px;
+    }
 }
