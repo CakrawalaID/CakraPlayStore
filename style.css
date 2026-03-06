@@ -25,7 +25,7 @@ button:hover {
 
 body{
     margin:0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:Arial, sans-serif;
 }
 
 /* NAVBAR */
@@ -34,46 +34,60 @@ body{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:12px 60px;
+    padding:12px 40px;
     background:#f5f5f5;
 }
 
-/* LOGO */
+/* BRAND */
 
-.logo img{
-    height:40px;
+.brand{
+    margin:0;
+    font-size:22px;
+    font-weight:bold;
 }
 
 /* SEARCH */
 
-.search-box{
-    flex:1;
-    display:flex;
-    justify-content:center;
+.nav-center{
+    position:relative;
 }
 
-.search-box input{
-    width:420px;
-    padding:12px 20px;
+.search-input{
+    width:380px;
+    padding:10px 20px;
     border-radius:25px;
     border:1px solid #ccc;
-    font-size:14px;
     outline:none;
 }
 
-/* RIGHT */
+/* LIST HASIL SEARCH */
 
-.nav-right{
-    display:flex;
-    align-items:center;
+.search-list{
+    position:absolute;
+    top:45px; /* ini yang bikin tidak nempel */
+    width:100%;
+    background:white;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    display:none;
 }
 
+.search-item{
+    padding:10px 15px;
+    cursor:pointer;
+}
+
+.search-item:hover{
+    background:#f1f1f1;
+}
+
+/* BUTTON */
+
 .login{
-    padding:8px 20px;
+    padding:8px 18px;
     border-radius:20px;
-    border:1px solid #3b49df;
+    border:1px solid #4b5cff;
     background:white;
-    color:#3b49df;
-    font-weight:500;
+    color:#4b5cff;
     cursor:pointer;
 }
