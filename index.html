@@ -1,15 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CakraPlayStore</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+
+<!-- Background Particles -->
 <div id="particles-js"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<!-- Navbar -->
+<header class="navbar">
+    <div class="logo">
+        <img src="logo.png" alt="logo">
+    </div>
 
+    <div class="nav-right">
+        <div class="search-box">
+            <input type="text" placeholder="Cari Game...">
+        </div>
+        <button class="login-btn">Masuk</button>
+    </div>
+</header>
+
+<!-- Script Particles.js -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 <script>
 particlesJS("particles-js", {
   particles: {
@@ -30,16 +47,5 @@ particlesJS("particles-js", {
 });
 </script>
 
-<header class="navbar">
-  <div class="logo">
-    <img src="logo.png" alt="logo">
-  </div>
-
-  <div class="nav-right">
-    <div class="search-box">
-      <input type="text" placeholder="Cari Game...">
-    </div>
-
-    <button class="login-btn">Masuk</button>
-  </div>
-</header>
+</body>
+</html>
