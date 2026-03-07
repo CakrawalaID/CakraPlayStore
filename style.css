@@ -24,13 +24,13 @@ body {
 
 /* NAVBAR */
 .navbar {
-  background: #f5f5f5;
+  background: #ffffff;
   position: relative;
   z-index: 10;
   height: 60px;
   display: flex;
   align-items: center;
-  border-bottom: 2px solid #3f3cff;
+  border-bottom: 2px solid #cccccc;
 }
 
 .navbar-container {
