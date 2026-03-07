@@ -30,6 +30,7 @@ body {
   height: 60px;
   display: flex;
   align-items: center;
+  border-bottom: 2px solid #3f3cff;
 }
 
 .navbar-container {
