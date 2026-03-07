@@ -1,99 +1,90 @@
 /* ===== Reset ===== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 /* ===== Body ===== */
-body {
-    font-family: Arial, sans-serif;
-    background: #fff;
-    color: black;
+body{
+font-family:Arial, sans-serif;
+background:#fff;
+color:black;
 }
 
 /* ===== Particles ===== */
-#particles-js {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
+#particles-js{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:1;
 }
 
 /* ===== Navbar ===== */
-.navbar {
-    position: relative;
-    z-index: 10;
-    background: #F5F5F5;
-    padding: 12px 20px;
+.navbar{
+position:relative;
+z-index:10;
+background:#F5F5F5;
+padding:12px 30px;
+
+display:flex;
+align-items:center;
+justify-content:space-between;
 }
 
-/* Center container */
-.navbar-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px; /* jarak logo dengan search+button */
+/* ===== Logo ===== */
+.logo img{
+height:40px;
 }
 
-/* Logo */
-.logo img {
-    height: 40px;
+/* ===== Search + Daftar ===== */
+.search-login{
+display:flex;
+align-items:center;
 }
 
-/* Search + Button */
-.search-login {
-    display: flex;
-    align-items: center;
+/* ===== Search Input ===== */
+.search-login input{
+width:250px;
+padding:10px 15px;
+border-radius:25px 0 0 25px;
+border:1px solid #bbb;
+outline:none;
 }
 
-/* Input Search */
-.search-login input {
-    width: 250px;
-    padding: 10px 15px;
-    border-radius: 25px 0 0 25px;
-    border: 1px solid #bbb;
-    outline: none;
+/* ===== Button Daftar ===== */
+.login-btn{
+padding:10px 20px;
+border-radius:0 25px 25px 0;
+border:1px solid #3f3cff;
+background:white;
+color:#3f3cff;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
 }
 
-/* Daftar Button */
-.login-btn {
-    padding: 10px 20px;
-    border-radius: 0 25px 25px 0;
-    border: 1px solid #3f3cff;
-    background: white;
-    color: #3f3cff;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s;
+.login-btn:hover{
+background:#3f3cff;
+color:white;
 }
 
-.login-btn:hover {
-    background: #3f3cff;
-    color: white;
+/* ===== Responsive ===== */
+@media screen and (max-width:600px){
+
+.navbar{
+flex-direction:column;
+gap:10px;
 }
 
-/* ===== Responsif ===== */
-@media screen and (max-width: 600px) {
-    .navbar-center {
-        flex-direction: column;
-        gap: 10px;
-    }
+.search-login{
+width:100%;
+}
 
-    .search-login {
-        width: 100%;
-        flex-direction: column;
-    }
+.search-login input{
+width:100%;
+}
 
-    .search-login input,
-    .login-btn {
-        width: 100%;
-        border-radius: 25px;
-    }
-
-    .login-btn {
-        margin-top: 10px;
-    }
 }
