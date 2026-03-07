@@ -1,105 +1,161 @@
 /* RESET */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-  font-family:Arial, sans-serif;
-  background:#fff;
-  color:black;
+body {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: black;
+  margin-left: 100px; /* Supaya tidak ketutup sidebar */
 }
 
 /* PARTICLES BACKGROUND */
-#particles-js{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  z-index:-1;
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 /* NAVBAR */
-.navbar{
-  background:#F5F5F5;
-  position:relative;
-  z-index:10;
+.navbar {
+  background: #f5f5f5;
+  position: relative;
+  z-index: 10;
+  height: 60px;
+  display: flex;
+  align-items: center;
 }
 
-/* FLEX CONTAINER */
-.navbar-container{
-  display:flex;
-  align-items:center;
-  padding:12px 50px;
+.navbar-container {
+  display: flex;
+  align-items: center;
+  padding: 0 50px;
+  width: 100%;
 }
 
-/* RUANG KOSONG OTOMATIS */
-.spacer{
-  flex:1;
+.spacer {
+  flex: 1;
 }
 
 /* LOGO */
-.logo img{
-  height:40px;
+.logo img {
+  height: 40px;
 }
 
 /* SEARCH + DAFTAR */
-.search-login{
-  display:flex;
-  max-width:350px;
+.search-login {
+  display: flex;
+  max-width: 350px;
+  width: 100%;
 }
 
-/* SEARCH INPUT */
-.search-login input{
-  flex:1;
-  padding:10px 15px;
-  border:1px solid #3f3cff;
-  border-right:none;
-  border-radius:25px 0 0 25px;
-  outline:none;
+.search-login input {
+  flex: 1;
+  padding: 10px 15px;
+  border: 1px solid #3f3cff;
+  border-right: none;
+  border-radius: 25px 0 0 25px;
+  outline: none;
 }
 
-/* BUTTON */
-.login-btn{
-  padding:10px 20px;
-  border:1px solid #3f3cff;
-  border-radius:0 25px 25px 0;
-  background:#3f3cff;
-  color:white;
-  font-weight:bold;
-  cursor:pointer;
-  transition:0.3s;
+.login-btn {
+  padding: 10px 20px;
+  border: 1px solid #3f3cff;
+  border-radius: 0 25px 25px 0;
+  background: #3f3cff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.login-btn:hover{
-  background:#5c5fff;
+.login-btn:hover {
+  background: #5c5fff;
+}
+
+/* SIDEBAR */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100px;
+  height: 100vh;
+  background: #fff;
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 120px;
+  z-index: 100;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.menu {
+  text-decoration: none;
+  color: #444;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.menu span {
+  font-size: 24px;
+}
+
+.menu p {
+  margin-top: 6px;
+  font-size: 12px;
+}
+
+.menu.active {
+  color: #3f3cff;
+  font-weight: 600;
+  border-left: 4px solid #3f3cff;
+  padding-left: 12px;
+}
+
+.menu:hover {
+  color: #5c5fff;
 }
 
 /* RESPONSIVE */
-@media screen and (max-width:600px){
-
-  .navbar-container{
-    flex-direction:column;
-    padding:15px 20px;
-    gap:10px;
+@media screen and (max-width: 600px) {
+  .navbar-container {
+    flex-direction: column;
+    padding: 15px 20px;
+    gap: 10px;
   }
 
-  .spacer{
-    display:none;
+  .spacer {
+    display: none;
   }
 
-  .search-login{
-    width:100%;
+  .search-login {
+    width: 100%;
   }
 
-  .search-login input{
-    width:70%;
+  .search-login input {
+    width: 70%;
   }
 
-  .login-btn{
-    width:30%;
+  .login-btn {
+    width: 30%;
   }
 
+  body {
+    margin-left: 0;
+  }
+
+  .sidebar {
+    display: none;
+  }
 }
