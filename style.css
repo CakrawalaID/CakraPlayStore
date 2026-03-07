@@ -1,4 +1,4 @@
-/* Reset */
+/* RESET */
 *{
   margin:0;
   padding:0;
@@ -11,59 +11,57 @@ body{
   color:black;
 }
 
-/* Particles */
+/* PARTICLES BACKGROUND */
 #particles-js{
   position:fixed;
   top:0;
   left:0;
   width:100%;
   height:100%;
-  z-index:1;
+  z-index:-1;
 }
 
-/* Navbar */
+/* NAVBAR */
 .navbar{
   background:#F5F5F5;
-  z-index:10;
   position:relative;
+  z-index:10;
 }
 
-/* Container flex */
+/* FLEX CONTAINER */
 .navbar-container{
   display:flex;
   align-items:center;
-  padding:12px 50px; /* space kiri & kanan */
+  padding:12px 50px;
 }
 
-/* Logo */
+/* RUANG KOSONG OTOMATIS */
+.spacer{
+  flex:1;
+}
+
+/* LOGO */
 .logo img{
   height:40px;
-  flex:0 0 auto;
 }
 
-/* Spacer tengah */
-.spacer{
-  flex:1; /* otomatis space di tengah */
-}
-
-/* Search + Daftar */
+/* SEARCH + DAFTAR */
 .search-login{
   display:flex;
-  max-width:350px; /* panjang search + tombol */
-  gap:0; /* search dan tombol menempel */
+  max-width:350px;
 }
 
-/* Search input */
+/* SEARCH INPUT */
 .search-login input{
   flex:1;
   padding:10px 15px;
   border:1px solid #3f3cff;
-  border-right:none; /* nyatu dengan tombol */
+  border-right:none;
   border-radius:25px 0 0 25px;
   outline:none;
 }
 
-/* Tombol Daftar */
+/* BUTTON */
 .login-btn{
   padding:10px 20px;
   border:1px solid #3f3cff;
@@ -79,11 +77,12 @@ body{
   background:#5c5fff;
 }
 
-/* Responsive */
+/* RESPONSIVE */
 @media screen and (max-width:600px){
+
   .navbar-container{
     flex-direction:column;
-    padding:12px 20px;
+    padding:15px 20px;
     gap:10px;
   }
 
@@ -93,16 +92,14 @@ body{
 
   .search-login{
     width:100%;
-    flex-direction:column;
   }
 
-  .search-login input,
-  .login-btn{
-    width:100%;
-    border-radius:25px;
+  .search-login input{
+    width:70%;
   }
 
   .login-btn{
-    margin-top:10px;
+    width:30%;
   }
+
 }
