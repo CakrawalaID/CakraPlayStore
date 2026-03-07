@@ -1,37 +1,60 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>CakraPlayStore</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+
+  <a href="#" class="menu active">
+    <span>🏠</span>
+    <p>Home</p>
+  </a>
+
+  <a href="#" class="menu">
+    <span>📄</span>
+    <p>Transaksi</p>
+  </a>
+
+  <a href="#" class="menu">
+    <span>🏷️</span>
+    <p>Promo</p>
+  </a>
+
+  <a href="#" class="menu">
+    <span>🎁</span>
+    <p>Hadiahku</p>
+  </a>
+
+</div>
 
 <!-- Background Particles -->
 <div id="particles-js"></div>
 
+<!-- Navbar -->
 <header class="navbar">
   <div class="navbar-container">
-
     <div class="spacer"></div>
 
     <!-- Logo -->
     <div class="logo">
-      <img src="logo.png" alt="CakraPlayStore">
+      <img src="logo.png" alt="CakraPlayStore" />
     </div>
 
     <div class="spacer"></div>
 
     <!-- Search + Daftar -->
     <div class="search-login">
-      <input type="text" placeholder="Cari Game...">
+      <input type="text" placeholder="Cari Game..." />
       <button class="login-btn">Daftar</button>
     </div>
 
     <div class="spacer"></div>
-
   </div>
 </header>
 
@@ -50,13 +73,13 @@ particlesJS("particles-js", {
       distance: 150,
       color: "#000000",
       opacity: 0.4,
-      width: 1
+      width: 1,
     },
     move: {
       enable: true,
-      speed: 2
-    }
-  }
+      speed: 2,
+    },
+  },
 });
 </script>
 
