@@ -1,110 +1,96 @@
-/* Reset */
+/* ===== Reset ===== */
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-/* Body */
+/* ===== Body ===== */
 body{
-  font-family:Arial, sans-serif;
-  background:#fff;
-  color:black;
+font-family:Arial, sans-serif;
+background:#fff;
+color:black;
 }
 
-/* Particles */
+/* ===== Particles ===== */
 #particles-js{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  z-index:1;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:1;
 }
 
-/* Navbar */
+/* ===== Navbar ===== */
 .navbar{
-  position:relative;
-  z-index:10;
-  background:#F5F5F5;
+position:relative;
+z-index:10;
+background:#F5F5F5;
 }
 
-/* Navbar container dengan flex */
+/* Container agar ada ruang kiri kanan */
 .navbar-container{
-  display:flex;
-  align-items:center;
-  justify-content:flex-start;
-  padding:12px 40px; /* space kiri & kanan */
+max-width:1200px;
+margin:auto;
+padding:12px 20px;
+
+display:flex;
+align-items:center;
+justify-content:space-between;
 }
 
 /* Logo */
 .logo img{
-  height:40px;
+height:40px;
 }
 
-/* Spacer (space tengah) */
-.spacer{
-  flex:1; /* otomatis mengisi ruang di tengah */
-}
-
-/* Search + Daftar (nyatu) */
+/* Search + daftar */
 .search-login{
-  display:flex;
-  align-items:center;
-  gap:0; /* search dan tombol menyatu */
-  max-width:400px; /* panjang search+daftar */
+display:flex;
+align-items:center;
 }
 
-/* Input Search */
+/* Search */
 .search-login input{
-  flex:1;
-  padding:10px 15px;
-  border:1px solid #3f3cff;
-  border-right:none;
-  border-radius:25px 0 0 25px;
-  outline:none;
+width:250px;
+padding:10px 15px;
+border-radius:25px 0 0 25px;
+border:1px solid #bbb;
+outline:none;
 }
 
-/* Tombol Daftar */
+/* Tombol daftar */
 .login-btn{
-  padding:10px 20px;
-  border:1px solid #3f3cff;
-  border-radius:0 25px 25px 0;
-  background:#3f3cff;
-  color:white;
-  font-weight:bold;
-  cursor:pointer;
-  transition:0.3s;
+padding:10px 20px;
+border-radius:0 25px 25px 0;
+border:1px solid #3f3cff;
+background:white;
+color:#3f3cff;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
 }
 
 .login-btn:hover{
-  background:#5c5fff;
+background:#3f3cff;
+color:white;
 }
 
-/* Responsive */
+/* ===== Responsive ===== */
 @media screen and (max-width:600px){
-  .navbar-container{
-    flex-direction:column;
-    gap:10px;
-    padding:12px 20px;
-  }
 
-  .spacer{
-    display:none; /* hide spacer di mobile */
-  }
+.navbar-container{
+flex-direction:column;
+gap:10px;
+}
 
-  .search-login{
-    width:100%;
-    flex-direction:column;
-  }
+.search-login{
+width:100%;
+}
 
-  .search-login input,
-  .login-btn{
-    width:100%;
-    border-radius:25px;
-  }
+.search-login input{
+width:100%;
+}
 
-  .login-btn{
-    margin-top:10px;
-  }
 }
