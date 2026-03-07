@@ -29,14 +29,12 @@ body{
   background:#F5F5F5;
 }
 
-/* Container dengan ruang di kiri & kanan */
+/* Navbar container dengan flex */
 .navbar-container{
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  
-  /* space di kiri kanan */
-  padding:12px 50px;  /* bisa diubah sesuai selera */
+  justify-content:flex-start;
+  padding:12px 40px; /* space kiri & kanan */
 }
 
 /* Logo */
@@ -44,38 +42,43 @@ body{
   height:40px;
 }
 
-/* Search + Daftar */
+/* Spacer (space tengah) */
+.spacer{
+  flex:1; /* otomatis mengisi ruang di tengah */
+}
+
+/* Search + Daftar (nyatu) */
 .search-login{
   display:flex;
   align-items:center;
-  flex:1;         /* search memanjang otomatis */
-  margin:0 20px;  /* space kecil di kiri dan kanan search */
+  gap:0; /* search dan tombol menyatu */
+  max-width:400px; /* panjang search+daftar */
 }
 
-/* Search input */
+/* Input Search */
 .search-login input{
   flex:1;
   padding:10px 15px;
+  border:1px solid #3f3cff;
+  border-right:none;
   border-radius:25px 0 0 25px;
-  border:1px solid #bbb;
   outline:none;
 }
 
 /* Tombol Daftar */
 .login-btn{
   padding:10px 20px;
-  border-radius:0 25px 25px 0;
   border:1px solid #3f3cff;
-  background:white;
-  color:#3f3cff;
+  border-radius:0 25px 25px 0;
+  background:#3f3cff;
+  color:white;
   font-weight:bold;
   cursor:pointer;
   transition:0.3s;
 }
 
 .login-btn:hover{
-  background:#3f3cff;
-  color:white;
+  background:#5c5fff;
 }
 
 /* Responsive */
@@ -83,7 +86,11 @@ body{
   .navbar-container{
     flex-direction:column;
     gap:10px;
-    padding:12px 20px; /* space lebih kecil di mobile */
+    padding:12px 20px;
+  }
+
+  .spacer{
+    display:none; /* hide spacer di mobile */
   }
 
   .search-login{
