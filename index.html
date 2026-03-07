@@ -6,19 +6,22 @@
 <title>CakraPlayStore</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
+<!-- Background Particles -->
 <div id="particles-js"></div>
 
 <header class="navbar">
   <div class="navbar-container">
 
-    <!-- Logo kiri -->
+    <div class="spacer"></div>
+
+    <!-- Logo -->
     <div class="logo">
-      <img src="logo.png" alt="logo">
+      <img src="logo.png" alt="CakraPlayStore">
     </div>
 
-    <!-- Spacer tengah -->
     <div class="spacer"></div>
 
     <!-- Search + Daftar -->
@@ -27,10 +30,13 @@
       <button class="login-btn">Daftar</button>
     </div>
 
+    <div class="spacer"></div>
+
   </div>
 </header>
 
 <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
 <script>
 particlesJS("particles-js", {
   particles: {
@@ -46,7 +52,10 @@ particlesJS("particles-js", {
       opacity: 0.4,
       width: 1
     },
-    move: { enable: true, speed: 2 }
+    move: {
+      enable: true,
+      speed: 2
+    }
   }
 });
 </script>
