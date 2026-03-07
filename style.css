@@ -27,25 +27,31 @@ z-index:1;
 position:relative;
 z-index:10;
 background:#F5F5F5;
-padding:12px 30px;
+}
+
+/* Container agar ada ruang kiri kanan */
+.navbar-container{
+max-width:1200px;
+margin:auto;
+padding:12px 20px;
 
 display:flex;
 align-items:center;
 justify-content:space-between;
 }
 
-/* ===== Logo ===== */
+/* Logo */
 .logo img{
 height:40px;
 }
 
-/* ===== Search + Daftar ===== */
+/* Search + daftar */
 .search-login{
 display:flex;
 align-items:center;
 }
 
-/* ===== Search Input ===== */
+/* Search */
 .search-login input{
 width:250px;
 padding:10px 15px;
@@ -54,7 +60,7 @@ border:1px solid #bbb;
 outline:none;
 }
 
-/* ===== Button Daftar ===== */
+/* Tombol daftar */
 .login-btn{
 padding:10px 20px;
 border-radius:0 25px 25px 0;
@@ -74,7 +80,7 @@ color:white;
 /* ===== Responsive ===== */
 @media screen and (max-width:600px){
 
-.navbar{
+.navbar-container{
 flex-direction:column;
 gap:10px;
 }
