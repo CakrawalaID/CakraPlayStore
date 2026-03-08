@@ -27,7 +27,7 @@ body {
   background: #ffffff;
   position: relative;
   z-index: 10;
-  height: 80px;
+  height: 60px;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #dddddd;
