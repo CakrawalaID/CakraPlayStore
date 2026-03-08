@@ -25,6 +25,7 @@ body {
 /* NAVBAR */
 .navbar {
   background: #ffffff;
+  margin-left: 80px
   position: relative;
   z-index: 10;
   height: 60px;
