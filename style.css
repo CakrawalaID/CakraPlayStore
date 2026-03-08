@@ -142,7 +142,7 @@ body{
   bottom:0;
   left:50%;
   transform:translateX(-50%);
-  width:90%; /* panjang garis */
+  width:60%; /* panjang garis */
   height:4px;
   background:#3f3cff;
   border-radius:2px;
