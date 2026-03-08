@@ -128,15 +128,15 @@ body{
   color:#5c5fff;
 }
 
-/* ACTIVE MENU */
+/* ACTIVE MENU DENGAN GRADASI TERBALIK */
 .menu.active{
   color:#3f3cff;
   font-weight:600;
-  /* gradasi memudar ke atas */
-  background: linear-gradient(to bottom, rgba(63,60,255,0.15), rgba(63,60,255,0.08));
+  /* gradasi gelap di bawah → terang di atas */
+  background: linear-gradient(to top, rgba(63,60,255,0.08), rgba(63,60,255,0.15));
 }
 
-/* GRADASI TIPIS DI ATAS ACTIVE MENU */
+/* GRADASI TIPIS DI ATAS MENU */
 .menu.active::before{
   content:"";
   position:absolute;
@@ -144,11 +144,11 @@ body{
   left:0;
   width:100%;
   height:10px;
-  background: linear-gradient(to bottom, rgba(63,60,255,0.2), transparent);
+  background: linear-gradient(to top, rgba(63,60,255,0.08), rgba(63,60,255,0.2));
   border-radius:2px 2px 0 0;
 }
 
-/* GARIS MENU AKTIF FULL */
+/* GARIS MENU AKTIF FULL & CENTER */
 .menu.active::after{
   content:"";
   position:absolute;
