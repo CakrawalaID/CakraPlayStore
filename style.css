@@ -140,8 +140,9 @@ body{
   content:"";
   position:absolute;
   bottom:0;
-  left:0;
-  width:90%;
+  left:50%;
+  transform:translateX(-50%);
+  width:90%; /* panjang garis */
   height:4px;
   background:#3f3cff;
   border-radius:2px;
