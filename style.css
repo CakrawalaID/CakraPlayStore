@@ -10,33 +10,6 @@ body{
   font-family:Arial, sans-serif;
   color:#333;
   margin-left:80px;
-
-  /* GRADIENT BACKGROUND */
-  background: linear-gradient(
-    135deg,
-    #f4f5fb 0%,
-    #e9ecf8 40%,
-    #e1e4f6 70%,
-    #f7f8fc 100%
-  );
-
-  min-height:100vh;
-  overflow-x:hidden;
-}
-
-/* BACKGROUND SHAPE SEPERTI LAPAKGAMING */
-body::before{
-  content:"";
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  z-index:-3;
-
-  background:
-  radial-gradient(circle at top right, rgba(120,130,255,0.15), transparent 40%),
-  radial-gradient(circle at bottom left, rgba(120,130,255,0.12), transparent 45%);
 }
 
 /* PARTICLES BACKGROUND */
