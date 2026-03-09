@@ -89,7 +89,7 @@ body {
 }
 
 .search-login input:focus {
-    border-color: #f8f9ff;
+    border-color: #ccc;
 }
 
 .login-btn {
@@ -104,8 +104,8 @@ body {
 }
 
 .login-btn:hover {
-    background: #ccc;
-    border-color: #8A8A8A;
+    background: #f8f9ff;
+    border-color: #ccc;
 }
 
 /* --- SIDEBAR --- */
