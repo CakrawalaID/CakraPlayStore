@@ -70,6 +70,7 @@ body {
 
 .spacer { flex: 1; }
 
+/* --- SEARCH & LOGIN BAR (HANYA BAGIAN INI DIUBAH) --- */
 .search-login {
     display: flex;
     max-width: 400px;
@@ -79,21 +80,34 @@ body {
 .search-login input {
     flex: 1;
     padding: 10px 20px;
-    border: 1px solid #ffffff;
+    border: 1px solid #ccc; /* border terlihat */
     border-right: none;
     border-radius: 25px 0 0 25px;
     outline: none;
     background: #f8f9ff;
+    transition: 0.3s;
+}
+
+.search-login input:focus {
+    border-color: #4f46e5; /* border ungu saat fokus */
+    box-shadow: 0 0 5px rgba(79, 70, 229, 0.5); /* glow ungu */
 }
 
 .login-btn {
     padding: 10px 25px;
-    background: #f8f9ff;
+    background: #4f46e5; /* ungu solid */
     color: white;
-    border: none;
+    border: 1px solid #4f46e5;
     border-radius: 0 25px 25px 0;
     font-weight: 600;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: #6c63ff; /* ungu lebih terang saat hover */
+    border-color: #6c63ff;
+    box-shadow: 0 0 8px rgba(79, 70, 229, 0.5);
 }
 
 /* --- SIDEBAR --- */
