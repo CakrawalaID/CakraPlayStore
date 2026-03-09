@@ -1,4 +1,4 @@
-/* --- RESET DASAR --- */
+/* --- RESET --- */
 * {
     margin: 0;
     padding: 0;
@@ -7,28 +7,28 @@
 }
 
 html {
-    background-color: #ffffff; /* Warna dasar putih di paling bawah */
+    background-color: #ffffff; /* Dasar putih paling bawah */
 }
 
 body {
-    background-color: transparent !important; /* Supaya partikel terlihat tembus */
-    margin-left: 80px; /* Jarak untuk sidebar */
+    background-color: transparent !important; /* Body harus transparan agar particle terlihat */
+    margin-left: 80px; 
 }
 
-/* --- PARTICLE LAYER --- */
+/* --- PARTICLE BACKGROUND --- */
 #particles-js {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Di bawah UI, di atas background putih html */
-    opacity: 0.4;
+    z-index: -1; 
+    background-color: #ffffff; /* Dasar putih di lapisan partikel */
 }
 
 /* --- NAVBAR --- */
 .navbar {
-    background: #ffffff !important; /* Putih solid agar tidak tembus saat scroll */
+    background: #ffffff !important; /* Putih solid */
     position: fixed;
     left: 80px;
     right: 0;
@@ -60,7 +60,7 @@ body {
 
 .logo-text {
     font-weight: 800;
-    font-size: 18px;
+    font-size: 20px;
     color: #333;
 }
 
@@ -108,7 +108,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 70px; /* Sejajar dengan bagian bawah navbar */
+    padding-top: 70px; /* Icon pertama sejajar dengan garis bawah navbar */
     z-index: 90;
 }
 
@@ -120,14 +120,23 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px 0;
+    padding: 25px 0; /* Memberi ruang untuk icon besar */
     transition: 0.3s;
 }
 
-.menu .icon { font-size: 22px; }
-.menu p { font-size: 10px; margin-top: 5px; font-weight: 600; }
+/* Memperbesar Icon */
+.menu .icon { 
+    font-size: 30px; 
+    margin-bottom: 2px;
+}
 
-/* MENU AKTIF & GARIS UNGU BAWAH */
+.menu p { 
+    font-size: 10px; 
+    margin-top: 5px; 
+    font-weight: 600; 
+}
+
+/* MENU AKTIF & GARIS UNGU DI BAWAH */
 .menu.active {
     color: #4f46e5;
 }
@@ -135,10 +144,10 @@ body {
 .menu.active::after {
     content: "";
     position: absolute;
-    bottom: 0; /* Garis horizontal di bawah icon/teks */
+    bottom: 0; /* Posisi garis di paling bawah item menu */
     left: 20%;
     width: 60%;
-    height: 3px;
+    height: 4px;
     background: #4f46e5;
     border-radius: 10px 10px 0 0;
 }
@@ -147,7 +156,7 @@ body {
     color: #4f46e5;
 }
 
-/* --- ISI KONTEN --- */
+/* --- MAIN CONTENT --- */
 .main-content {
     padding: 100px 30px 30px 30px;
 }
