@@ -89,15 +89,14 @@ body {
 }
 
 .search-login input:focus {
-    border-color: #4f46e5; /* border ungu saat fokus */
-    box-shadow: 0 0 5px rgba(79, 70, 229, 0.5); /* glow ungu */
+    border-color: #f8f9ff;
 }
 
 .login-btn {
     padding: 10px 25px;
-    background: #4f46e5; /* ungu solid */
+    background: #f8f9ff;
     color: white;
-    border: 1px solid #4f46e5;
+    border: 1px solid #ccc;
     border-radius: 0 25px 25px 0;
     font-weight: 600;
     cursor: pointer;
@@ -105,9 +104,8 @@ body {
 }
 
 .login-btn:hover {
-    background: #6c63ff; /* ungu lebih terang saat hover */
-    border-color: #6c63ff;
-    box-shadow: 0 0 8px rgba(79, 70, 229, 0.5);
+    background: #ccc;
+    border-color: #8A8A8A;
 }
 
 /* --- SIDEBAR --- */
