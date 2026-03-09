@@ -84,7 +84,7 @@ body {
     border-right: none;
     border-radius: 25px 0 0 25px;
     outline: none;
-    background: #f8f9ff;
+    background: #fff;
     transition: 0.3s;
 }
 
@@ -94,7 +94,7 @@ body {
 
 .login-btn {
     padding: 10px 25px;
-    background: #f8f9ff;
+    background: #fff;
     color: white;
     border: 1px solid #ccc;
     border-radius: 0 25px 25px 0;
@@ -104,7 +104,7 @@ body {
 }
 
 .login-btn:hover {
-    background: #f8f9ff;
+    background: #fff;
     border-color: #ccc;
 }
 
