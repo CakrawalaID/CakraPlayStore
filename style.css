@@ -70,7 +70,7 @@ body {
 
 .spacer { flex: 1; }
 
-/* --- SEARCH & LOGIN BAR (HANYA BAGIAN INI DIUBAH) --- */
+/* --- SEARCH & LOGIN BAR --- */
 .search-login {
     display: flex;
     max-width: 400px;
@@ -80,7 +80,7 @@ body {
 .search-login input {
     flex: 1;
     padding: 10px 20px;
-    border: 1px solid #ccc; /* border terlihat */
+    border: 1px solid #ccc;
     border-right: none;
     border-radius: 25px 0 0 25px;
     outline: none;
@@ -115,12 +115,12 @@ body {
     top: 0;
     width: 80px;
     height: 100vh;
-    background: #ffffff !important; /* Putih solid */
+    background: #ffffff !important;
     border-right: 1px solid #f0f0f0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 70px; /* Icon pertama sejajar dengan garis bawah navbar */
+    padding-top: 70px;
     z-index: 90;
 }
 
@@ -132,13 +132,13 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 25px 0; /* Memberi ruang untuk icon besar */
+    padding: 25px 0;
     transition: 0.3s;
 }
 
 /* Memperbesar Icon */
 .menu .icon { 
-    font-size: 30px; 
+    font-size: 36px; 
     margin-bottom: 2px;
 }
 
@@ -156,7 +156,7 @@ body {
 .menu.active::after {
     content: "";
     position: absolute;
-    bottom: 0; /* Posisi garis di paling bawah item menu */
+    bottom: 0;
     left: 0;
     width: 60%;
     height: 4px;
