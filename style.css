@@ -1,4 +1,4 @@
-/* --- RESET --- */
+/* --- RESET & DASAR --- */
 * {
     margin: 0;
     padding: 0;
@@ -7,12 +7,12 @@
 }
 
 html {
-    background-color: #ffffff; /* Dasar putih paling bawah */
+    background-color: #ffffff;
 }
 
 body {
-    background-color: transparent !important; /* Body harus transparan agar particle terlihat */
-    margin-left: 80px; 
+    background-color: transparent !important;
+    margin-left: 100px; /* Diperlebar sedikit karena icon membesar */
 }
 
 /* --- PARTICLE BACKGROUND --- */
@@ -22,15 +22,15 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; 
-    background-color: #ffffff; /* Dasar putih di lapisan partikel */
+    z-index: -1;
+    background-color: #ffffff;
 }
 
 /* --- NAVBAR --- */
 .navbar {
-    background: #ffffff !important; /* Putih solid */
+    background: #ffffff !important;
     position: fixed;
-    left: 80px;
+    left: 100px; /* Sesuaikan dengan margin-left body */
     right: 0;
     top: 0;
     height: 70px;
@@ -41,77 +41,23 @@ body {
     z-index: 100;
 }
 
-.navbar-container {
-    display: flex;
-    align-items: center;
-    width: 100%;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-top: 5px; /* Menurunkan logo sedikit */
-}
-
-.logo img {
-    height: 38px;
-}
-
-.logo-text {
-    font-weight: 800;
-    font-size: 20px;
-    color: #333;
-}
-
-.logo-text .highlight {
-    color: #4f46e5;
-}
-
-.spacer { flex: 1; }
-
-.search-login {
-    display: flex;
-    max-width: 400px;
-    width: 100%;
-}
-
-.search-login input {
-    flex: 1;
-    padding: 10px 20px;
-    border: 1px solid #eef0f7;
-    border-right: none;
-    border-radius: 25px 0 0 25px;
-    outline: none;
-    background: #f8f9ff;
-}
-
-.login-btn {
-    padding: 10px 25px;
-    background: #4f46e5;
-    color: white;
-    border: none;
-    border-radius: 0 25px 25px 0;
-    font-weight: 600;
-    cursor: pointer;
-}
-
 /* --- SIDEBAR --- */
 .sidebar {
     position: fixed;
     left: 0;
     top: 0;
-    width: 80px;
+    width: 100px; /* Diperlebar sedikit agar icon besar tidak sesak */
     height: 100vh;
-    background: #ffffff !important; /* Putih solid */
+    background: #ffffff !important;
     border-right: 1px solid #f0f0f0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 70px; /* Icon pertama sejajar dengan garis bawah navbar */
-    z-index: 90;
+    padding-top: 85px; /* Icon pertama turun sedikit dari garis navbar */
+    z-index: 110;
 }
 
+/* --- MENU ITEM (ICON BESAR) --- */
 .menu {
     position: relative;
     width: 100%;
@@ -120,43 +66,44 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 25px 0; /* Memberi ruang untuk icon besar */
-    transition: 0.3s;
+    padding: 20px 0;
+    transition: all 0.3s ease;
 }
 
-/* Memperbesar Icon */
+/* Ukuran Icon Diperbesar Sesuai Permintaan */
 .menu .icon { 
-    font-size: 30px; 
-    margin-bottom: 2px;
+    font-size: 40px; /* Ukuran icon jauh lebih besar */
+    margin-bottom: 5px;
 }
 
 .menu p { 
-    font-size: 10px; 
-    margin-top: 5px; 
+    font-size: 12px; 
     font-weight: 600; 
 }
 
-/* MENU AKTIF & GARIS UNGU DI BAWAH */
+/* --- INDIKATOR AKTIF (PINDAH KE SAMPING) --- */
 .menu.active {
     color: #4f46e5;
+    background: rgba(79, 70, 229, 0.05); /* Background halus saat aktif */
 }
 
+/* Garis Ungu di Samping Kiri */
 .menu.active::after {
     content: "";
     position: absolute;
-    bottom: 0; /* Posisi garis di paling bawah item menu */
-    left: 20%;
-    width: 60%;
-    height: 4px;
+    left: 0; /* Menempel di paling kiri */
+    top: 20%;
+    width: 5px; /* Ketebalan garis samping */
+    height: 60%; /* Tinggi garis samping */
     background: #4f46e5;
-    border-radius: 10px 10px 0 0;
+    border-radius: 0 5px 5px 0; /* Melengkung di sisi kanan garis */
 }
 
 .menu:hover {
     color: #4f46e5;
 }
 
-/* --- MAIN CONTENT --- */
+/* --- KONTEN UTAMA --- */
 .main-content {
-    padding: 100px 30px 30px 30px;
+    padding: 100px 40px;
 }
