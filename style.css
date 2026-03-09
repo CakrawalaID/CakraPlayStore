@@ -7,9 +7,10 @@
 
 /* BODY */
 body{
-  font-family:Arial, sans-serif;
+  font-family: Arial, sans-serif;
   color:#333;
   margin-left:80px;
+  background-color: #f4f7fe; /* Warna background dasar */
 }
 
 /* PARTICLES BACKGROUND */
@@ -19,13 +20,13 @@ body{
   left:0;
   width:100%;
   height:100%;
-  z-index:-2;
+  z-index:-1; /* Naikkan sedikit agar tidak tertutup */
   opacity:0.35;
 }
 
 /* NAVBAR */
 .navbar{
-  background:#ffffff;
+  background:#ffffff; /* POIN 1: Background Solid Putih */
   position:fixed;
   left:80px;
   right:0;
@@ -43,8 +44,22 @@ body{
   width:100%;
 }
 
+/* POIN 2: Logo & Tulisan Sampingnya */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .logo img{
-  height:40px;
+  height:35px;
+}
+
+.logo-text {
+  font-weight: 800;
+  font-size: 18px;
+  color: #4f46e5;
+  letter-spacing: -0.5px;
 }
 
 .spacer{
@@ -61,10 +76,11 @@ body{
 .search-login input{
   flex:1;
   padding:10px 15px;
-  border:1px solid #4f46e5;
+  border:1px solid #e6e6e6; /* Ubah ke abu-abu biar lebih bersih */
   border-right:none;
   border-radius:25px 0 0 25px;
   outline:none;
+  background: #f9fafb;
 }
 
 .login-btn{
@@ -78,10 +94,6 @@ body{
   transition:0.3s;
 }
 
-.login-btn:hover{
-  background:#6366f1;
-}
-
 /* SIDEBAR */
 .sidebar{
   position:fixed;
@@ -89,12 +101,12 @@ body{
   top:0;
   width:80px;
   height:100vh;
-  background:#ffffff;
+  background:#ffffff; /* POIN 1: Background Solid Putih */
   border-right:1px solid #e6e6e6;
   display:flex;
   flex-direction:column;
   align-items:center;
-  padding-top:100px;
+  padding-top:30px; /* Atur ulang padding top */
   z-index:100;
   box-shadow:2px 0 10px rgba(0,0,0,0.04);
 }
@@ -104,13 +116,12 @@ body{
   position:relative;
   width:100%;
   text-decoration:none;
-  color:#444;
+  color:#6b7280;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  padding:18px 0;
-  font-size:14px;
+  padding:20px 0;
   transition:all 0.25s ease;
 }
 
@@ -120,67 +131,32 @@ body{
 
 .menu p{
   margin-top:6px;
-  font-size:12px;
-}
-
-/* HOVER MENU */
-.menu:hover{
-  background:rgba(79,70,229,0.08);
-  color:#4f46e5;
+  font-size:11px;
+  font-weight: 500;
 }
 
 /* MENU AKTIF */
 .menu.active{
   color:#4f46e5;
-  font-weight:600;
-  background:rgba(79,70,229,0.08);
+  background: transparent; /* Hilangkan background ungu muda */
 }
 
-/* KOTAK GRADIENT KECIL DI KIRI */
+/* POIN 3: Garis di Bawah Icon */
 .menu.active::before{
   content:"";
   position:absolute;
-  left:0;
-  top:50%;
-  transform:translateY(-50%);
-  width:4px;
-  height:60%;
-  border-radius:0 6px 6px 0;
-
-  background:linear-gradient(
-    to bottom,
-    #6c6cff,
-    #3f3cff
-  );
+  bottom: 0; /* Pindah ke bawah */
+  left: 20%;
+  width: 60%;
+  height: 3px; /* Ketebalan garis */
+  border-radius: 10px 10px 0 0;
+  background: #4f46e5; /* Warna ungu solid */
+  transform: none; /* Hapus transform dari kode lama */
 }
 
 /* RESPONSIVE */
 @media screen and (max-width:600px){
-
-  body{
-    margin-left:0;
-  }
-
-  .navbar{
-    left:0;
-    padding:0 15px;
-  }
-
-  .sidebar{
-    display:none;
-  }
-
-  .navbar-container{
-    flex-direction:column;
-    gap:10px;
-  }
-
-  .search-login input{
-    width:70%;
-  }
-
-  .login-btn{
-    width:30%;
-  }
-
+  body{ margin-left:0; }
+  .navbar{ left:0; padding:0 15px; }
+  .sidebar{ display:none; }
 }
