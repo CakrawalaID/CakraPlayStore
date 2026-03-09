@@ -7,12 +7,12 @@
 }
 
 html {
-    background-color: #ffffff; /* Dasar putih paling bawah */
+    background-color: #ffffff;
 }
 
 body {
-    background-color: transparent !important; /* Body harus transparan agar particle terlihat */
-    margin-left: 80px; 
+    background-color: transparent !important;
+    margin-left: 80px;
 }
 
 /* --- PARTICLE BACKGROUND --- */
@@ -22,13 +22,13 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; 
-    background-color: #ffffff; /* Dasar putih di lapisan partikel */
+    z-index: -1;
+    background-color: #ffffff;
 }
 
 /* --- NAVBAR --- */
 .navbar {
-    background: #ffffff !important; /* Putih solid */
+    background: #ffffff !important;
     position: fixed;
     left: 80px;
     right: 0;
@@ -51,7 +51,7 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-top: 5px; /* Menurunkan logo sedikit */
+    margin-top: 5px;
 }
 
 .logo img {
@@ -136,8 +136,8 @@ body {
     transition: 0.3s;
 }
 
-.menu .icon { 
-    font-size: 45px !important; 
+.menu span { 
+    font-size: 45px; 
     margin-bottom: 4px;
 }
 
@@ -171,4 +171,14 @@ body {
 /* --- MAIN CONTENT --- */
 .main-content {
     padding: 100px 30px 30px 30px;
+}
+
+/* --- USER ICON POJOK KANAN BAWAH --- */
+.user-icon {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 200;
 }
