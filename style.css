@@ -257,15 +257,16 @@ body {
 }
 
 .card {
-    background: #151F32;
+    background: #ffffff;
     border-radius: 12px;
     height: 160px;
     transition: 0.3s;
+    border: 2px solid #f0f0f0;
 }
 
 .card:hover {
     transform: translateY(-6px);
-    background: #1e315c;
+    background: #ffffff;
 }
 
 /* ---------- RESPONSIVE MOBILE ---------- */
