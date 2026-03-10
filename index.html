@@ -58,11 +58,33 @@
   </div>
 </header>
 
-<!-- User Icon Pojok Kanan Bawah -->
+<!-- SLIDER BANNER -->
+<div class="slider-container">
+
+  <div class="slide fade">
+    <img src="banner1.jpg" alt="Promo 1">
+  </div>
+
+  <div class="slide fade">
+    <img src="banner2.jpg" alt="Promo 2">
+  </div>
+
+  <div class="slide fade">
+    <img src="banner3.jpg" alt="Promo 3">
+  </div>
+
+  <!-- tombol slider -->
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+
+</div>
+
+<!-- User Icon -->
 <div class="user-icon">
   <span>👤</span>
 </div>
 
+<!-- PARTICLES SCRIPT -->
 <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 <script>
 particlesJS("particles-js", {
@@ -77,11 +99,42 @@ particlesJS("particles-js", {
       distance: 150,
       color: "#000000",
       opacity: 0.4,
-      width: 1,
+      width: 1
     },
-    move: { enable: true, speed: 2 },
-  },
+    move: { enable: true, speed: 2 }
+  }
 });
+</script>
+
+<!-- SLIDER SCRIPT -->
+<script>
+
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n){
+  showSlides(slideIndex += n);
+}
+
+function showSlides(n){
+  let i;
+  let slides = document.getElementsByClassName("slide");
+
+  if(n > slides.length){slideIndex = 1}
+  if(n < 1){slideIndex = slides.length}
+
+  for(i = 0; i < slides.length; i++){
+    slides[i].style.display = "none";
+  }
+
+  slides[slideIndex-1].style.display = "block";
+}
+
+/* auto slide */
+setInterval(()=>{
+  plusSlides(1);
+},4000);
+
 </script>
 
 </body>
