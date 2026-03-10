@@ -176,7 +176,7 @@ body {
 /* --- USER ICON POJOK KANAN BAWAH --- */
 .user-icon {
     position: fixed;
-    right: 20px;
+    left: 20px;
     bottom: 20px;
     font-size: 40px;
     cursor: pointer;
