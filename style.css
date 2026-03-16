@@ -185,6 +185,11 @@ body {
     z-index: 200;
 }
 
+/* Tambahan supaya icon user lebih besar */
+.user-icon .material-icons {
+    font-size: 55px;
+}
+
 /* ================================= */
 /* ----------- SLIDER -------------- */
 /* ================================= */
