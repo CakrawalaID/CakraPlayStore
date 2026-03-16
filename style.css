@@ -258,7 +258,7 @@ body {
     margin-top: 500px;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 40px; /* jarak card diperlebar */
+    gap: 30px; /* jarak card diperlebar */
 }
 
 .card {
