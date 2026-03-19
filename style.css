@@ -231,6 +231,11 @@ body {
     color: #9ca3af;
 }
 
+.user-icon:hover .material-icons {
+    color: #4f46e5;
+    transform: scale(1.1);
+}
+
 /* --- SLIDER --- */
 .slider-container {
     margin-top: 100px;
