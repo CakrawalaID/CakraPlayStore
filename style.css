@@ -224,6 +224,7 @@ body {
     font-size: 40px;
     cursor: pointer;
     z-index: 200;
+    transition: 0.3s;
 }
 
 .user-icon .material-icons {
