@@ -164,7 +164,7 @@ body {
 
 /* --- MAIN CONTENT --- */
 .main-content {
-    padding: 100px 30px 30px 30px;
+    padding: 500px 30px 30px 30px;
 }
 
 .section-title {
@@ -213,11 +213,6 @@ body {
     margin-top: 10px;
     font-size: 14px;
     font-weight: 600;
-}
-
-.main-content {
-    margin-top: 80px;
-    padding: 0 20px;
 }
 
 /* --- USER ICON --- */
