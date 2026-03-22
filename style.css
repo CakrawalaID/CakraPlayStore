@@ -103,6 +103,31 @@ body {
     border-color: #ccc;
 }
 
+/* --- SEARCH DROPDOWN (TAMBAHAN) --- */
+.search-result {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-height: 250px;
+    overflow-y: auto;
+    display: none;
+    z-index: 999;
+}
+
+.search-item {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.search-item:hover {
+    background: #f3f4f6;
+}
+
 /* --- SIDEBAR --- */
 .sidebar {
     position: fixed;
@@ -183,11 +208,11 @@ body {
     color: #ff5722;
 }
 
-/* --- TOPUP CARDS (FIX CENTER GRID) --- */
+/* --- TOPUP CARDS --- */
 .topup-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 180px); /* ukuran tetap */
-    justify-content: center; /* CENTER SEMUA CARD */
+    grid-template-columns: repeat(auto-fit, 180px);
+    justify-content: center;
     gap: 15px;
 }
 
