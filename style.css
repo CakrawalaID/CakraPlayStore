@@ -183,10 +183,10 @@ body {
     color: #ff5722;
 }
 
-/* --- TOPUP CARDS --- */
+/* --- TOPUP CARDS (FIX GRID LAPAK) --- */
 .topup-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(5, 1fr);
     gap: 20px;
 }
 
@@ -198,6 +198,11 @@ body {
     text-align: center;
     cursor: pointer;
     transition: 0.3s;
+
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .card:hover {
@@ -206,13 +211,16 @@ body {
 }
 
 .card img {
-    width: 100%;
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    margin: 0 auto;
     border-radius: 12px;
 }
 
 .card p {
     margin-top: 10px;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
 }
 
@@ -287,6 +295,12 @@ body {
 }
 
 /* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+    .topup-cards {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
 
 body {
@@ -306,6 +320,12 @@ body {
 }
 
 .topup-cards {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 }
+}
+
+@media (max-width: 480px) {
+    .topup-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
