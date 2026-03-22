@@ -183,10 +183,11 @@ body {
     color: #ff5722;
 }
 
-/* --- TOPUP CARDS (GRID LEBIH KECIL & FONT SANS-SERIF) --- */
+/* --- TOPUP CARDS (FIX CENTER GRID) --- */
 .topup-cards {
     display: grid;
-    grid-template-columns: repeat(6, 1fr); /* lebih banyak kolom = grid lebih kecil */
+    grid-template-columns: repeat(auto-fit, 180px); /* ukuran tetap */
+    justify-content: center; /* CENTER SEMUA CARD */
     gap: 15px;
 }
 
@@ -199,7 +200,7 @@ body {
     cursor: pointer;
     transition: 0.3s;
 
-    height: 200px; /* sedikit lebih kecil */
+    height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -222,7 +223,7 @@ body {
     margin-top: 8px;
     font-size: 12px;
     font-weight: 600;
-    font-family: sans-serif; /* font card diganti sans-serif */
+    font-family: sans-serif;
 }
 
 /* --- USER ICON --- */
@@ -298,7 +299,7 @@ body {
 /* --- RESPONSIVE --- */
 @media (max-width: 1024px) {
     .topup-cards {
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(auto-fit, 160px);
     }
 }
 
@@ -321,12 +322,12 @@ body {
 }
 
 .topup-cards {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, 140px);
 }
 }
 
 @media (max-width: 480px) {
     .topup-cards {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(auto-fit, 120px);
     }
 }
