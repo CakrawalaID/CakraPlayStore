@@ -56,6 +56,9 @@
     <div class="search-login">
       <span class="material-icons search-icon">search</span>
       <input type="text" id="searchInput" placeholder="Cari Game..." />
+
+      <!-- DROPDOWN HASIL -->
+      <div id="searchResult" class="search-result"></div>
     </div>
 
     <div class="spacer"></div>
@@ -185,30 +188,45 @@ function showSlides(n){
   slides[slideIndex-1].style.display = "block";
 }
 
-/* auto slide */
 setInterval(()=>{
   plusSlides(1);
 },4000);
 
 </script>
 
-<!-- SEARCH SCRIPT -->
+<!-- SEARCH DROPDOWN SCRIPT -->
 <script>
 const searchInput = document.getElementById("searchInput");
+const resultBox = document.getElementById("searchResult");
 const cards = document.querySelectorAll(".card");
 
 searchInput.addEventListener("keyup", function() {
   const keyword = this.value.toLowerCase();
+  resultBox.innerHTML = "";
+
+  if (keyword === "") {
+    resultBox.style.display = "none";
+    return;
+  }
 
   cards.forEach(card => {
     const name = card.getAttribute("data-name");
 
     if (name.includes(keyword)) {
-      card.style.display = "flex";
-    } else {
-      card.style.display = "none";
+      const item = document.createElement("div");
+      item.classList.add("search-item");
+      item.innerText = name;
+
+      item.onclick = () => {
+        card.scrollIntoView({ behavior: "smooth" });
+        resultBox.style.display = "none";
+      };
+
+      resultBox.appendChild(item);
     }
   });
+
+  resultBox.style.display = "block";
 });
 </script>
 
