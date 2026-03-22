@@ -216,42 +216,6 @@ body {
     font-weight: 600;
 }
 
-/* --- BOTTOM CARD --- */
-.bottom-section {
-    width: calc(100% - 120px);
-    margin: 20px auto 40px auto;
-}
-
-.bottom-card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    background: #ffffff;
-    padding: 18px;
-    margin-bottom: 15px;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.bottom-card img {
-    width: 28px;
-    height: 28px;
-}
-
-.bottom-card p {
-    font-size: 15px;
-    font-weight: 600;
-    margin: 0;
-}
-
-.bottom-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
-}
-
 /* --- USER ICON --- */
 .user-icon {
     position: fixed;
