@@ -199,7 +199,7 @@ body {
     cursor: pointer;
     transition: 0.3s;
 
-    height: 150px; /* sedikit lebih kecil */
+    height: 200px; /* sedikit lebih kecil */
     display: flex;
     flex-direction: column;
     justify-content: center;
