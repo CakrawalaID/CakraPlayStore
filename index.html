@@ -94,7 +94,7 @@
   </div>
 </div>
 
-  <div class="topup-cards">
+<div class="topup-cards">
 
     <a href="hok.html" class="card" data-name="honor of kings">
       <img src="hok.jpg"><p>Honor Of Kings</p>
@@ -112,7 +112,6 @@
       <img src="play.jpg"><p>Play Store Voucher</p>
     </a>
 
-  </div>
 </div>
 
 <div class="user-icon">
@@ -179,7 +178,7 @@ searchInput.addEventListener("keyup", function() {
 
     if (keyword === "") {
         resultBox.style.display = "none";
-        cards.forEach(c => c.style.display = "flex");
+        cards.forEach(c => c.style.display = "block");
         return;
     }
 
@@ -193,7 +192,7 @@ searchInput.addEventListener("keyup", function() {
 
             item.onclick = () => {
                 cards.forEach(c => c.style.display = "none");
-                card.style.display = "flex";
+                card.style.display = "block";
 
                 card.scrollIntoView({ behavior: "smooth" });
                 resultBox.style.display = "none";
@@ -210,7 +209,7 @@ clearIcon.addEventListener("click", () => {
     searchInput.value = "";
     resultBox.style.display = "none";
     clearIcon.style.display = "none";
-    cards.forEach(c => c.style.display = "flex");
+    cards.forEach(c => c.style.display = "block");
     searchInput.focus();
 });
 </script>
