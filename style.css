@@ -103,6 +103,23 @@ body {
     border-color: #ccc;
 }
 
+/* --- CLEAR ICON --- */
+.clear-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #9ca3af;
+    cursor: pointer;
+    display: none; /* default hidden */
+    transition: 0.2s;
+}
+
+.clear-icon:hover {
+    color: #ff0000;
+}
+
 /* --- SEARCH DROPDOWN (TAMBAHAN) --- */
 .search-result {
     position: absolute;
