@@ -194,7 +194,7 @@ setInterval(()=>{
 
 </script>
 
-<!-- SEARCH DROPDOWN SCRIPT -->
+<!-- SEARCH DROPDOWN SCRIPT (FIXED) -->
 <script>
 const searchInput = document.getElementById("searchInput");
 const resultBox = document.getElementById("searchResult");
@@ -209,7 +209,10 @@ searchInput.addEventListener("keyup", function() {
     return;
   }
 
-  cards.forEach(card => {
+  let found = false;
+
+  for (let i = 0; i < cards.length; i++) {
+    const card = cards[i];
     const name = card.getAttribute("data-name");
 
     if (name.includes(keyword)) {
@@ -223,8 +226,17 @@ searchInput.addEventListener("keyup", function() {
       };
 
       resultBox.appendChild(item);
+      found = true;
+      break;
     }
-  });
+  }
+
+  if (!found) {
+    const item = document.createElement("div");
+    item.classList.add("search-item");
+    item.innerText = "Game tidak ditemukan";
+    resultBox.appendChild(item);
+  }
 
   resultBox.style.display = "block";
 });
