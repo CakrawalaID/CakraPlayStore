@@ -1,14 +1,14 @@
 /* --- Background halaman --- */
 body {
-    background: linear-gradient(135deg, #1f2937, #4f46e5); /* biru ke gelap */
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
     min-height: 100vh;
+    background: linear-gradient(135deg, #1f2937, #4f46e5); /* gradient biru ke gelap */
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
 }
 
 /* --- Container utama game --- */
@@ -26,7 +26,7 @@ body {
 .game-background h1 {
     margin-bottom: 30px;
     font-size: 36px;
-    color: #ffcc00; /* emas */
+    color: #ffcc00; /* warna emas */
 }
 
 /* --- Gambar cover game --- */
