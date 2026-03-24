@@ -237,7 +237,7 @@ body {
     object-fit: cover;
     outline: none;
     border: none;
-    display: block; /* 🔥 FIX BORDER */
+    display: block;
 }
 
 .card p {
@@ -248,7 +248,6 @@ body {
 
 .card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 12px 25px rgba(79,70,229,0.25);
 }
 
 .card:active {
