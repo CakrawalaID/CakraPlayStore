@@ -191,6 +191,7 @@ body {
 .main-content {
     padding: 120px 30px 30px 30px;
     text-align: center;
+    margin-top: 500px; /* ← konten mulai dari 500px dari atas */
 }
 
 .section-title {
@@ -199,7 +200,7 @@ body {
     gap: 10px;
     font-size: 24px;
     font-weight: 700;
-    margin-bottom: 10px; /* ← jarak bawah judul */
+    margin-bottom: 0; /* ← card langsung nempel ke judul */
     color: #000000;
 }
 
@@ -214,7 +215,7 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(150px, 180px));
     justify-content: center;
     gap: 20px;
-    margin-top: 500px; /* ← jarak dari judul ke card */
+    margin-top: 0; /* ← card langsung nempel ke judul */
 }
 
 /* --- CARD --- */
