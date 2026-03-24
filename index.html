@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>CakraPlayStore</title>
 <link rel="stylesheet" href="style.css" />
-
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
@@ -65,53 +64,46 @@
 </div>
 
 <div class="main-content">
+  <!-- Section Populer -->
   <h2 class="section-title">
     <span class="material-icons title-icon">whatshot</span> Populer
   </h2>
-
   <div class="topup-cards">
-
     <a href="ml.html" class="card" data-name="mobile legends bang bang">
       <img src="ml.jpg"><p>Mobile Legends: Bang Bang</p>
     </a>
-
     <a href="ff.html" class="card" data-name="free fire">
       <img src="ff.jpg"><p>Free Fire</p>
     </a>
-
     <a href="roblox.html" class="card" data-name="roblox">
       <img src="rb.jpg"><p>Roblox</p>
     </a>
-
     <a href="gi.html" class="card" data-name="genshin impact">
       <img src="gi.jpg"><p>Genshin Impact</p>
     </a>
-
     <a href="hsr.html" class="card" data-name="honkai star rail">
       <img src="hsr.jpg"><p>Honkai: Star Rail</p>
     </a>
-
   </div>
-</div>
 
-<div class="topup-cards">
-
+  <!-- Section Lainnya -->
+  <h2 class="section-title">
+    <span class="material-icons title-icon">local_offer</span> Lainnya
+  </h2>
+  <div class="topup-cards">
     <a href="hok.html" class="card" data-name="honor of kings">
       <img src="hok.jpg"><p>Honor Of Kings</p>
     </a>
-
     <a href="valo.html" class="card" data-name="valorant">
       <img src="valo.jpg"><p>Valorant</p>
     </a>
-    
     <a href="steam.html" class="card" data-name="steam wallet voucher">
       <img src="steam.jpg"><p>Steam Wallet Voucher</p>
     </a>
-
     <a href="play.html" class="card" data-name="play store voucher">
       <img src="play.jpg"><p>Play Store Voucher</p>
     </a>
-
+  </div>
 </div>
 
 <div class="user-icon">
@@ -119,7 +111,6 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-
 <script>
 particlesJS("particles-js", {
   particles: {
@@ -143,24 +134,14 @@ particlesJS("particles-js", {
 <script>
 let slideIndex = 1;
 showSlides(slideIndex);
-
-function plusSlides(n){
-  showSlides(slideIndex += n);
-}
-
+function plusSlides(n){ showSlides(slideIndex += n); }
 function showSlides(n){
   let slides = document.getElementsByClassName("slide");
-
   if(n > slides.length){slideIndex = 1}
   if(n < 1){slideIndex = slides.length}
-
-  for(let i = 0; i < slides.length; i++){
-    slides[i].style.display = "none";
-  }
-
+  for(let i = 0; i < slides.length; i++){ slides[i].style.display = "none"; }
   slides[slideIndex-1].style.display = "block";
 }
-
 setInterval(()=>{ plusSlides(1); },4000);
 </script>
 
@@ -173,35 +154,27 @@ const clearIcon = document.getElementById("clearSearch");
 searchInput.addEventListener("keyup", function() {
     const keyword = this.value.toLowerCase();
     resultBox.innerHTML = "";
-
     clearIcon.style.display = keyword ? "block" : "none";
-
     if (keyword === "") {
         resultBox.style.display = "none";
         cards.forEach(c => c.style.display = "block");
         return;
     }
-
     cards.forEach(card => {
         const name = card.getAttribute("data-name");
-
         if (name.includes(keyword)) {
             const item = document.createElement("div");
             item.classList.add("search-item");
             item.innerText = name;
-
             item.onclick = () => {
                 cards.forEach(c => c.style.display = "none");
                 card.style.display = "block";
-
                 card.scrollIntoView({ behavior: "smooth" });
                 resultBox.style.display = "none";
             };
-
             resultBox.appendChild(item);
         }
     });
-
     resultBox.style.display = "block";
 });
 
