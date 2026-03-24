@@ -252,6 +252,11 @@ body {
     transform: scale(0.96);
 }
 
+.card:focus,
+.card:active {
+    outline: none;
+}
+
 /* --- USER ICON --- */
 .user-icon {
     position: fixed;
