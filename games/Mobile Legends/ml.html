@@ -4,33 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Card Game Particle</title>
-    <link rel="stylesheet" href="games.css">
+    <!-- Hubungkan CSS dari folder di atas -->
+    <link rel="stylesheet" href="../games.css">
     <!-- Particles.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <style>
-        /* Reset dasar & background particle full screen */
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            background-color: #0d0d0d; /* gelap supaya partikel terlihat */
-        }
-
-        /* Container particle */
-        #particles-js {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
 </head>
 <body>
     <!-- Particle background -->
     <div id="particles-js"></div>
+
+    <!-- Konten contoh di atas particle -->
+    <div class="content">
+        <h1>Card Game Top-Up</h1>
+        <img src="ml.jpg" alt="Mobile Legends" style="max-width:200px;">
+        <p>Halaman siap digunakan!</p>
+    </div>
 
     <script>
         // Inisialisasi Particles.js
