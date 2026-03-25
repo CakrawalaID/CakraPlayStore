@@ -271,6 +271,25 @@ body {
   to { opacity: 1; }
 }
 
+<!-- FOOTER -->
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* memastikan body selalu setinggi viewport */
+}
+
+.main-content {
+    flex: 1; /* isi utama akan mengambil ruang yang tersisa */
+}
+
+.footer {
+    text-align: center;
+    padding: 15px;
+    background: #ffffff;
+    color: #666;
+    border-top: 1px solid #f0f0f0;
+}
+
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
   body { margin-left: 0; }
