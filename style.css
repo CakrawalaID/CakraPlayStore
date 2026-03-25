@@ -11,12 +11,10 @@ html, body {
     background-color: #ffffff;
 }
 
-/* TAMBAHAN FLEX AGAR FOOTER KE BAWAH */
+/* FIX: HAPUS FLEX BIAR SLIDER NORMAL */
 body {
     background-color: transparent !important;
     margin-left: 80px;
-    display: flex;
-    flex-direction: column;
 }
 
 /* --- PARTICLE BACKGROUND --- */
@@ -193,8 +191,8 @@ body {
     text-align: center;
     margin-top: 500px;
 
-    /* INI PENTING */
-    flex: 1;
+    /* FIX BIAR HALAMAN PANJANG */
+    min-height: calc(100vh - 200px);
 }
 
 .section-title {
@@ -278,6 +276,7 @@ body {
     max-width: 1100px;
     width: calc(100% - 120px);
     position: relative;
+    z-index: 1; /* FIX tombol */
 }
 
 .slide {
@@ -287,6 +286,10 @@ body {
 .slide img {
     width: 100%;
     border-radius: 12px;
+}
+
+.prev, .next {
+    z-index: 10; /* FIX tombol muncul */
 }
 
 /* --- FOOTER --- */
