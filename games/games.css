@@ -1,37 +1,27 @@
-/* --- Background halaman --- */
-body {
+/* --- RESET --- */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #1f2937, #4f46e5); /* gradient biru ke gelap */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
 }
 
-/* --- Container utama game --- */
-.game-background {
-    width: 90%;
-    max-width: 800px;
-    padding: 40px;
-    border-radius: 20px;
-    background: rgba(0,0,0,0.6); /* transparan gelap */
-    text-align: center;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+html {
+    background-color: #ffffff;
 }
 
-/* --- Judul game --- */
-.game-background h1 {
-    margin-bottom: 30px;
-    font-size: 36px;
-    color: #ffcc00; /* warna emas */
+body {
+    background-color: transparent !important;
+    margin-left: 80px;
 }
 
-/* --- Gambar cover game --- */
-.game-background img {
-    max-width: 100%;
-    border-radius: 12px;
-    margin-bottom: 30px;
+/* --- PARTICLE BACKGROUND --- */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: #ffffff;
 }
