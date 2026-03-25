@@ -64,10 +64,10 @@
 </div>
 
 <div class="main-content">
-  <!-- Section Populer -->
   <h2 class="section-title">
     <span class="material-icons title-icon">whatshot</span> Populer
   </h2>
+
   <div class="topup-cards">
     <a href="ml.html" class="card" data-name="mobile legends bang bang">
       <img src="ml.jpg"><p>Mobile Legends: Bang Bang</p>
@@ -106,7 +106,12 @@
   <span class="material-icons">person</span>
 </div>
 
+<footer class="footer">
+  <p>© 2026 CakraPlayStore</p>
+</footer>
+
 <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
 <script>
 particlesJS("particles-js", {
   particles: {
@@ -130,15 +135,25 @@ particlesJS("particles-js", {
 <script>
 let slideIndex = 1;
 showSlides(slideIndex);
-function plusSlides(n){ showSlides(slideIndex += n); }
+
+function plusSlides(n){ 
+  showSlides(slideIndex += n); 
+}
+
 function showSlides(n){
   let slides = document.getElementsByClassName("slide");
-  if(n > slides.length){slideIndex = 1}
-  if(n < 1){slideIndex = slides.length}
-  for(let i = 0; i < slides.length; i++){ slides[i].style.display = "none"; }
-  slides[slideIndex-1].style.display = "block";
+
+  if(n > slides.length){ slideIndex = 1 }
+  if(n < 1){ slideIndex = slides.length }
+
+  for(let i = 0; i < slides.length; i++){
+    slides[i].style.display = "none";
+  }
+
+  slides[slideIndex - 1].style.display = "block";
 }
-setInterval(()=>{ plusSlides(1); },4000);
+
+setInterval(() => { plusSlides(1); }, 4000);
 </script>
 
 <script>
@@ -151,26 +166,32 @@ searchInput.addEventListener("keyup", function() {
     const keyword = this.value.toLowerCase();
     resultBox.innerHTML = "";
     clearIcon.style.display = keyword ? "block" : "none";
+
     if (keyword === "") {
         resultBox.style.display = "none";
         cards.forEach(c => c.style.display = "block");
         return;
     }
+
     cards.forEach(card => {
         const name = card.getAttribute("data-name");
+
         if (name.includes(keyword)) {
             const item = document.createElement("div");
             item.classList.add("search-item");
             item.innerText = name;
+
             item.onclick = () => {
                 cards.forEach(c => c.style.display = "none");
                 card.style.display = "block";
                 card.scrollIntoView({ behavior: "smooth" });
                 resultBox.style.display = "none";
             };
+
             resultBox.appendChild(item);
         }
     });
+
     resultBox.style.display = "block";
 });
 
