@@ -167,7 +167,7 @@ body {
 }
 
 .menu.active {
-  color: #4f46e5;
+  color: #ff5722;
 }
 
 .menu.active::after {
@@ -178,7 +178,7 @@ body {
   transform: translateY(-50%);
   width: 4px;
   height: 60%;
-  background: #4f46e5;
+  background: #ff5722;
   border-radius: 0 10px 10px 0;
 }
 
@@ -270,7 +270,7 @@ body {
 }
 
 .user-icon:hover .material-icons {
-  color: #4f46e5;
+  color: #ff5722;
 }
 
 /* --- SLIDER --- */
