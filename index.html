@@ -56,6 +56,7 @@
   </div>
 
   <div class="main-content">
+
     <!-- Section Populer -->
     <h2 class="section-title">
       <span class="material-icons title-icon">whatshot</span> Populer
@@ -96,9 +97,8 @@
         <img src="dana.jpg" alt=""><p>Dana</p>
       </a>
     </div>
-  </div>
 
-     <!-- Section Voucher -->
+    <!-- Section Voucher -->
     <h2 class="section-title">
       <span class="material-icons title-icon">confirmation_number</span> Voucher
     </h2>
@@ -108,90 +108,115 @@
         <img src="steam.jpg" alt=""><p>Steam Wallet Voucher</p>
       </a>
     </div>
+
   </div>
-  
+
   <div class="user-icon">
     <span class="material-icons">person</span>
   </div>
 
-  <!-- FOOTER -->
-<footer class="footer">
-  ©2026 CakraPlayStore
-</footer>
+  <footer class="footer">
+    ©2026 CakraPlayStore
+  </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-  <script>
-    particlesJS("particles-js", {
-      particles: {
-        number: { value: 80 },
-        color: { value: "#000000" },
-        shape: { type: "circle" },
-        opacity: { value: 0.5 },
-        size: { value: 3 },
-        line_linked: { enable: true, distance: 150, color: "#000000", opacity: 0.4, width: 1 },
-        move: { enable: true, speed: 2 }
-      }
-    });
-  </script>
+  <!-- PARTICLES JS -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<script>
+  particlesJS("particles-js", {
+    particles: {
+      number: { value: 80 },
+      color: { value: "#000000" },
+      shape: { type: "circle" },
+      opacity: { value: 0.5 },
+      size: { value: 3 },
+      line_linked: {
+        enable: true,
+        distance: 150,
+        color: "#000000",
+        opacity: 0.4,
+        width: 1
+      },
+      move: { enable: true, speed: 2 }
+    }
+  });
+</script>
 
-  <script>
-    let slideIndex = 1;
-    showSlides(slideIndex);
+<!-- SLIDER -->
+<script>
+  let slideIndex = 1;
+  showSlides(slideIndex);
 
-    function plusSlides(n) { showSlides(slideIndex += n); }
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
 
-    function showSlides(n) {
-      let slides = document.getElementsByClassName("slide");
-      if (n > slides.length) { slideIndex = 1; }
-      if (n < 1) { slideIndex = slides.length; }
-      for (let i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
-      slides[slideIndex - 1].style.display = "block";
+  function showSlides(n) {
+    let slides = document.getElementsByClassName("slide");
+
+    if (n > slides.length) { slideIndex = 1; }
+    if (n < 1) { slideIndex = slides.length; }
+
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
     }
 
-    setInterval(() => { plusSlides(1); }, 4000);
-  </script>
+    slides[slideIndex - 1].style.display = "block";
+  }
 
-  <script>
-    const searchInput = document.getElementById("searchInput");
-    const resultBox = document.getElementById("searchResult");
-    const cards = document.querySelectorAll(".card");
-    const clearIcon = document.getElementById("clearSearch");
+  setInterval(() => {
+    plusSlides(1);
+  }, 4000);
+</script>
 
-    searchInput.addEventListener("keyup", function() {
-      const keyword = this.value.toLowerCase();
-      resultBox.innerHTML = "";
-      clearIcon.style.display = keyword ? "block" : "none";
-      if (keyword === "") {
-        resultBox.style.display = "none";
-        cards.forEach(c => c.style.display = "block");
-        return;
-      }
-      cards.forEach(card => {
-        const name = card.getAttribute("data-name");
-        if (name.includes(keyword)) {
-          const item = document.createElement("div");
-          item.classList.add("search-item");
-          item.innerText = name;
-          item.onclick = () => {
-            cards.forEach(c => c.style.display = "none");
-            card.style.display = "block";
-            card.scrollIntoView({ behavior: "smooth" });
-            resultBox.style.display = "none";
-          };
-          resultBox.appendChild(item);
-        }
-      });
-      resultBox.style.display = "block";
-    });
+<!-- SEARCH -->
+<script>
+  const searchInput = document.getElementById("searchInput");
+  const resultBox = document.getElementById("searchResult");
+  const cards = document.querySelectorAll(".card");
+  const clearIcon = document.getElementById("clearSearch");
 
-    clearIcon.addEventListener("click", () => {
-      searchInput.value = "";
+  searchInput.addEventListener("keyup", function () {
+    const keyword = this.value.toLowerCase();
+    resultBox.innerHTML = "";
+
+    clearIcon.style.display = keyword ? "block" : "none";
+
+    if (keyword === "") {
       resultBox.style.display = "none";
-      clearIcon.style.display = "none";
       cards.forEach(c => c.style.display = "block");
-      searchInput.focus();
+      return;
+    }
+
+    cards.forEach(card => {
+      const name = card.getAttribute("data-name");
+
+      if (name.includes(keyword)) {
+        const item = document.createElement("div");
+        item.classList.add("search-item");
+        item.innerText = name;
+
+        item.onclick = () => {
+          cards.forEach(c => c.style.display = "none");
+          card.style.display = "block";
+          card.scrollIntoView({ behavior: "smooth" });
+          resultBox.style.display = "none";
+        };
+
+        resultBox.appendChild(item);
+      }
     });
-  </script>
+
+    resultBox.style.display = "block";
+  });
+
+  clearIcon.addEventListener("click", () => {
+    searchInput.value = "";
+    resultBox.style.display = "none";
+    clearIcon.style.display = "none";
+    cards.forEach(c => c.style.display = "block");
+    searchInput.focus();
+  });
+</script>
 
 </body>
 </html>
