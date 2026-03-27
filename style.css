@@ -334,6 +334,203 @@ body {
   border-top: 1px solid #f0f0f0;
 }
 
+/* ===================== */
+/* TOPUP PAGE (DETAIL GAME) */
+/* ===================== */
+
+/* CONTAINER */
+.topup-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  margin-top: 100px;
+}
+
+/* LEFT SIDE */
+.topup-left {
+  width: 35%;
+}
+
+.game-card,
+.rating-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.game-header {
+  display: flex;
+  gap: 15px;
+}
+
+.game-header img {
+  width: 60px;
+  border-radius: 10px;
+}
+
+.publisher {
+  color: #ff5722;
+  font-size: 12px;
+}
+
+.desc {
+  margin: 10px 0;
+  color: #555;
+  font-size: 14px;
+}
+
+.store-btn button {
+  border: 1px solid #ddd;
+  background: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.rating {
+  font-size: 20px;
+  color: #ff9800;
+}
+
+/* RIGHT SIDE */
+.topup-right {
+  width: 65%;
+}
+
+/* STEP CARD */
+.step-card {
+  background: #ffffff;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.step-header {
+  background: #1e293b;
+  color: #ffffff;
+  padding: 12px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.step-header span {
+  background: #ff5722;
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin-right: 10px;
+}
+
+/* FORM */
+.form-box {
+  display: flex;
+  gap: 10px;
+  padding: 15px;
+}
+
+.form-box input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+}
+
+.form-box input:focus {
+  border: 1px solid #ff5722;
+}
+
+.cek {
+  background: #ff5722;
+  color: #ffffff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.info {
+  font-size: 12px;
+  color: #777;
+  padding: 0 15px 15px;
+}
+
+/* GRID NOMINAL */
+.topup-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  padding: 15px;
+}
+
+.topup-item {
+  border: 1px solid #eee;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  background: #fafafa;
+  transition: 0.2s;
+}
+
+.topup-item:hover {
+  border: 1px solid #ff5722;
+}
+
+.topup-item.active {
+  border: 2px solid #ff5722;
+  background: #fff7f3;
+}
+
+/* PAYMENT */
+.payment-method {
+  margin: 10px 15px;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.2s;
+}
+
+.payment-method:hover {
+  border: 1px solid #ff5722;
+}
+
+.payment-method span {
+  background: #ff5722;
+  color: #ffffff;
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.payment-method.active {
+  border: 2px solid #ff5722;
+  background: #fff7f3;
+}
+
+/* RESPONSIVE TOPUP */
+@media (max-width: 768px) {
+  .topup-container {
+    flex-direction: column;
+  }
+
+  .topup-left,
+  .topup-right {
+    width: 100%;
+  }
+
+  .topup-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
   body {
