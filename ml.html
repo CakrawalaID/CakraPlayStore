@@ -47,32 +47,139 @@
     </div>
   </header>
 
-    <div class="user-icon">
+  <div class="user-icon">
     <span class="material-icons">person</span>
+  </div>
+
+  <!-- ================= TOPUP PAGE ================= -->
+  <div class="topup-container">
+
+    <!-- LEFT -->
+    <div class="topup-left">
+
+      <div class="game-card">
+        <div class="game-header">
+          <img src="ml.jpg" alt="Mobile Legends">
+          <div>
+            <small class="publisher">Moonton</small>
+            <h3>Mobile Legends: Bang Bang</h3>
+            <small>ID</small>
+          </div>
+        </div>
+
+        <p class="desc">
+          Top Up Mobile Legends hanya dalam hitungan detik. 
+          Masukkan ID dan Server Mobile Legends Anda. Pilih jumlah Diamond, 
+          selesaikan pembayaran, dan Diamond akan langsung masuk ke akun Anda.
+        </p>
+
+        <div class="store-btn">
+          <button> App Store</button>
+          <button>▶ Google Play</button>
+        </div>
+      </div>
+
+      <div class="rating-card">
+        <h3>Ulasan dan Rating</h3>
+        <div class="rating">⭐ 4.8 / 5.0</div>
+        <p>Berdasarkan banyak ulasan</p>
+      </div>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="topup-right">
+
+      <!-- STEP 1 -->
+      <div class="step-card">
+        <div class="step-header">
+          <span>1</span> MASUKKAN ID DAN SERVER ANDA
+        </div>
+
+        <div class="form-box">
+          <input type="text" placeholder="User ID">
+          <input type="text" placeholder="Server ID">
+          <button class="cek">Cek Akun</button>
+        </div>
+
+        <p class="info">
+          Untuk menemukan ID dan Server Anda, buka profil di dalam game.
+        </p>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="step-card">
+        <div class="step-header">
+          <span>2</span> PILIH JUMLAH DENOM
+        </div>
+
+        <div class="topup-grid">
+          <div class="topup-item">5 Diamonds<br><small>Rp1.381</small></div>
+          <div class="topup-item">10 Diamonds<br><small>Rp3.002</small></div>
+          <div class="topup-item">12 Diamonds<br><small>Rp3.501</small></div>
+          <div class="topup-item">14 Diamonds<br><small>Rp4.051</small></div>
+          <div class="topup-item">15 Diamonds<br><small>Rp4.502</small></div>
+          <div class="topup-item">17 Diamonds<br><small>Rp4.689</small></div>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="step-card">
+        <div class="step-header">
+          <span>3</span> PILIH METODE PEMBAYARAN
+        </div>
+
+        <div class="payment-method active">
+          QRIS
+          <span>PROMO</span>
+        </div>
+
+        <div class="payment-method">
+          Virtual Account
+          <span>PROMO</span>
+        </div>
+
+        <div class="payment-method">
+          Modern Store
+          <span>PROMO</span>
+        </div>
+
+        <div class="payment-method">
+          ATM BCA & Mandiri
+          <span>PROMO</span>
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
 
   <footer class="footer">
     ©2026 CakraPlayStore
   </footer>
 
-    <!-- PARTICLES JS -->
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-<script>
-  particlesJS("particles-js", {
-    particles: {
-      number: { value: 80 },
-      color: { value: "#000000" },
-      shape: { type: "circle" },
-      opacity: { value: 0.5 },
-      size: { value: 3 },
-      line_linked: {
-        enable: true,
-        distance: 150,
-        color: "#000000",
-        opacity: 0.4,
-        width: 1
-      },
-      move: { enable: true, speed: 2 }
-    }
-  });
-</script>
+  <!-- PARTICLES JS -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 80 },
+        color: { value: "#000000" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5 },
+        size: { value: 3 },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#000000",
+          opacity: 0.4,
+          width: 1
+        },
+        move: { enable: true, speed: 2 }
+      }
+    });
+  </script>
+
+</body>
+</html>
