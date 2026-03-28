@@ -347,16 +347,20 @@ body {
 /* TOPUP PAGE (DETAIL GAME) */
 /* ===================== */
 
-.topup-container {
-  display: flex;
+/* --- CONTAINER PAGE 2 FIX LEBAR --- */
+.topup-page .topup-container {
+  max-width: 900px;      /* Perkecil konten agar tidak full */
+  margin: 100px auto 0 auto; /* Center + jarak atas */
+  padding: 0 15px;       /* Space kiri-kanan */
   gap: 20px;
-  padding: 20px;
-  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /* LEFT SIDE */
 .topup-left {
-  width: 35%;
+  flex: 1 1 35%;
+  min-width: 250px;
 }
 
 .game-card,
@@ -405,7 +409,8 @@ body {
 
 /* RIGHT SIDE */
 .topup-right {
-  width: 65%;
+  flex: 1 1 60%;
+  min-width: 300px;
 }
 
 /* STEP CARD */
@@ -525,7 +530,7 @@ body {
 
 /* RESPONSIVE TOPUP */
 @media (max-width: 768px) {
-  .topup-container {
+  .topup-page .topup-container {
     flex-direction: column;
   }
 
