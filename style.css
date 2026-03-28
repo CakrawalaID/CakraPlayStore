@@ -248,8 +248,9 @@ body {
 
 /* ===== SLIDESHOW SWIPER ===== */
 .swiper {
-  max-width: 600px;
-  margin: 40px auto; /* jarak dari atas/bawah */
+  width: 1200px;       /* ukuran lebar banner */
+  height: 400px;       /* ukuran tinggi banner */
+  margin: 40px auto;   /* center di halaman */
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 6px 20px rgba(0,0,0,0.1);
@@ -257,10 +258,10 @@ body {
 
 .swiper-slide img {
   width: 100%;
-  height: auto;
+  height: 100%;       /* Penuhi tinggi slide */
   display: block;
   border-radius: 16px;
-  object-fit: cover;
+  object-fit: cover;  /* Memastikan gambar tidak terdistorsi */
 }
 
 /* Tombol navigasi prev/next */
