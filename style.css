@@ -246,46 +246,52 @@ body {
   transform: translateY(-6px);
 }
 
-/* --- TAMPILAN SWIPER CAROUSEL --- */
+/* --- SWIPER CENTER MODE --- */
 .swiper {
   width: 100%;
-  padding-top: 100px; /* Biar gak ketutupan navbar */
+  padding-top: 100px; /* Jarak agar tidak tertutup navbar */
   padding-bottom: 50px;
+  z-index: 10;
 }
 
 .swiper-slide {
-  width: 60%; /* Lebar slide utama di tengah */
-  transition: transform 0.3s, opacity 0.3s;
-  border-radius: 15px;
+  width: 60%; /* Lebar slide tengah */
+  height: 300px; /* TINGGI WAJIB DIISI agar banner muncul */
+  transition: all 0.5s ease;
+  border-radius: 20px;
   overflow: hidden;
-  opacity: 0.4; /* Gambar samping redup */
-  transform: scale(0.85); /* Gambar samping mengecil */
+  opacity: 0.4; /* Samping lebih gelap */
+  transform: scale(0.85); /* Samping lebih kecil */
+  background: #f0f0f0; /* Warna cadangan jika gambar belum ada */
 }
 
+/* Efek Slide Aktif di Tengah */
 .swiper-slide-active {
-  opacity: 1; /* Gambar tengah terang */
-  transform: scale(1); /* Gambar tengah ukuran asli */
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  opacity: 1;
+  transform: scale(1); /* Ukuran normal */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .swiper-slide img {
   width: 100%;
-  height: 250px; /* Sesuaikan tinggi banner */
+  height: 100%;
   object-fit: cover;
   display: block;
 }
 
-/* Mengatur baris indikator merah di bawah */
+/* Indikator Navigasi (Warna Netral) */
 .swiper-pagination-bullet {
-  width: 25px;
-  height: 5px;
-  border-radius: 5px;
-  background: #ccc;
+  width: 10px;
+  height: 10px;
+  background: #999 !important;
   opacity: 1;
+  transition: 0.3s;
 }
 
 .swiper-pagination-bullet-active {
-  background: #ff5722 !important; /* Warna merah sesuai keinginan */
+  background: #333 !important; /* Warna gelap untuk yang aktif */
+  width: 30px;
+  border-radius: 5px;
 }
 
 /* --- USER ICON --- */
