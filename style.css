@@ -18,6 +18,15 @@ body {
   min-height: 100vh;
 }
 
+/* ===================== */
+/* TAMBAHAN KHUSUS TOPUP */
+/* ===================== */
+.topup-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
 /* --- PARTICLE BACKGROUND --- */
 #particles-js {
   position: fixed;
@@ -338,7 +347,6 @@ body {
 /* TOPUP PAGE (DETAIL GAME) */
 /* ===================== */
 
-/* CONTAINER */
 .topup-container {
   display: flex;
   gap: 20px;
@@ -543,6 +551,10 @@ body {
 
   .navbar {
     left: 0;
+  }
+
+  .topup-page {
+    padding: 10px;
   }
 
   .slider-container {
