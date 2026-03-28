@@ -246,6 +246,53 @@ body {
   transform: translateY(-6px);
 }
 
+/* ===== SLIDESHOW SWIPER ===== */
+.swiper {
+  max-width: 600px;
+  margin: 40px auto; /* jarak dari atas/bawah */
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+/* Tombol navigasi prev/next */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #ff5722;
+  background: rgba(255,255,255,0.85);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Pagination titik */
+.swiper-pagination-bullet {
+  background: #ff5722;
+}
+
+.swiper-pagination-bullet-active {
+  background: #e64a19;
+}
+
 /* --- USER ICON --- */
 .user-icon {
   position: fixed;
