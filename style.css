@@ -248,8 +248,8 @@ body {
 
 /* ===== SLIDESHOW SWIPER ===== */
 .swiper {
-  width: 400px;       /* ukuran lebar banner */
-  height: 1200px;       /* ukuran tinggi banner */
+  width: 1200px;       /* ukuran lebar banner */
+  height: 400px;       /* ukuran tinggi banner */
   margin: 40px auto;   /* center di halaman */
   border-radius: 16px;
   overflow: hidden;
