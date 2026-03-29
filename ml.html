@@ -6,6 +6,32 @@
   <title>Top Up Mobile Legends Termurah | CakraPlayStore</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    /* CSS Tambahan agar Bintang & Rating Jalan (Taruh di style.css atau di sini) */
+    .star-rating {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      gap: 2px;
+      margin-bottom: 10px;
+    }
+    .star-rating input { display: none; }
+    .star-rating label {
+      font-size: 28px;
+      color: #ccc;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .star-rating input:checked ~ label,
+    .star-rating label:hover,
+    .star-rating label:hover ~ label {
+      color: #ffc107;
+    }
+    .rating-number-style {
+      font-weight: bold;
+      color: #ff5722;
+    }
+  </style>
 </head>
 <body>
 
@@ -72,66 +98,53 @@
           </p>
 
           <div class="store-btn">
-  <button>
-    <span class="material-icons">smartphone</span> App Store
-  </button>
-  <button>
-    <span class="material-icons">play_arrow</span> Google Play
-  </button>
-</div>
+            <button><span class="material-icons">smartphone</span> App Store</button>
+            <button><span class="material-icons">play_arrow</span> Google Play</button>
+          </div>
 
-        <div class="rating-card">
-          <h3>Ulasan dan Rating</h3>
-          <div class="rating">
-  <span class="material-icons">star</span> 4.8 / 5.0
-</div>
-          <p>Berdasarkan banyak ulasan</p>
+          <div class="rating-card">
+            <h3>Ulasan dan Rating</h3>
+            <div class="rating">
+              <span class="material-icons" style="color: #ffc107;">star</span> 
+              <span id="current-rating-val" class="rating-number-style">4.8</span> / 5.0
+            </div>
+            <p>Berdasarkan banyak ulasan</p>
+          </div>
+
+          <form class="review-form" id="reviewForm">
+            <label>Rating:</label>
+            <div class="star-rating">
+              <input type="radio" id="star5" name="rating" value="5"><label for="star5" class="material-icons">star</label>
+              <input type="radio" id="star4" name="rating" value="4"><label for="star4" class="material-icons">star</label>
+              <input type="radio" id="star3" name="rating" value="3"><label for="star3" class="material-icons">star</label>
+              <input type="radio" id="star2" name="rating" value="2"><label for="star2" class="material-icons">star</label>
+              <input type="radio" id="star1" name="rating" value="1"><label for="star1" class="material-icons">star</label>
+            </div>
+            
+            <label for="user-review">Ulasan:</label>
+            <textarea id="user-review" name="review" rows="3" placeholder="Tulis ulasan kamu..."></textarea>
+
+            <button type="submit">
+              <span class="material-icons">send</span> Kirim
+            </button>
+          </form>
+
         </div>
-
-<!-- Form review / kirim rating -->
-<form class="review-form" action="mailto:emailkamu@gmail.com" method="post" enctype="text/plain">
-  <label for="user-rating">Rating:</label>
-  <select id="user-rating" name="rating">
-    <option value="5">⭐ 5</option>
-    <option value="4">⭐ 4</option>
-    <option value="3">⭐ 3</option>
-    <option value="2">⭐ 2</option>
-    <option value="1">⭐ 1</option>
-  </select>
-  
-  <label for="user-review">Ulasan:</label>
-  <textarea id="user-review" name="review" rows="3" placeholder="Tulis ulasan kamu..."></textarea>
-
-  <button type="submit">
-    <span class="material-icons">send</span> Kirim
-  </button>
-</form>
-
       </aside>
 
       <main class="topup-right">
-
         <div class="step-card">
-          <div class="step-header">
-            <span>1</span> MASUKKAN ID DAN SERVER ANDA
-          </div>
-
+          <div class="step-header"><span>1</span> MASUKKAN ID DAN SERVER ANDA</div>
           <div class="form-box">
             <input type="text" placeholder="User ID">
             <input type="text" placeholder="Server ID">
             <button class="cek">Cek Akun</button>
           </div>
-
-          <p class="info">
-            Untuk menemukan ID dan Server Anda, buka profil di dalam game.
-          </p>
+          <p class="info">Untuk menemukan ID dan Server Anda, buka profil di dalam game.</p>
         </div>
 
         <div class="step-card">
-          <div class="step-header">
-            <span>2</span> PILIH JUMLAH DENOM
-          </div>
-
+          <div class="step-header"><span>2</span> PILIH JUMLAH DENOM</div>
           <div class="topup-grid">
             <div class="topup-item">5 Diamonds<br><small>Rp1.381</small></div>
             <div class="topup-item">10 Diamonds<br><small>Rp3.002</small></div>
@@ -143,33 +156,14 @@
         </div>
 
         <div class="step-card">
-          <div class="step-header">
-            <span>3</span> PILIH METODE PEMBAYARAN
-          </div>
-
-          <div class="payment-method active">
-            QRIS
-            <span>PROMO</span>
-          </div>
-
-          <div class="payment-method">
-            Virtual Account
-            <span>PROMO</span>
-          </div>
-
-          <div class="payment-method">
-            Modern Store
-            <span>PROMO</span>
-          </div>
-
-          <div class="payment-method">
-            ATM BCA & Mandiri
-            <span>PROMO</span>
-          </div>
+          <div class="step-header"><span>3</span> PILIH METODE PEMBAYARAN</div>
+          <div class="payment-method active">QRIS <span>PROMO</span></div>
+          <div class="payment-method">Virtual Account <span>PROMO</span></div>
+          <div class="payment-method">Modern Store <span>PROMO</span></div>
+          <div class="payment-method">ATM BCA & Mandiri <span>PROMO</span></div>
         </div>
 
         <button class="btn-order-final">Beli Sekarang</button>
-
       </main>
 
     </div>
@@ -181,6 +175,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
   <script>
+    // PARTICLE JS
     particlesJS("particles-js", {
       particles: {
         number: { value: 80 },
@@ -196,6 +191,32 @@
           width: 1
         },
         move: { enable: true, speed: 2 }
+      }
+    });
+
+    // LOGIKA HITUNG RATING DINAMIS
+    const reviewForm = document.getElementById('reviewForm');
+    const displayRating = document.getElementById('current-rating-val');
+
+    reviewForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const selectedStar = document.querySelector('input[name="rating"]:checked');
+      
+      if (selectedStar) {
+        let currentRating = parseFloat(displayRating.innerText);
+        let userRating = parseInt(selectedStar.value);
+        
+        // Simulasi hitung rating baru (rata-rata sederhana)
+        let finalRating = ((currentRating + userRating) / 2).toFixed(1);
+        
+        // Ganti angka di layar
+        displayRating.innerText = finalRating;
+        
+        alert("Terima kasih! Ulasan kamu berhasil dikirim. Rating saat ini: " + finalRating);
+        reviewForm.reset();
+      } else {
+        alert("Silakan pilih bintang terlebih dahulu!");
       }
     });
   </script>
