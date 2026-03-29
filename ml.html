@@ -27,8 +27,12 @@
     .star-rating label:hover ~ label {
       color: #FFC107;
     }
+    .rating-number-style {
+      font-weight: bold;
+      color: #ff8c00;
+    }
 
-    /* GAYA HEADER MODERN (STEP 2) */
+    /* GAYA HEADER BARU */
     .step-header-modern {
       background-color: #1a2333;
       position: relative;
@@ -37,7 +41,7 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      border-radius: 8px 8px 0 0;
+      overflow: hidden;
     }
     .step-number-circle {
       background-color: #ff5722;
@@ -49,33 +53,26 @@
       align-items: center;
       justify-content: center;
       font-weight: bold;
+      z-index: 2;
     }
-
-    /* PERBAIKAN TOMBOL BELI & FOOTER (SESUAI GAMBAR 2) */
-    .buy-button-wrapper {
-      margin-top: 20px;
-      width: 100%;
-    }
-    #buyNowBtn {
-      width: 100%;
-      background-color: #ff5722;
-      color: white;
-      border: none;
-      padding: 18px;
-      font-size: 18px;
+    .step-title-modern {
       font-weight: bold;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: 0.3s;
+      font-size: 15px;
+      z-index: 2;
+      text-transform: uppercase;
     }
-    #buyNowBtn:hover { background-color: #e64a19; }
-
-    .footer {
-      text-align: center;
-      padding: 40px 0;
-      color: #666;
-      width: 100%;
-      clear: both;
+    /* Pola Titik-titik di Header */
+    .step-header-modern::after {
+      content: "";
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100px;
+      height: 40px;
+      background-image: radial-gradient(#ffffff 1px, transparent 1px);
+      background-size: 8px 8px;
+      opacity: 0.1;
     }
 
     /* SISTEM KUNCI */
@@ -83,133 +80,224 @@
       opacity: 0.3;
       pointer-events: none;
       filter: grayscale(1);
+      transition: 0.4s ease;
     }
   </style>
 </head>
 <body>
 
   <div class="sidebar">
-    <a href="#" class="menu"><span class="material-icons">home</span><p>Home</p></a>
-    <a href="#" class="menu"><span class="material-icons">description</span><p>Transaksi</p></a>
-    <a href="#" class="menu"><span class="material-icons">local_offer</span><p>Promo</p></a>
-    <a href="#" class="menu"><span class="material-icons">card_giftcard</span><p>Hadiahku</p></a>
+    <a href="index.html" class="menu">
+      <span class="material-icons">home</span>
+      <p>Home</p>
+    </a>
+    <a href="tf.html" class="menu">
+      <span class="material-icons">description</span>
+      <p>Transaksi</p>
+    </a>
+    <a href="promo.html" class="menu">
+      <span class="material-icons">local_offer</span>
+      <p>Promo</p>
+    </a>
+    <a href="hdh.html" class="menu">
+      <span class="material-icons">card_giftcard</span>
+      <p>Hadiahku</p>
+    </a>
   </div>
 
   <div id="particles-js"></div>
 
   <header class="navbar">
     <div class="navbar-container">
-      <div class="logo"><img src="logo.png" alt="CakraPlayStore" /></div>
+      <div class="spacer"></div>
+      <div class="logo">
+        <img src="logo.png" alt="CakraPlayStore" />
+      </div>
+      <div class="spacer"></div>
       <div class="search-login">
         <span class="material-icons search-icon">search</span>
         <input type="text" id="searchInput" placeholder="Cari Game..." />
+        <span class="material-icons clear-icon" id="clearSearch">close</span>
+        <div id="searchResult" class="search-result"></div>
       </div>
+      <div class="spacer"></div>
     </div>
   </header>
 
-  <div class="main-wrapper">
+  <div class="user-icon">
+    <span class="material-icons">person</span>
+  </div>
+
+  <div class="main-wrapper topup-page">
     <div class="topup-container">
 
       <aside class="topup-left">
         <div class="game-card">
           <div class="game-header">
-            <img src="ml.jpg" alt="ML">
+            <img src="ml.jpg" alt="Mobile Legends">
             <div>
-              <small>Moonton</small>
+              <small class="publisher">Moonton</small>
               <h3>Mobile Legends: Bang Bang</h3>
             </div>
           </div>
-          <p class="desc">Top Up aman dan cepat di CakraPlayStore.</p>
-          
+
+          <p class="desc">
+            Top Up Mobile Legends hanya dalam hitungan detik. 
+            Masukkan ID dan Server Mobile Legends Anda. Pilih jumlah Diamond, 
+            selesaikan pembayaran, dan Diamond akan langsung masuk ke akun Anda.
+          </p>
+
+          <div class="store-btn">
+            <button><span class="material-icons">smartphone</span> App Store</button>
+            <button><span class="material-icons">play_arrow</span> Google Play</button>
+          </div>
+
           <div class="rating-card">
             <h3>Ulasan dan Rating</h3>
             <div class="rating">
               <span class="material-icons" style="color: #ffc107;">star</span> 
-              <span id="current-rating-val">4.8</span> / 5.0
+              <span id="current-rating-val" class="rating-number-style">4.8</span> / 5.0
             </div>
+            <p>Berdasarkan banyak ulasan</p>
           </div>
 
           <form class="review-form" id="reviewForm">
+            <label>Rating:</label>
             <div class="star-rating">
               <input type="radio" id="star5" name="rating" value="5"><label for="star5" class="material-icons">star</label>
+              <input type="radio" id="star4" name="rating" value="4"><label for="star4" class="material-icons">star</label>
+              <input type="radio" id="star3" name="rating" value="3"><label for="star3" class="material-icons">star</label>
+              <input type="radio" id="star2" name="rating" value="2"><label for="star2" class="material-icons">star</label>
               <input type="radio" id="star1" name="rating" value="1"><label for="star1" class="material-icons">star</label>
             </div>
-            <textarea id="user-review" placeholder="Tulis ulasan..."></textarea>
-            <button type="submit">Kirim</button>
+            
+            <label for="user-review">Ulasan:</label>
+            <textarea id="user-review" name="review" rows="3" placeholder="Tulis ulasan kamu..."></textarea>
+
+            <button type="submit">
+              <span class="material-icons">send</span> Kirim
+            </button>
           </form>
         </div>
       </aside>
 
       <main class="topup-right">
-        
         <div class="step-card">
-          <div class="step-header"><span>1</span> MASUKKAN ID</div>
+          <div class="step-header"><span>1</span> MASUKKAN ID DAN SERVER ANDA</div>
           <div class="form-box">
             <input type="text" id="user-id" placeholder="User ID">
             <input type="text" placeholder="Server ID">
           </div>
+          <p class="info">Untuk menemukan ID dan Server Anda, buka profil di dalam game.</p>
         </div>
 
         <div class="step-card">
           <div class="step-header-modern">
             <div class="step-number-circle">2</div>
-            <div class="step-title-modern">PILIH NOMINAL</div>
+            <div class="step-title-modern">PILIH JUMLAH DENOM</div>
           </div>
+          
           <div id="section-denom" class="topup-grid disabled-section">
             <div class="topup-item">5 Diamonds<br><small>Rp1.381</small></div>
             <div class="topup-item">10 Diamonds<br><small>Rp3.002</small></div>
-            <div class="topup-item">50 Diamonds<br><small>Rp12.000</small></div>
+            <div class="topup-item">12 Diamonds<br><small>Rp3.501</small></div>
+            <div class="topup-item">14 Diamonds<br><small>Rp4.051</small></div>
+            <div class="topup-item">15 Diamonds<br><small>Rp4.502</small></div>
+            <div class="topup-item">17 Diamonds<br><small>Rp4.689</small></div>
           </div>
         </div>
 
         <div class="step-card">
-          <div class="step-header"><span>3</span> PEMBAYARAN</div>
+          <div class="step-header"><span>3</span> PILIH METODE PEMBAYARAN</div>
+          
           <div id="section-payment" class="disabled-section">
             <div class="payment-method">QRIS <span>PROMO</span></div>
             <div class="payment-method">Virtual Account <span>PROMO</span></div>
+            <div class="payment-method">Modern Store <span>PROMO</span></div>
+            <div class="payment-method">ATM BCA & Mandiri <span>PROMO</span></div>
           </div>
         </div>
 
         <div class="buy-button-wrapper">
             <button id="buyNowBtn">Beli Sekarang</button>
         </div>
+      </main>
 
-      </main> </div> </div> <footer class="footer">
+    </div> </div> <footer class="footer">
     ©2026 CakraPlayStore
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-  <script>
-    // Partikel
-    particlesJS("particles-js", { particles: { number: { value: 50 }, color: { value: "#000" }, line_linked: { enable: true, color: "#000" }, move: { enable: true } } });
-
-    // Logika Buka Kunci (Min 5 Karakter ID)
-    const userId = document.getElementById('user-id');
-    const denom = document.getElementById('section-denom');
-    const pay = document.getElementById('section-payment');
-
-    userId.addEventListener('input', function() {
-      if (this.value.length >= 5) {
-        denom.classList.remove('disabled-section');
-        pay.classList.remove('disabled-section');
-      } else {
-        denom.classList.add('disabled-section');
-        pay.classList.add('disabled-section');
-      }
-    });
-
-    // Logika Klik Active
-    function setupClick(className) {
-      const items = document.querySelectorAll(className);
-      items.forEach(item => {
-        item.addEventListener('click', () => {
-          items.forEach(i => i.classList.remove('active'));
-          item.classList.add('active');
-        });
-      });
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<script>
+  // 1. PARTICLE JS
+  particlesJS("particles-js", {
+    particles: {
+      number: { value: 80 },
+      color: { value: "#000000" },
+      shape: { type: "circle" },
+      opacity: { value: 0.5 },
+      size: { value: 3 },
+      line_linked: {
+        enable: true,
+        distance: 150,
+        color: "#000000",
+        opacity: 0.4,
+        width: 1
+      },
+      move: { enable: true, speed: 2 }
     }
-    setupClick('.topup-item');
-    setupClick('.payment-method');
-  </script>
+  });
+
+  // 2. RATING & STORAGE
+  const reviewForm = document.getElementById('reviewForm');
+  const displayRating = document.getElementById('current-rating-val');
+  const savedRating = localStorage.getItem('ratingCakra');
+  if (savedRating) displayRating.innerText = savedRating;
+
+  reviewForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const selectedStar = document.querySelector('input[name="rating"]:checked');
+    if (selectedStar) {
+      let currentRating = parseFloat(displayRating.innerText);
+      let userRating = parseInt(selectedStar.value);
+      let finalRating = ((currentRating + userRating) / 2).toFixed(1);
+      displayRating.innerText = finalRating;
+      localStorage.setItem('ratingCakra', finalRating);
+      alert("Terima kasih! Rating diperbarui menjadi: " + finalRating);
+      reviewForm.reset();
+    } else {
+      alert("Silakan pilih bintang terlebih dahulu!");
+    }
+  });
+
+  // 3. LOGIKA KUNCI ID
+  const userIdInput = document.getElementById('user-id');
+  const sectionDenom = document.getElementById('section-denom');
+  const sectionPayment = document.getElementById('section-payment');
+
+  userIdInput.addEventListener('input', function() {
+    if (this.value.trim().length >= 5) {
+      sectionDenom.classList.remove('disabled-section');
+      sectionPayment.classList.remove('disabled-section');
+    } else {
+      sectionDenom.classList.add('disabled-section');
+      sectionPayment.classList.add('disabled-section');
+      document.querySelectorAll('.topup-item, .payment-method').forEach(el => el.classList.remove('active'));
+    }
+  });
+
+  // 4. LOGIKA KLIK
+  function aktifkanKlik(selector) {
+    const items = document.querySelectorAll(selector);
+    items.forEach(item => {
+      item.addEventListener('click', function() {
+        items.forEach(i => i.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  }
+  aktifkanKlik('.topup-item');
+  aktifkanKlik('.payment-method');
+</script>
 </body>
 </html>
