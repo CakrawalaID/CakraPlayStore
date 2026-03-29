@@ -32,7 +32,7 @@
       color: #ff8c00;
     }
 
-    /* GAYA HEADER BARU */
+    /* GAYA HEADER BARU (SEPERTI GAMBAR 2) */
     .step-header-modern {
       background-color: #1a2333;
       position: relative;
@@ -61,27 +61,6 @@
       z-index: 2;
       text-transform: uppercase;
     }
-
-    .buy-button-wrapper {
-      margin-top: 20px;
-      width: 100%;
-    }
-    #buyNowBtn {
-      width: 100%;
-      background-color: #ff5722;
-      color: white;
-      border: none;
-      padding: 18px;
-      font-size: 18px;
-      font-weight: bold;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    #buyNowBtn:hover { background-color: #e64a19; }
-    }
-    
-    /* Pola Titik-titik di Header */
     .step-header-modern::after {
       content: "";
       position: absolute;
@@ -102,27 +81,45 @@
       filter: grayscale(1);
       transition: 0.4s ease;
     }
+
+    /* CSS Tambahan untuk Step 4 Promo (Menyesuaikan Style Gambar 2) */
+    .step-promo-container {
+      padding: 20px;
+    }
+    .promo-input-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .promo-input-group input {
+      flex: 1;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+    .promo-input-group button {
+      padding: 10px 20px;
+      background: white;
+      border: 1px solid #2e3192;
+      color: #2e3192;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .promo-error {
+      color: #e74c3c;
+      font-size: 12px;
+      margin-top: 5px;
+    }
   </style>
 </head>
 <body>
 
   <div class="sidebar">
-    <a href="index.html" class="menu">
-      <span class="material-icons">home</span>
-      <p>Home</p>
-    </a>
-    <a href="tf.html" class="menu">
-      <span class="material-icons">description</span>
-      <p>Transaksi</p>
-    </a>
-    <a href="promo.html" class="menu">
-      <span class="material-icons">local_offer</span>
-      <p>Promo</p>
-    </a>
-    <a href="hdh.html" class="menu">
-      <span class="material-icons">card_giftcard</span>
-      <p>Hadiahku</p>
-    </a>
+    <a href="index.html" class="menu"><span class="material-icons">home</span><p>Home</p></a>
+    <a href="tf.html" class="menu"><span class="material-icons">description</span><p>Transaksi</p></a>
+    <a href="promo.html" class="menu"><span class="material-icons">local_offer</span><p>Promo</p></a>
+    <a href="hdh.html" class="menu"><span class="material-icons">card_giftcard</span><p>Hadiahku</p></a>
   </div>
 
   <div id="particles-js"></div>
@@ -130,9 +127,7 @@
   <header class="navbar">
     <div class="navbar-container">
       <div class="spacer"></div>
-      <div class="logo">
-        <img src="logo.png" alt="CakraPlayStore" />
-      </div>
+      <div class="logo"><img src="logo.png" alt="CakraPlayStore" /></div>
       <div class="spacer"></div>
       <div class="search-login">
         <span class="material-icons search-icon">search</span>
@@ -143,10 +138,6 @@
       <div class="spacer"></div>
     </div>
   </header>
-
-  <div class="user-icon">
-    <span class="material-icons">person</span>
-  </div>
 
   <div class="main-wrapper topup-page">
     <div class="topup-container">
@@ -160,29 +151,15 @@
               <h3>Mobile Legends: Bang Bang</h3>
             </div>
           </div>
-
-          <p class="desc">
-            Top Up Mobile Legends hanya dalam hitungan detik. 
-            Masukkan ID dan Server Mobile Legends Anda. Pilih jumlah Diamond, 
-            selesaikan pembayaran, dan Diamond akan langsung masuk ke akun Anda.
-          </p>
-
-          <div class="store-btn">
-            <button><span class="material-icons">smartphone</span> App Store</button>
-            <button><span class="material-icons">play_arrow</span> Google Play</button>
-          </div>
-
+          <p class="desc">Top Up Mobile Legends hanya dalam hitungan detik.</p>
           <div class="rating-card">
             <h3>Ulasan dan Rating</h3>
             <div class="rating">
               <span class="material-icons" style="color: #ffc107;">star</span> 
               <span id="current-rating-val" class="rating-number-style">4.8</span> / 5.0
             </div>
-            <p>Berdasarkan banyak ulasan</p>
           </div>
-
           <form class="review-form" id="reviewForm">
-            <label>Rating:</label>
             <div class="star-rating">
               <input type="radio" id="star5" name="rating" value="5"><label for="star5" class="material-icons">star</label>
               <input type="radio" id="star4" name="rating" value="4"><label for="star4" class="material-icons">star</label>
@@ -190,13 +167,8 @@
               <input type="radio" id="star2" name="rating" value="2"><label for="star2" class="material-icons">star</label>
               <input type="radio" id="star1" name="rating" value="1"><label for="star1" class="material-icons">star</label>
             </div>
-            
-            <label for="user-review">Ulasan:</label>
             <textarea id="user-review" name="review" rows="3" placeholder="Tulis ulasan kamu..."></textarea>
-
-            <button type="submit">
-              <span class="material-icons">send</span> Kirim
-            </button>
+            <button type="submit"><span class="material-icons">send</span> Kirim</button>
           </form>
         </div>
       </aside>
@@ -208,7 +180,6 @@
             <input type="text" id="user-id" placeholder="User ID">
             <input type="text" placeholder="Server ID">
           </div>
-          <p class="info">Untuk menemukan ID dan Server Anda, buka profil di dalam game.</p>
         </div>
 
         <div class="step-card">
@@ -216,25 +187,32 @@
             <div class="step-number-circle">2</div>
             <div class="step-title-modern">PILIH JUMLAH DENOM</div>
           </div>
-          
           <div id="section-denom" class="topup-grid disabled-section">
             <div class="topup-item">5 Diamonds<br><small>Rp1.381</small></div>
             <div class="topup-item">10 Diamonds<br><small>Rp3.002</small></div>
-            <div class="topup-item">12 Diamonds<br><small>Rp3.501</small></div>
-            <div class="topup-item">14 Diamonds<br><small>Rp4.051</small></div>
-            <div class="topup-item">15 Diamonds<br><small>Rp4.502</small></div>
-            <div class="topup-item">17 Diamonds<br><small>Rp4.689</small></div>
+            <div class="topup-item">50 Diamonds<br><small>Rp12.000</small></div>
           </div>
         </div>
 
         <div class="step-card">
           <div class="step-header"><span>3</span> PILIH METODE PEMBAYARAN</div>
-          
           <div id="section-payment" class="disabled-section">
             <div class="payment-method">QRIS <span>PROMO</span></div>
             <div class="payment-method">Virtual Account <span>PROMO</span></div>
-            <div class="payment-method">Modern Store <span>PROMO</span></div>
-            <div class="payment-method">ATM BCA & Mandiri <span>PROMO</span></div>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-header-modern">
+            <div class="step-number-circle">4</div>
+            <div class="step-title-modern">Punya kode promo?</div>
+          </div>
+          <div class="step-promo-container">
+            <div class="promo-input-group">
+              <input type="text" placeholder="Masukkan kode promo jika ada">
+              <button>Gunakan promo</button>
+            </div>
+            <p class="promo-error">Harap menginput kode promo</p>
           </div>
         </div>
 
@@ -243,81 +221,83 @@
         </div>
       </main>
 
-    </div> </div> <footer class="footer">
-    ©2026 CakraPlayStore
-  </footer>
+    </div>
+  </div>
+
+  <footer class="footer">©2026 CakraPlayStore</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 <script>
-  // 1. PARTICLE JS
-  particlesJS("particles-js", {
-    particles: {
-      number: { value: 80 },
-      color: { value: "#000000" },
-      shape: { type: "circle" },
-      opacity: { value: 0.5 },
-      size: { value: 3 },
-      line_linked: {
-        enable: true,
-        distance: 150,
-        color: "#000000",
-        opacity: 0.4,
-        width: 1
-      },
-      move: { enable: true, speed: 2 }
-    }
-  });
+  // 1. PARTICLE JS
+  particlesJS("particles-js", {
+    particles: {
+      number: { value: 80 },
+      color: { value: "#000000" },
+      shape: { type: "circle" },
+      opacity: { value: 0.5 },
+      size: { value: 3 },
+      line_linked: {
+        enable: true,
+        distance: 150,
+        color: "#000000",
+        opacity: 0.4,
+        width: 1
+      },
+      move: { enable: true, speed: 2 }
+    }
+  });
 
-  // 2. RATING & STORAGE
-  const reviewForm = document.getElementById('reviewForm');
-  const displayRating = document.getElementById('current-rating-val');
-  const savedRating = localStorage.getItem('ratingCakra');
-  if (savedRating) displayRating.innerText = savedRating;
+  // 2. RATING & STORAGE
+  const reviewForm = document.getElementById('reviewForm');
+  const displayRating = document.getElementById('current-rating-val');
+  const savedRating = localStorage.getItem('ratingCakra');
+  if (savedRating) displayRating.innerText = savedRating;
 
-  reviewForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const selectedStar = document.querySelector('input[name="rating"]:checked');
-    if (selectedStar) {
-      let currentRating = parseFloat(displayRating.innerText);
-      let userRating = parseInt(selectedStar.value);
-      let finalRating = ((currentRating + userRating) / 2).toFixed(1);
-      displayRating.innerText = finalRating;
-      localStorage.setItem('ratingCakra', finalRating);
-      alert("Terima kasih! Rating diperbarui menjadi: " + finalRating);
-      reviewForm.reset();
-    } else {
-      alert("Silakan pilih bintang terlebih dahulu!");
-    }
-  });
+  reviewForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const selectedStar = document.querySelector('input[name="rating"]:checked');
+    if (selectedStar) {
+      let currentRating = parseFloat(displayRating.innerText);
+      let userRating = parseInt(selectedStar.value);
+      let finalRating = ((currentRating + userRating) / 2).toFixed(1);
+      displayRating.innerText = finalRating;
+      localStorage.setItem('ratingCakra', finalRating);
+      alert("Terima kasih! Rating diperbarui menjadi: " + finalRating);
+      reviewForm.reset();
+    } else {
+      alert("Silakan pilih bintang terlebih dahulu!");
+    }
+  });
 
-  // 3. LOGIKA KUNCI ID
-  const userIdInput = document.getElementById('user-id');
-  const sectionDenom = document.getElementById('section-denom');
-  const sectionPayment = document.getElementById('section-payment');
+  // 3. LOGIKA KUNCI ID
+  const userIdInput = document.getElementById('user-id');
+  const sectionDenom = document.getElementById('section-denom');
+  const sectionPayment = document.getElementById('section-payment');
 
-  userIdInput.addEventListener('input', function() {
-    if (this.value.trim().length >= 5) {
-      sectionDenom.classList.remove('disabled-section');
-      sectionPayment.classList.remove('disabled-section');
-    } else {
-      sectionDenom.classList.add('disabled-section');
-      sectionPayment.classList.add('disabled-section');
-      document.querySelectorAll('.topup-item, .payment-method').forEach(el => el.classList.remove('active'));
-    }
-  });
+  userIdInput.addEventListener('input', function() {
+    if (this.value.trim().length >= 5) {
+      sectionDenom.classList.remove('disabled-section');
+      sectionPayment.classList.remove('disabled-section');
+    } else {
+      sectionDenom.classList.add('disabled-section');
+      sectionPayment.classList.add('disabled-section');
+      document.querySelectorAll('.topup-item, .payment-method').forEach(el => el.classList.remove('active'));
+    }
+  });
 
-  // 4. LOGIKA KLIK
-  function aktifkanKlik(selector) {
-    const items = document.querySelectorAll(selector);
-    items.forEach(item => {
-      item.addEventListener('click', function() {
-        items.forEach(i => i.classList.remove('active'));
-        this.classList.add('active');
-      });
-    });
-  }
-  aktifkanKlik('.topup-item');
-  aktifkanKlik('.payment-method');
+  // 4. LOGIKA KLIK
+  function aktifkanKlik(selector) {
+    const items = document.querySelectorAll(selector);
+    items.forEach(item => {
+      item.addEventListener('click', function() {
+        items.forEach(i => i.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  }
+  aktifkanKlik('.topup-item');
+  aktifkanKlik('.payment-method');
 </script>
+
 </body>
 </html>
