@@ -412,6 +412,48 @@ body {
   margin-top: 16px;
 }
 
+/* Rating card form review */
+.review-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px; /* spasi antara rating dan form */
+}
+
+.review-form select,
+.review-form textarea {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  width: 100%;
+}
+
+.review-form button {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* jarak ikon dan teks */
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  background: #ff5722;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.review-form button:hover {
+  background: #e64a19;
+}
+
+/* Optional: hover effect untuk bintang */
+.rating .material-icons:hover {
+  color: #ffc107;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
 /* KOLOM KANAN (Step Formulir) */
 .topup-right {
   flex: 1; /* Ambil sisa ruang */
