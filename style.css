@@ -413,43 +413,14 @@ body {
 }
 
 /* Rating card form review */
-.star-rating {
-  display: flex;
-  flex-direction: row-reverse; 
-  justify-content: flex-end;
-  gap: 2px;
-}
-
-.star-rating input {
-  display: none; 
-}
-
-.star-rating label {
-  font-size: 24px;
-  color: #ccc; 
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-
-.star-rating input:checked ~ label {
-  color: #ffc107; 
-}
-
-.star-rating label:hover,
-.star-rating label:hover ~ label {
-  color: #ffc107;
-}
-
-/* --- Kode Asli Kamu (UTUH, TIDAK DIUBAH) --- */
-
-/* Rating card form review */
 .review-form {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-top: 12px; /* spasi antara rating dan form */
+  margin-top: 12px;
 }
 
+/* input style */
 .review-form select,
 .review-form textarea {
   padding: 8px;
@@ -459,10 +430,11 @@ body {
   width: 100%;
 }
 
+/* button style */
 .review-form button {
   display: flex;
   align-items: center;
-  gap: 6px; /* jarak ikon dan teks */
+  gap: 6px;
   padding: 8px 12px;
   border-radius: 6px;
   border: none;
@@ -477,7 +449,7 @@ body {
   background: #e64a19;
 }
 
-/* Optional: hover effect untuk bintang */
+/* hover bintang */
 .rating .material-icons:hover {
   color: #ffc107;
   cursor: pointer;
