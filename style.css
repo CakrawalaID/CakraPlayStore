@@ -605,6 +605,58 @@ body {
   background: #fff7f3;
 }
 
+.promo-section {
+    margin-top: 20px;
+}
+
+.promo-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.promo-step {
+    background: #ffe3e3;
+    color: #ff4d4d;
+    padding: 5px 10px;
+    border-radius: 50%;
+    font-size: 13px;
+}
+
+.promo-flex {
+    display: flex;
+    gap: 12px;
+}
+
+.promo-flex input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.promo-flex button {
+    padding: 10px 18px;
+    border-radius: 20px;
+    border: 2px solid #5b5bff;
+    background: transparent;
+    color: #5b5bff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.promo-flex button:hover {
+    background: #5b5bff;
+    color: white;
+}
+
+.promo-text {
+    margin-top: 8px;
+    font-size: 13px;
+}
+
 /* TOMBOL BELI AKHIR */
 .btn-order-final {
   width: 100%;
