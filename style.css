@@ -365,10 +365,6 @@ body {
   object-fit: cover;
 }
 
-h1 {
-  margin-bottom: 12px; /* jarak ke deskripsi */
-}
-
 .publisher {
   color: #ff5722;
   font-size: 12px;
