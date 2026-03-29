@@ -295,24 +295,6 @@
     }
   });
 
-  <script>
-function applyPromo() {
-    const input = document.getElementById("promoInput").value.trim();
-    const message = document.getElementById("promoMessage");
-
-    if (input === "") {
-        message.innerText = "Harap menginput kode promo";
-        message.style.color = "red";
-    } else if (input === "DISKON10") {
-        message.innerText = "Promo berhasil digunakan!";
-        message.style.color = "green";
-    } else {
-        message.innerText = "Kode promo tidak valid";
-        message.style.color = "red";
-    }
-}
-</script>
-
   // 4. LOGIKA KLIK
   function aktifkanKlik(selector) {
     const items = document.querySelectorAll(selector);
