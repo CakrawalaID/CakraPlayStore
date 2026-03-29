@@ -371,6 +371,10 @@ body {
   font-weight: 600;
 }
 
+h1 {
+  margin-bottom: 12px; /* jarak ke deskripsi */
+}
+
 .desc {
   margin: 15px 0;
   color: #555;
