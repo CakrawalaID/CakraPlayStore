@@ -549,6 +549,14 @@ body {
   background: #fff7f3;
 }
 
+.payment-method:hover {
+  transform: scale(1.03);                    /* tombol membesar sedikit */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);   /* efek depth */
+  border-color: #ff5722;                     /* highlight border */
+  /* optional: background sama seperti active */
+  /* background: #fff7f3; */
+}
+
 /* TOMBOL BELI AKHIR */
 .btn-order-final {
   width: 100%;
