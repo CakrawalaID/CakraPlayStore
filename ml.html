@@ -221,5 +221,35 @@
     });
   </script>
 
+  <script>
+  // 1. LOGIKA UNTUK PILIH NOMINAL DIAMOND (DENOM)
+  // Mencari semua kotak yang punya class 'topup-item'
+  const semuaDenom = document.querySelectorAll('.topup-item');
+
+  semuaDenom.forEach(item => {
+    item.addEventListener('click', function() {
+      // Hapus class 'active' dari kotak yang sebelumnya terpilih
+      semuaDenom.forEach(d => d.classList.remove('active'));
+      
+      // Tambahkan class 'active' ke kotak yang baru saja diklik
+      this.classList.add('active');
+    });
+  });
+
+  // 2. LOGIKA UNTUK PILIH METODE PEMBAYARAN
+  // Mencari semua kotak yang punya class 'payment-method'
+  const semuaPayment = document.querySelectorAll('.payment-method');
+
+  semuaPayment.forEach(metode => {
+    metode.addEventListener('click', function() {
+      // Hapus class 'active' dari metode pembayaran sebelumnya
+      semuaPayment.forEach(p => p.classList.remove('active'));
+      
+      // Tambahkan class 'active' ke metode yang baru saja diklik
+      this.classList.add('active');
+    });
+  });
+</script>
+
 </body>
 </html>
