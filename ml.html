@@ -62,19 +62,35 @@
       text-transform: uppercase;
     }
 
-    /* TOMBOL BELI FULL WIDTH SESUAI GAMBAR 2 */
-    .buy-button-wrapper { width: 100%; margin-top: 10px; }
-    #buyNowBtn {
-      width: 100%;
-      background: #ff5722;
-      color: white;
-      border: none;
-      padding: 20px;
-      border-radius: 12px;
-      font-size: 18px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+    /* TOMBOL BELI DENGAN ANIMASI ZOOM HALUS */
+.buy-button-wrapper { 
+  width: 100%; 
+  margin-top: 10px; 
+}
+
+#buyNowBtn {
+  width: 100%;
+  background: #ff5722;
+  color: white;
+  border: none;
+  padding: 20px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  /* Tambahin ini: biar gerakannya halus */
+  transition: transform 0.2s ease-in-out; 
+}
+
+/* Animasi pas kursor nempel */
+#buyNowBtn:hover {
+  transform: scale(1.03); /* Membesar 3% */
+}
+
+/* Efek pas diklik (opsional, biar makin kerasa tombolnya) */
+#buyNowBtn:active {
+  transform: scale(0.98); /* Mengecil dikit pas ditekan */
+}
     
     /* Pola Titik-titik di Header */
     .step-header-modern::after {
