@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <style>
-    /* CSS Tambahan agar Bintang & Rating Jalan */
+    /* CSS Rating & Bintang */
     .star-rating {
       display: flex;
       flex-direction: row-reverse;
@@ -29,15 +29,58 @@
     }
     .rating-number-style {
       font-weight: bold;
-      color: #ff8c00; /* Warna oranye kembali seperti semula */
+      color: #ff8c00;
     }
 
-    /* SISTEM KUNCI ID (KEINGINANMU) */
+    /* GAYA HEADER BARU (SEPERTI GAMBAR 2) */
+    .step-header-modern {
+      background-color: #1a2333;
+      position: relative;
+      color: #ffffff;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      overflow: hidden;
+    }
+    .step-number-circle {
+      background-color: #ff5722;
+      color: #ffffff;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      z-index: 2;
+    }
+    .step-title-modern {
+      font-weight: bold;
+      font-size: 15px;
+      z-index: 2;
+      text-transform: uppercase;
+    }
+    /* Pola Titik-titik di Header */
+    .step-header-modern::after {
+      content: "";
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100px;
+      height: 40px;
+      background-image: radial-gradient(#ffffff 1px, transparent 1px);
+      background-size: 8px 8px;
+      opacity: 0.1;
+    }
+
+    /* SISTEM KUNCI (HANYA ISI YANG REDUP) */
     .disabled-section {
-      opacity: 0.4;
-      pointer-events: none; 
+      opacity: 0.3; /* Isi menjadi sangat redup */
+      pointer-events: none; /* Tidak bisa diklik */
       filter: grayscale(1);
-      transition: 0.4s;
+      transition: 0.4s ease;
     }
   </style>
 </head>
@@ -149,9 +192,13 @@
           <p class="info">Untuk menemukan ID dan Server Anda, buka profil di dalam game.</p>
         </div>
 
-        <div class="step-card disabled-section" id="section-denom">
-          <div class="step-header"><span>2</span> PILIH JUMLAH DENOM</div>
-          <div class="topup-grid">
+        <div class="step-card">
+          <div class="step-header-modern">
+            <div class="step-number-circle">2</div>
+            <div class="step-title-modern">PILIH JUMLAH DENOM</div>
+          </div>
+          
+          <div id="section-denom" class="topup-grid disabled-section">
             <div class="topup-item">5 Diamonds<br><small>Rp1.381</small></div>
             <div class="topup-item">10 Diamonds<br><small>Rp3.002</small></div>
             <div class="topup-item">12 Diamonds<br><small>Rp3.501</small></div>
@@ -161,12 +208,15 @@
           </div>
         </div>
 
-        <div class="step-card disabled-section" id="section-payment">
+        <div class="step-card">
           <div class="step-header"><span>3</span> PILIH METODE PEMBAYARAN</div>
-          <div class="payment-method">QRIS <span>PROMO</span></div>
-          <div class="payment-method">Virtual Account <span>PROMO</span></div>
-          <div class="payment-method">Modern Store <span>PROMO</span></div>
-          <div class="payment-method">ATM BCA & Mandiri <span>PROMO</span></div>
+          
+          <div id="section-payment" class="disabled-section">
+            <div class="payment-method">QRIS <span>PROMO</span></div>
+            <div class="payment-method">Virtual Account <span>PROMO</span></div>
+            <div class="payment-method">Modern Store <span>PROMO</span></div>
+            <div class="payment-method">ATM BCA & Mandiri <span>PROMO</span></div>
+          </div>
         </div>
 
         <button class="btn-order-final">Beli Sekarang</button>
@@ -222,7 +272,7 @@
     }
   });
 
-  // 3. LOGIKA KUNCI ID (SESUAI KEINGINANMU)
+  // 3. LOGIKA KUNCI ID
   const userIdInput = document.getElementById('user-id');
   const sectionDenom = document.getElementById('section-denom');
   const sectionPayment = document.getElementById('section-payment');
@@ -238,7 +288,7 @@
     }
   });
 
-  // 4. LOGIKA KLIK (TRANSAKSI BISA DITEKAN)
+  // 4. LOGIKA KLIK
   function aktifkanKlik(selector) {
     const items = document.querySelectorAll(selector);
     items.forEach(item => {
