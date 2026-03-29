@@ -106,7 +106,7 @@
             <h3>Ulasan dan Rating</h3>
             <div class="rating">
               <span class="material-icons" style="color: #ffc107;">star</span> 
-              <span id="current-rating-val" class="rating-number-style">4.8</span> / 5.0
+              <span id="current-rating-val" class="rating-number-style">0.0</span> / 5.0
             </div>
             <p>Berdasarkan banyak ulasan</p>
           </div>
@@ -220,6 +220,30 @@
       }
     });
   </script>
+
+  <script>
+  const displayRating = document.getElementById('current-rating-val');
+  
+  // Ambil data lama dari memori browser saat web dibuka
+  const savedRating = localStorage.getItem('ratingCakra');
+  if (savedRating) {
+    displayRating.innerText = savedRating;
+  }
+
+  // Logika saat tombol ulasan diklik
+  document.getElementById('reviewForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const star = document.querySelector('input[name="rating"]:checked');
+    if (star) {
+      let current = parseFloat(displayRating.innerText);
+      let newRating = ((current + parseInt(star.value)) / 2).toFixed(1);
+      
+      displayRating.innerText = newRating;
+      localStorage.setItem('ratingCakra', newRating); // SIMPAN DI SINI
+      alert("Rating diperbarui!");
+    }
+  });
+</script>
 
   <script>
   // 1. LOGIKA UNTUK PILIH NOMINAL DIAMOND (DENOM)
