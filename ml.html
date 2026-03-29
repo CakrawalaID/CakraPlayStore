@@ -173,107 +173,72 @@
     ©2026 CakraPlayStore
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-  <script>
-    // PARTICLE JS
-    particlesJS("particles-js", {
-      particles: {
-        number: { value: 80 },
-        color: { value: "#000000" },
-        shape: { type: "circle" },
-        opacity: { value: 0.5 },
-        size: { value: 3 },
-        line_linked: {
-          enable: true,
-          distance: 150,
-          color: "#000000",
-          opacity: 0.4,
-          width: 1
-        },
-        move: { enable: true, speed: 2 }
-      }
-    });
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<script>
+  // 1. PARTICLE JS (Efek Background)
+  particlesJS("particles-js", {
+    particles: {
+      number: { value: 80 },
+      color: { value: "#000000" },
+      shape: { type: "circle" },
+      opacity: { value: 0.5 },
+      size: { value: 3 },
+      line_linked: {
+        enable: true,
+        distance: 150,
+        color: "#000000",
+        opacity: 0.4,
+        width: 1
+      },
+      move: { enable: true, speed: 2 }
+    }
+  });
 
-    // LOGIKA HITUNG RATING DINAMIS
-    const reviewForm = document.getElementById('reviewForm');
-    const displayRating = document.getElementById('current-rating-val');
-
-    reviewForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const selectedStar = document.querySelector('input[name="rating"]:checked');
-      
-      if (selectedStar) {
-        let currentRating = parseFloat(displayRating.innerText);
-        let userRating = parseInt(selectedStar.value);
-        
-        // Simulasi hitung rating baru (rata-rata sederhana)
-        let finalRating = ((currentRating + userRating) / 2).toFixed(1);
-        
-        // Ganti angka di layar
-        displayRating.innerText = finalRating;
-        
-        alert("Terima kasih! Ulasan kamu berhasil dikirim. Rating saat ini: " + finalRating);
-        reviewForm.reset();
-      } else {
-        alert("Silakan pilih bintang terlebih dahulu!");
-      }
-    });
-  </script>
-
-  <script>
+  // 2. LOGIKA RATING (DENGAN PENYIMPANAN MEMORI)
+  const reviewForm = document.getElementById('reviewForm');
   const displayRating = document.getElementById('current-rating-val');
-  
-  // Ambil data lama dari memori browser saat web dibuka
+
+  // Ambil data lama saat web dibuka agar tidak balik ke 4.8
   const savedRating = localStorage.getItem('ratingCakra');
   if (savedRating) {
     displayRating.innerText = savedRating;
   }
 
-  // Logika saat tombol ulasan diklik
-  document.getElementById('reviewForm').addEventListener('submit', function(e) {
+  reviewForm.addEventListener('submit', function(e) {
     e.preventDefault();
-    const star = document.querySelector('input[name="rating"]:checked');
-    if (star) {
-      let current = parseFloat(displayRating.innerText);
-      let newRating = ((current + parseInt(star.value)) / 2).toFixed(1);
+    const selectedStar = document.querySelector('input[name="rating"]:checked');
+    
+    if (selectedStar) {
+      let currentRating = parseFloat(displayRating.innerText);
+      let userRating = parseInt(selectedStar.value);
       
-      displayRating.innerText = newRating;
-      localStorage.setItem('ratingCakra', newRating); // SIMPAN DI SINI
-      alert("Rating diperbarui!");
+      // Hitung rating baru
+      let finalRating = ((currentRating + userRating) / 2).toFixed(1);
+      
+      // Update tampilan dan simpan ke memori browser
+      displayRating.innerText = finalRating;
+      localStorage.setItem('ratingCakra', finalRating);
+      
+      alert("Terima kasih! Rating diperbarui menjadi: " + finalRating);
+      reviewForm.reset();
+    } else {
+      alert("Silakan pilih bintang terlebih dahulu!");
     }
   });
-</script>
 
-  <script>
-  // 1. LOGIKA UNTUK PILIH NOMINAL DIAMOND (DENOM)
-  // Mencari semua kotak yang punya class 'topup-item'
-  const semuaDenom = document.querySelectorAll('.topup-item');
-
-  semuaDenom.forEach(item => {
-    item.addEventListener('click', function() {
-      // Hapus class 'active' dari kotak yang sebelumnya terpilih
-      semuaDenom.forEach(d => d.classList.remove('active'));
-      
-      // Tambahkan class 'active' ke kotak yang baru saja diklik
-      this.classList.add('active');
+  // 3. LOGIKA KLIK DENOM & PEMBAYARAN
+  function aktifkanKlik(selector) {
+    const items = document.querySelectorAll(selector);
+    items.forEach(item => {
+      item.addEventListener('click', function() {
+        items.forEach(i => i.classList.remove('active'));
+        this.classList.add('active');
+      });
     });
-  });
+  }
 
-  // 2. LOGIKA UNTUK PILIH METODE PEMBAYARAN
-  // Mencari semua kotak yang punya class 'payment-method'
-  const semuaPayment = document.querySelectorAll('.payment-method');
-
-  semuaPayment.forEach(metode => {
-    metode.addEventListener('click', function() {
-      // Hapus class 'active' dari metode pembayaran sebelumnya
-      semuaPayment.forEach(p => p.classList.remove('active'));
-      
-      // Tambahkan class 'active' ke metode yang baru saja diklik
-      this.classList.add('active');
-    });
-  });
+  aktifkanKlik('.topup-item');
+  aktifkanKlik('.payment-method');
 </script>
-
 </body>
 </html>
