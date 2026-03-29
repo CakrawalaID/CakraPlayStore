@@ -88,6 +88,25 @@
           <p>Berdasarkan banyak ulasan</p>
         </div>
 
+<!-- Form review / kirim rating -->
+<form class="review-form" action="mailto:emailkamu@gmail.com" method="post" enctype="text/plain">
+  <label for="user-rating">Rating:</label>
+  <select id="user-rating" name="rating">
+    <option value="5">5</option>
+    <option value="4">4</option>
+    <option value="3">3</option>
+    <option value="2">2</option>
+    <option value="1">1</option>
+  </select>
+
+  <label for="user-review">Ulasan:</label>
+  <textarea id="user-review" name="review" rows="3" placeholder="Tulis ulasan kamu..."></textarea>
+
+  <button type="submit">
+    <span class="material-icons">send</span> Kirim
+  </button>
+</form>
+
       </aside>
 
       <main class="topup-right">
