@@ -397,11 +397,11 @@ body {
   align-items: center;
   justify-content: center;
   gap: 8px;
+  margin-bottom: 16px;
 }
 
 .store-btn button:hover {
   background: #f9f9f9;
-  margin-bottom: 16px;
 }
 
 .rating {
