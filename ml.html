@@ -342,6 +342,7 @@
             <div class="topup-item">15 Diamonds<br><small>Rp4.502</small></div>
             <div class="topup-item">17 Diamonds<br><small>Rp4.689</small></div>
           </div>
+        </div>
 
         <div class="step-card">
           <div class="step-header"><span>3</span> PILIH METODE PEMBAYARAN</div>
@@ -402,6 +403,7 @@
           <span id="modal-total" class="total-price-text">-</span>
         </div>
         <div class="modal-row">
+          <span class="material-icons" style="font-size: 14px; color: #777; margin-right: 5px;">payments</span>
           <span class="modal-label">Bayar dengan</span>
           <span id="modal-metode" class="modal-value">-</span>
         </div>
@@ -448,19 +450,15 @@
   const userIdInput = document.getElementById('user-id');
   const sectionDenom = document.getElementById('section-denom');
   const sectionPayment = document.getElementById('section-payment');
-  const sectionQty = document.getElementById('section-qty'); 
-  const inputQty = document.getElementById('buy-qty'); 
   const promoBtn = document.getElementById('promo-btn');
 
   userIdInput.addEventListener('input', function() {
     if (this.value.trim().length >= 5) {
       sectionDenom.classList.remove('disabled-section');
       sectionPayment.classList.remove('disabled-section');
-      if(sectionQty) sectionQty.classList.remove('disabled-section');
     } else {
       sectionDenom.classList.add('disabled-section');
       sectionPayment.classList.add('disabled-section');
-      if(sectionQty) sectionQty.classList.add('disabled-section');
     }
   });
 
@@ -480,10 +478,8 @@
   const confirmOverlay = document.getElementById('confirmOverlay');
 
   buyNowBtn.addEventListener('click', () => {
-    // KAITKAN DATA KE MODAL
     const selectedDenom = document.querySelector('.topup-item.active');
     const selectedPayment = document.querySelector('.payment-method.active');
-    const qty = inputQty.value || 1;
 
     if (!selectedDenom || !selectedPayment) {
       alert("Silakan pilih Nominal dan Metode Pembayaran terlebih dahulu!");
@@ -492,12 +488,10 @@
 
     const denomText = selectedDenom.childNodes[0].textContent.trim();
     const priceText = selectedDenom.querySelector('small').textContent;
-    const priceNum = parseInt(priceText.replace(/[^0-9]/g, ''));
-    const totalHarga = priceNum * qty;
 
-    document.getElementById('modal-nominal').innerText = denomText + " (x" + qty + ")";
+    document.getElementById('modal-nominal').innerText = denomText;
     document.getElementById('modal-transaksi').innerText = priceText;
-    document.getElementById('modal-total').innerText = "Rp" + totalHarga.toLocaleString('id-ID');
+    document.getElementById('modal-total').innerText = priceText;
     document.getElementById('modal-metode').innerText = selectedPayment.childNodes[0].textContent.trim();
 
     confirmOverlay.style.display = 'flex';
