@@ -3,10 +3,107 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CakraPlayStore</title>
+  <title>Pembayaran | CakraPlayStore</title>
   
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <style>
+    /* CSS KHUSUS BIAR PERSIS GAMBAR */
+    body { background-color: #f8fafc; color: #1e293b; margin: 0; font-family: 'Inter', sans-serif; }
+
+    .container-bayar {
+      max-width: 850px; 
+      margin: 100px auto 50px auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 10; /* Biar di atas partikel */
+    }
+
+    .card-main {
+      background: white;
+      border-radius: 16px;
+      padding: 35px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    /* STEPPER */
+    .stepper-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 35px;
+    }
+    .step { text-align: center; font-size: 13px; color: #94a3b8; flex: 1; }
+    .step-icon { 
+      width: 36px; height: 36px; border-radius: 50%; background: #f1f5f9; 
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 10px;
+      border: 2px solid #e2e8f0;
+    }
+    .step.active { color: #1e293b; font-weight: bold; }
+    .step.active .step-icon { background: #ff5722; color: white; border-color: #ff5722; }
+    .step-line { flex-grow: 1; height: 2px; background: #e2e8f0; margin-bottom: 45px; }
+
+    /* BANNER INSTRUKSI */
+    .pay-banner {
+      background: #fff7ed;
+      border: 1px solid #ffedd5;
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+    .pay-banner i { font-size: 32px; color: #f97316; }
+    .pay-banner h4 { margin: 0; font-size: 16px; }
+    .pay-banner p { margin: 4px 0 0; font-size: 14px; color: #9a3412; }
+
+    /* DETAIL PRODUK */
+    .product-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 25px;
+      border-bottom: 1px solid #f1f5f9;
+      margin-bottom: 30px;
+    }
+    .prod-flex { display: flex; gap: 15px; align-items: center; }
+    .prod-img { width: 60px; height: 60px; border-radius: 10px; object-fit: cover; }
+    .badge-topup { background: #22c55e; color: white; font-size: 10px; padding: 2px 8px; border-radius: 4px; font-weight: bold; }
+    
+    .price-box span { font-size: 12px; color: #64748b; }
+    .price-box h2 { margin: 5px 0 0; font-size: 26px; color: #1e293b; font-weight: 800; }
+
+    /* QRIS AREA */
+    .qris-section { text-align: center; }
+    .qris-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      font-weight: bold;
+      background: #f8fafc;
+      margin-bottom: 20px;
+    }
+    .qr-frame {
+      display: inline-block;
+      padding: 15px;
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+    }
+    .qr-frame img { width: 240px; height: 240px; }
+
+    @media (max-width: 768px) {
+      .container-bayar { margin-left: 0; padding-top: 80px; }
+    }
+  </style>
+</head>
+<body>
 
   <div class="sidebar">
     <a href="index.html" class="menu"><span class="material-icons">home</span><p>Home</p></a>
@@ -32,6 +129,58 @@
     </div>
   </header>
 
+  <div class="container-bayar">
+    <div style="margin-bottom: 15px; font-size: 14px; color: #64748b;">
+        <a href="javascript:history.back()" style="text-decoration: none; color: #64748b;">Kembali</a> / <strong id="trx-id" style="color: #1e293b;">#P177...</strong>
+    </div>
+
+    <div class="card-main">
+        <div class="stepper-wrapper">
+            <div class="step active"><div class="step-icon"><i class="material-icons">payments</i></div>Bayar</div>
+            <div class="step-line"></div>
+            <div class="step"><div class="step-icon"><i class="material-icons">sync</i></div>Diproses</div>
+            <div class="step-line"></div>
+            <div class="step"><div class="step-icon"><i class="material-icons">verified</i></div>Selesai</div>
+        </div>
+
+        <div class="pay-banner">
+            <i class="material-icons">account_balance_wallet</i>
+            <div class="text">
+                <h4>Bayar transaksi kamu, yuk!</h4>
+                <p>Batas waktu bayar <strong id="timer">00:29:59</strong></p>
+            </div>
+        </div>
+
+        <div class="product-info">
+            <div class="prod-flex">
+                <img src="ml.jpg" class="prod-img">
+                <div>
+                    <span class="badge-topup">TOP UP</span>
+                    <div id="res-item" style="font-weight: bold; font-size: 17px; margin-top: 5px;">50 Diamonds</div>
+                    <div style="font-size: 13px; color: #64748b;">Mobile Legends</div>
+                </div>
+            </div>
+            <div class="price-box">
+                <span>Total pembayaran</span>
+                <h2 id="res-harga">Rp7.599</h2>
+            </div>
+        </div>
+
+        <div class="qris-section">
+            <div class="qris-label">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Logo_QRIS.svg" height="15">
+                <span>QRIS</span>
+            </div>
+            <p style="font-size: 13px; color: #64748b; margin-bottom: 25px;">
+                Scan kode QR / download QR / screenshot QR dibawah ini dengan aplikasi digital wallet untuk membayar
+            </p>
+            <div class="qr-frame">
+                <img id="res-qr" src="" alt="QR Code">
+            </div>
+        </div>
+    </div>
+  </div>
+
   <div class="user-icon">
     <span class="material-icons">person</span>
   </div>
@@ -42,17 +191,40 @@
 
   <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
   <script>
+    // 1. Partikel Background Papa
     particlesJS("particles-js", {
       particles: {
         number: { value: 80 },
         color: { value: "#000000" },
         shape: { type: "circle" },
-        opacity: { value: 0.5 },
+        opacity: { value: 0.1 }, /* Saya kurangi dikit biar gak ganggu teks bayar */
         size: { value: 3 },
-        line_linked: { enable: true, distance: 150, color: "#000000", opacity: 0.4, width: 1 },
+        line_linked: { enable: true, distance: 150, color: "#000000", opacity: 0.1, width: 1 },
         move: { enable: true, speed: 2 }
       }
     });
+
+    // 2. Logika Data & QRIS
+    const params = new URLSearchParams(window.location.search);
+    const harga = params.get('harga') || 'Rp7.599';
+    const item = params.get('item') || '50 Diamonds';
+    const userId = params.get('id') || 'USER';
+
+    document.getElementById('res-harga').innerText = harga;
+    document.getElementById('res-item').innerText = item;
+    document.getElementById('trx-id').innerText = "#P" + Math.floor(Math.random() * 1000000000000);
+
+    // QR Code Generator Otomatis
+    document.getElementById('res-qr').src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=PAY-${userId}-${harga}`;
+
+    // 3. Timer 30 Menit
+    let time = 30 * 60;
+    setInterval(() => {
+        let m = Math.floor(time / 60);
+        let s = time % 60;
+        document.getElementById('timer').innerText = `00:${m < 10 ? '0'+m : m}:${s < 10 ? '0'+s : s}`;
+        if(time > 0) time--;
+    }, 1000);
   </script>
 </body>
 </html>
