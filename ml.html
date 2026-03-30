@@ -396,6 +396,50 @@
     </div>
   </div>
 
+  <div class="modal-overlay" id="confirmOverlay">
+    <div class="modal-card">
+      <div class="step-header-modern">
+        <div class="step-number-circle">!</div>
+        <div class="step-title-modern">Konfirmasi Pembelian</div>
+        <span class="material-icons" id="closeModal" style="margin-left: auto; cursor: pointer;">close</span>
+      </div>
+      
+      <div class="modal-body">
+        <div class="wdp-info">
+          <span class="material-icons" style="font-size: 18px;">info</span>
+          <span>Pastikan kamu sudah mencapai LV 5 dan sisa WDP sebelumnya tidak lebih dari 70 hari.</span>
+        </div>
+
+        <div class="modal-section-title">Detail Produk</div>
+        <div class="modal-row">
+          <span class="modal-label">Nominal</span>
+          <span class="modal-value">3 Diamonds (3 + 0 Diamonds)</span>
+        </div>
+        <div class="modal-row">
+          <span class="modal-label">Jumlah</span>
+          <span class="modal-value">1</span>
+        </div>
+
+        <div class="modal-divider"></div>
+
+        <div class="modal-section-title">Detail Bayar</div>
+        <div class="modal-row">
+          <span class="modal-label">Total transaksi</span>
+          <span class="modal-value">Rp1.122</span>
+        </div>
+        <div class="modal-row">
+          <span class="modal-label">Total bayar</span>
+          <span class="total-price-text">Rp1.122</span>
+        </div>
+        <div class="modal-row">
+          <span class="modal-label">Bayar dengan</span>
+          <span class="modal-value">QRIS</span>
+        </div>
+
+        <button class="btn-final-pay">Bayar Sekarang</button>
+      </div>
+    </div>
+  </div>
   <footer class="footer">
     ©2026 CakraPlayStore
   </footer>
@@ -456,6 +500,24 @@
   }
   aktifkanKlik('.topup-item');
   aktifkanKlik('.payment-method');
+
+  const buyNowBtn = document.getElementById('buyNowBtn');
+  const confirmOverlay = document.getElementById('confirmOverlay');
+  const closeModal = document.getElementById('closeModal');
+
+  buyNowBtn.addEventListener('click', () => {
+    confirmOverlay.style.display = 'flex';
+  });
+
+  closeModal.addEventListener('click', () => {
+    confirmOverlay.style.display = 'none';
+  });
+
+  confirmOverlay.addEventListener('click', (e) => {
+    if (e.target === confirmOverlay) {
+      confirmOverlay.style.display = 'none';
+    }
+  });
 </script>
 </body>
 </html>
