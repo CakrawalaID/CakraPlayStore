@@ -407,7 +407,9 @@
           <span id="modal-metode" class="modal-value">-</span>
         </div>
 
-        <button class="btn-final-pay">Bayar Sekarang</button>
+        <a href="bayar.html" id="finalPayLink" class="btn-final-pay" style="text-decoration: none; display: flex; align-items: center; justify-content: center;">
+          Bayar Sekarang
+        </a>
       </div>
     </div>
   </div>
@@ -418,6 +420,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 <script>
+  // 1. Partikel Background
   particlesJS("particles-js", {
     particles: {
       number: { value: 80 },
@@ -430,6 +433,7 @@
     }
   });
 
+  // 2. Sistem Rating & LocalStorage
   const displayRating = document.getElementById('current-rating-val');
   const savedRating = localStorage.getItem('ratingCakra');
   if (savedRating) displayRating.innerText = savedRating;
@@ -446,10 +450,10 @@
     }
   });
 
+  // 3. Validasi ID User & Buka Kunci Diamond/Metode
   const userIdInput = document.getElementById('user-id');
   const sectionDenom = document.getElementById('section-denom');
   const sectionPayment = document.getElementById('section-payment');
-  const promoBtn = document.getElementById('promo-btn');
 
   userIdInput.addEventListener('input', function() {
     if (this.value.trim().length >= 5) {
@@ -461,6 +465,7 @@
     }
   });
 
+  // 4. Efek Klik (Aktif) pada Item
   function aktifkanKlik(selector) {
     const items = document.querySelectorAll(selector);
     items.forEach(item => {
@@ -473,12 +478,14 @@
   aktifkanKlik('.topup-item');
   aktifkanKlik('.payment-method');
 
+  // 5. Logika Tombol Beli & Pindah ke bayar.html
   const buyNowBtn = document.getElementById('buyNowBtn');
   const confirmOverlay = document.getElementById('confirmOverlay');
 
   buyNowBtn.addEventListener('click', () => {
     const selectedDenom = document.querySelector('.topup-item.active');
     const selectedPayment = document.querySelector('.payment-method.active');
+    const idUser = userIdInput.value;
 
     if (!selectedDenom || !selectedPayment) {
       alert("Silakan pilih Nominal dan Metode Pembayaran terlebih dahulu!");
@@ -487,15 +494,25 @@
 
     const denomText = selectedDenom.childNodes[0].textContent.trim();
     const priceText = selectedDenom.querySelector('small').textContent;
+    const viaText = selectedPayment.childNodes[0].textContent.trim();
 
+    // Tempel Data ke Modal
     document.getElementById('modal-nominal').innerText = denomText;
     document.getElementById('modal-transaksi').innerText = priceText;
     document.getElementById('modal-total').innerText = priceText;
-    document.getElementById('modal-metode').innerText = selectedPayment.childNodes[0].textContent.trim();
+    document.getElementById('modal-metode').innerText = viaText;
 
     confirmOverlay.style.display = 'flex';
+
+    // NAVIGASI FINAL PAY: Ketika tombol bayar di dalam modal diklik
+    const finalPayBtn = document.querySelector('.btn-final-pay');
+    finalPayBtn.onclick = function() {
+      // Kirim data lewat URL
+      window.location.href = `bayar.html?id=${encodeURIComponent(idUser)}&item=${encodeURIComponent(denomText)}&harga=${encodeURIComponent(priceText)}&via=${encodeURIComponent(viaText)}`;
+    };
   });
 
+  // 6. Tutup Modal
   confirmOverlay.addEventListener('click', (e) => {
     if (e.target === confirmOverlay) {
       confirmOverlay.style.opacity = "0"; 
