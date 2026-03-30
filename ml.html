@@ -485,19 +485,20 @@
 
   const buyNowBtn = document.getElementById('buyNowBtn');
   const confirmOverlay = document.getElementById('confirmOverlay');
-  const closeModal = document.getElementById('closeModal');
 
   buyNowBtn.addEventListener('click', () => {
     confirmOverlay.style.display = 'flex';
   });
 
-  closeModal.addEventListener('click', () => {
-    confirmOverlay.style.display = 'none';
-  });
-
   confirmOverlay.addEventListener('click', (e) => {
     if (e.target === confirmOverlay) {
-      confirmOverlay.style.display = 'none';
+      
+      confirmOverlay.style.opacity = "0"; // TAMBAHAN (animasi)
+      
+      setTimeout(() => {
+        window.location.href = "index.html"; // TAMBAHAN (redirect halaman)
+      }, 200);
+
     }
   });
 </script>
