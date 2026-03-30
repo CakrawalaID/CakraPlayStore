@@ -204,18 +204,25 @@
       }
     });
 
-    // 2. Logika Data & QRIS
-    const params = new URLSearchParams(window.location.search);
-    const harga = params.get('harga') || 'Rp7.599';
-    const item = params.get('item') || '50 Diamonds';
-    const userId = params.get('id') || 'USER';
+    // 2. Logika Data & QRIS (TERUPDATE)
+const params = new URLSearchParams(window.location.search);
+const harga = params.get('harga') || 'Rp7.599';
+const item = params.get('item') || '50 Diamonds';
+const userId = params.get('id') || 'USER';
+const gameName = params.get('game') || 'Mobile Legends'; // Menangkap nama game
+const gameImg = params.get('img') || 'ml.jpg';           // Menangkap gambar game
 
-    document.getElementById('res-harga').innerText = harga;
-    document.getElementById('res-item').innerText = item;
-    document.getElementById('trx-id').innerText = "#P" + Math.floor(Math.random() * 1000000000000);
+// Update Tampilan Otomatis sesuai pilihan Papa
+document.getElementById('res-harga').innerText = harga;
+document.getElementById('res-item').innerText = item;
+document.querySelector('.prod-img').src = gameImg; // Gambar berubah otomatis!
+document.querySelector('.prod-flex div div:last-child').innerText = gameName; // Teks game berubah!
 
-    // QR Code Generator Otomatis
-    document.getElementById('res-qr').src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=PAY-${userId}-${harga}`;
+// Update ID Transaksi
+document.getElementById('trx-id').innerText = "#P" + Math.floor(Math.random() * 1000000000000);
+
+// QR Code Generator (Data Pembayaran Sesuai User & Harga)
+document.getElementById('res-qr').src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=PAY-${userId}-${harga}`;
 
     // 3. Timer 30 Menit
     let time = 30 * 60;
