@@ -62,6 +62,32 @@
       text-transform: uppercase;
     }
 
+    /* --- TAMBAHAN BARU: INPUT JUMLAH PEMBELIAN (GAYA GAMBAR 1) --- */
+    .input-pembelian-container {
+      padding: 20px;
+      border-top: 1px solid #eee;
+      background-color: #fff;
+    }
+    .label-pembelian {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #1a2333;
+      font-size: 14px;
+    }
+    .input-biru-tua {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #283593; /* Warna biru tua dari Gambar 1 */
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .input-biru-tua:focus {
+      border-color: #ff5722; /* Berubah oranye saat diklik */
+    }
+
     /* TOMBOL BELI DENGAN ANIMASI ZOOM HALUS */
 .buy-button-wrapper { 
   width: 100%; 
@@ -351,6 +377,10 @@
           </div>
         </div>
 
+        <div class="modal-row">
+          <span class="modal-label">Jumlah</span>
+          <span id="modal-qty-val" class="modal-value">1</span> </div>
+
         <div class="step-card">
           <div class="step-header"><span>3</span> PILIH METODE PEMBAYARAN</div>
           
@@ -426,81 +456,88 @@
     ©2026 CakraPlayStore
   </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-<script>
-  particlesJS("particles-js", {
-    particles: {
-      number: { value: 80 },
-      color: { value: "#000000" },
-      shape: { type: "circle" },
-      opacity: { value: 0.5 },
-      size: { value: 3 },
-      line_linked: { enable: true, distance: 150, color: "#000000", opacity: 0.4, width: 1 },
-      move: { enable: true, speed: 2 }
-    }
-  });
-
-  const displayRating = document.getElementById('current-rating-val');
-  const savedRating = localStorage.getItem('ratingCakra');
-  if (savedRating) displayRating.innerText = savedRating;
-
-  document.getElementById('reviewForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const selectedStar = document.querySelector('input[name="rating"]:checked');
-    if (selectedStar) {
-      let finalRating = ((parseFloat(displayRating.innerText) + parseInt(selectedStar.value)) / 2).toFixed(1);
-      displayRating.innerText = finalRating;
-      localStorage.setItem('ratingCakra', finalRating);
-      alert("Terima kasih!");
-      this.reset();
-    }
-  });
-
-  const userIdInput = document.getElementById('user-id');
-  const sectionDenom = document.getElementById('section-denom');
-  const sectionPayment = document.getElementById('section-payment');
-  const promoBtn = document.getElementById('promo-btn');
-
-  userIdInput.addEventListener('input', function() {
-    if (this.value.trim().length >= 5) {
-      sectionDenom.classList.remove('disabled-section');
-      sectionPayment.classList.remove('disabled-section');
-    } else {
-      sectionDenom.classList.add('disabled-section');
-      sectionPayment.classList.add('disabled-section');
-    }
-  });
-
-  function aktifkanKlik(selector) {
-    const items = document.querySelectorAll(selector);
-    items.forEach(item => {
-      item.addEventListener('click', function() {
-        items.forEach(i => i.classList.remove('active'));
-        this.classList.add('active');
-      });
-    });
+/* --- TETAP BIARKAN YANG INI DI ATAS --- */
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 80 },
+    color: { value: "#000000" },
+    shape: { type: "circle" },
+    opacity: { value: 0.5 },
+    size: { value: 3 },
+    line_linked: { enable: true, distance: 150, color: "#000000", opacity: 0.4, width: 1 },
+    move: { enable: true, speed: 2 }
   }
-  aktifkanKlik('.topup-item');
-  aktifkanKlik('.payment-method');
+});
 
-  const buyNowBtn = document.getElementById('buyNowBtn');
-  const confirmOverlay = document.getElementById('confirmOverlay');
+/* --- SELEKSI ELEMEN --- */
+const displayRating = document.getElementById('current-rating-val');
+const userIdInput = document.getElementById('user-id');
+const sectionDenom = document.getElementById('section-denom');
+const sectionPayment = document.getElementById('section-payment');
+const buyNowBtn = document.getElementById('buyNowBtn');
+const confirmOverlay = document.getElementById('confirmOverlay');
 
-  buyNowBtn.addEventListener('click', () => {
-    confirmOverlay.style.display = 'flex';
+// UPDATE: Ambil elemen input jumlah
+const sectionQty = document.getElementById('section-qty'); 
+const inputQty = document.getElementById('buy-qty'); 
+const modalQtyVal = document.getElementById('modal-qty-val');
+
+/* --- LOGIKA RATING --- */
+const savedRating = localStorage.getItem('ratingCakra');
+if (savedRating) displayRating.innerText = savedRating;
+
+document.getElementById('reviewForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const selectedStar = document.querySelector('input[name="rating"]:checked');
+  if (selectedStar) {
+    let finalRating = ((parseFloat(displayRating.innerText) + parseInt(selectedStar.value)) / 2).toFixed(1);
+    displayRating.innerText = finalRating;
+    localStorage.setItem('ratingCakra', finalRating);
+    alert("Terima kasih!");
+    this.reset();
+  }
+});
+
+/* --- LOGIKA AKTIFKAN INPUT (SAAT ID DIISI) --- */
+userIdInput.addEventListener('input', function() {
+  if (this.value.trim().length >= 5) {
+    sectionDenom.classList.remove('disabled-section');
+    sectionPayment.classList.remove('disabled-section');
+    sectionQty.classList.remove('disabled-section'); // UPDATE: Aktifkan input jumlah
+  } else {
+    sectionDenom.classList.add('disabled-section');
+    sectionPayment.classList.add('disabled-section');
+    sectionQty.classList.add('disabled-section'); // UPDATE
+  }
+});
+
+/* --- LOGIKA KLIK ITEM --- */
+function aktifkanKlik(selector) {
+  const items = document.querySelectorAll(selector);
+  items.forEach(item => {
+    item.addEventListener('click', function() {
+      items.forEach(i => i.classList.remove('active'));
+      this.classList.add('active');
+    });
   });
+}
+aktifkanKlik('.topup-item');
+aktifkanKlik('.payment-method');
 
-  confirmOverlay.addEventListener('click', (e) => {
-    if (e.target === confirmOverlay) {
-      
-      confirmOverlay.style.opacity = "0"; // TAMBAHAN (animasi)
-      
-      setTimeout(() => {
-        window.location.href = "ml.html"; // TAMBAHAN (redirect halaman)
-      }, 200);
+/* --- LOGIKA MODAL KONFIRMASI --- */
+buyNowBtn.addEventListener('click', () => {
+  // UPDATE: Masukkan angka dari input ke modal sebelum muncul
+  if (modalQtyVal && inputQty) {
+    modalQtyVal.innerText = inputQty.value; 
+  }
+  confirmOverlay.style.display = 'flex';
+});
 
-    }
-  });
-</script>
-</body>
-</html>
+confirmOverlay.addEventListener('click', (e) => {
+  if (e.target === confirmOverlay) {
+    confirmOverlay.style.opacity = "0";
+    setTimeout(() => {
+      window.location.href = "ml.html"; 
+    }, 200);
+  }
+});
