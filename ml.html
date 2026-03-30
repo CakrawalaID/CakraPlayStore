@@ -293,7 +293,7 @@
           <div class="step-promo-container">
             <div class="promo-input-group">
               <input type="text" placeholder="Masukkan kode promo jika ada">
-              <button type="button" id="promoBtn" class="promobtn" disabled>Gunakan promo</button>
+              <button type="button" id="promo-btn" class="promobtn" disabled>Gunakan promo</button>
             </div>
             <p class="promo-error">Harap menginput kode promo</p>
           </div>
@@ -344,7 +344,7 @@
   const userIdInput = document.getElementById('user-id');
   const sectionDenom = document.getElementById('section-denom');
   const sectionPayment = document.getElementById('section-payment');
-  const promoBtn = document.getElementById('promoBtn');
+  const promoBtn = document.getElementById('promo-btn');
 
   userIdInput.addEventListener('input', function() {
     if (this.value.trim().length >= 5) {
