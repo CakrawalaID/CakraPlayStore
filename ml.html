@@ -456,91 +456,95 @@
     ©2026 CakraPlayStore
   </footer>
 
-/* --- TETAP BIARKAN YANG INI DI ATAS --- */
-particlesJS("particles-js", {
-  particles: {
-    number: { value: 80 },
-    color: { value: "#000000" },
-    shape: { type: "circle" },
-    opacity: { value: 0.5 },
-    size: { value: 3 },
-    line_linked: { enable: true, distance: 150, color: "#000000", opacity: 0.4, width: 1 },
-    move: { enable: true, speed: 2 }
-  }
-});
-
-/* --- SELEKSI ELEMEN --- */
-const displayRating = document.getElementById('current-rating-val');
-const userIdInput = document.getElementById('user-id');
-const sectionDenom = document.getElementById('section-denom');
-const sectionPayment = document.getElementById('section-payment');
-const buyNowBtn = document.getElementById('buyNowBtn');
-const confirmOverlay = document.getElementById('confirmOverlay');
-
-// UPDATE: Ambil elemen input jumlah
-const sectionQty = document.getElementById('section-qty'); 
-const inputQty = document.getElementById('buy-qty'); 
-const modalQtyVal = document.getElementById('modal-qty-val');
-
-/* --- LOGIKA RATING --- */
-const savedRating = localStorage.getItem('ratingCakra');
-if (savedRating) displayRating.innerText = savedRating;
-
-document.getElementById('reviewForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const selectedStar = document.querySelector('input[name="rating"]:checked');
-  if (selectedStar) {
-    let finalRating = ((parseFloat(displayRating.innerText) + parseInt(selectedStar.value)) / 2).toFixed(1);
-    displayRating.innerText = finalRating;
-    localStorage.setItem('ratingCakra', finalRating);
-    alert("Terima kasih!");
-    this.reset();
-  }
-});
-
-/* --- LOGIKA AKTIFKAN INPUT (SAAT ID DIISI) --- */
-userIdInput.addEventListener('input', function() {
-  if (this.value.trim().length >= 5) {
-    sectionDenom.classList.remove('disabled-section');
-    sectionPayment.classList.remove('disabled-section');
-    sectionQty.classList.remove('disabled-section'); // UPDATE: Aktifkan input jumlah
-  } else {
-    sectionDenom.classList.add('disabled-section');
-    sectionPayment.classList.add('disabled-section');
-    sectionQty.classList.add('disabled-section'); // UPDATE
-  }
-});
-
-/* --- LOGIKA KLIK ITEM --- */
-function aktifkanKlik(selector) {
-  const items = document.querySelectorAll(selector);
-  items.forEach(item => {
-    item.addEventListener('click', function() {
-      items.forEach(i => i.classList.remove('active'));
-      this.classList.add('active');
-    });
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<script>
+  particlesJS("particles-js", {
+    particles: {
+      number: { value: 80 },
+      color: { value: "#000000" },
+      shape: { type: "circle" },
+      opacity: { value: 0.5 },
+      size: { value: 3 },
+      line_linked: { enable: true, distance: 150, color: "#000000", opacity: 0.4, width: 1 },
+      move: { enable: true, speed: 2 }
+    }
   });
-}
-aktifkanKlik('.topup-item');
-aktifkanKlik('.payment-method');
 
-/* --- LOGIKA MODAL KONFIRMASI --- */
-buyNowBtn.addEventListener('click', () => {
-  // UPDATE: Masukkan angka dari input ke modal sebelum muncul
-  if (modalQtyVal && inputQty) {
-    modalQtyVal.innerText = inputQty.value; 
-  }
-  confirmOverlay.style.display = 'flex';
-});
+  const displayRating = document.getElementById('current-rating-val');
+  const savedRating = localStorage.getItem('ratingCakra');
+  if (savedRating) displayRating.innerText = savedRating;
 
-confirmOverlay.addEventListener('click', (e) => {
-  if (e.target === confirmOverlay) {
-    confirmOverlay.style.opacity = "0";
-    setTimeout(() => {
-      window.location.href = "ml.html"; 
-    }, 200);
+  document.getElementById('reviewForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const selectedStar = document.querySelector('input[name="rating"]:checked');
+    if (selectedStar) {
+      let finalRating = ((parseFloat(displayRating.innerText) + parseInt(selectedStar.value)) / 2).toFixed(1);
+      displayRating.innerText = finalRating;
+      localStorage.setItem('ratingCakra', finalRating);
+      alert("Terima kasih!");
+      this.reset();
+    }
+  });
+
+  const userIdInput = document.getElementById('user-id');
+  const sectionDenom = document.getElementById('section-denom');
+  const sectionPayment = document.getElementById('section-payment');
+  const promoBtn = document.getElementById('promo-btn');
+
+  /* BAGIAN BARU */
+  const sectionQty = document.getElementById('section-qty'); 
+  const inputQty = document.getElementById('buy-qty'); 
+  const modalQtyVal = document.getElementById('modal-qty-val');
+  /* SELESAI BAGIAN BARU */
+
+  userIdInput.addEventListener('input', function() {
+    if (this.value.trim().length >= 5) {
+      sectionDenom.classList.remove('disabled-section');
+      sectionPayment.classList.remove('disabled-section');
+      /* BAGIAN BARU */
+      if(sectionQty) sectionQty.classList.remove('disabled-section');
+      /* SELESAI BAGIAN BARU */
+    } else {
+      sectionDenom.classList.add('disabled-section');
+      sectionPayment.classList.add('disabled-section');
+      /* BAGIAN BARU */
+      if(sectionQty) sectionQty.classList.add('disabled-section');
+      /* SELESAI BAGIAN BARU */
+    }
+  });
+
+  function aktifkanKlik(selector) {
+    const items = document.querySelectorAll(selector);
+    items.forEach(item => {
+      item.addEventListener('click', function() {
+        items.forEach(i => i.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
   }
-});
+  aktifkanKlik('.topup-item');
+  aktifkanKlik('.payment-method');
+
+  const buyNowBtn = document.getElementById('buyNowBtn');
+  const confirmOverlay = document.getElementById('confirmOverlay');
+
+  buyNowBtn.addEventListener('click', () => {
+    /* BAGIAN BARU */
+    if (modalQtyVal && inputQty) {
+      modalQtyVal.innerText = inputQty.value; 
+    }
+    /* SELESAI BAGIAN BARU */
+    confirmOverlay.style.display = 'flex';
+  });
+
+  confirmOverlay.addEventListener('click', (e) => {
+    if (e.target === confirmOverlay) {
+      confirmOverlay.style.opacity = "0"; 
+      setTimeout(() => {
+        window.location.href = "ml.html"; 
+      }, 200);
+    }
+  });
 </script>
 </body>
 </html>
