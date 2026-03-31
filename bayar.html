@@ -224,8 +224,8 @@
     // QR Code Generator
     document.getElementById('res-qr').src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=PAY-${userId}-${harga}`;
 
-    // 3. Timer 30 Menit
-    let time = 30 * 60;
+    // 3. Timer 15 Menit
+    let time = 15 * 60;
     setInterval(() => {
         let m = Math.floor(time / 60);
         let s = time % 60;
