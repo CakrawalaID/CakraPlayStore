@@ -533,7 +533,6 @@
       finalPayBtn.onclick = function() {
           // Mengirim data ke bayar.html via URL Params
           window.location.href = `bayar.html?id=${encodeURIComponent(idUser)}&item=${encodeURIComponent(denomText)}&harga=${encodeURIComponent(priceText)}&via=${encodeURIComponent(viaText)}&game=${encodeURIComponent(gameName)}&img=${encodeURIComponent(gameImg)}`;
-          window.location.href = `bayar.html?id=${idUser}&zone=${zoneId}&nickname=${nickname}&item=${denomText}&harga=${priceText}&via=${viaText}&game=Mobile Legends&img=ml.jpg`;
       };
   });
 
