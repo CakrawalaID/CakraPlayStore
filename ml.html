@@ -478,29 +478,38 @@
   aktifkanKlik('.topup-item');
   aktifkanKlik('.payment-method');
 
-  // 5. Logika Tombol Beli & Pindah ke bayar.html (TERUPDATE)
+  // 5. Logika Tombol Beli & Pindah ke bayar.html (SINKRONISASI DATA)
 const buyNowBtn = document.getElementById('buyNowBtn');
 const confirmOverlay = document.getElementById('confirmOverlay');
+const userIdInput = document.getElementById('user-id');
 
 buyNowBtn.addEventListener('click', () => {
     const selectedDenom = document.querySelector('.topup-item.active');
     const selectedPayment = document.querySelector('.payment-method.active');
     const idUser = userIdInput.value;
 
+    if (!idUser || idUser.trim().length < 5) {
+        alert("Silakan masukkan User ID yang valid terlebih dahulu!");
+        return;
+    }
+
     if (!selectedDenom || !selectedPayment) {
         alert("Silakan pilih Nominal dan Metode Pembayaran terlebih dahulu!");
         return;
     }
 
+    // Mengambil teks item (misal: 5 Diamonds) tanpa teks harga di bawahnya
     const denomText = selectedDenom.childNodes[0].textContent.trim();
-    const priceText = selectedDenom.querySelector('small').textContent;
+    // Mengambil harga dari tag <small>
+    const priceText = selectedDenom.querySelector('small').innerText;
+    // Mengambil nama metode bayar (misal: QRIS)
     const viaText = selectedPayment.childNodes[0].textContent.trim();
 
-    // Data Tambahan untuk dikirim
-    const gameName = "Mobile Legends"; //
-    const gameImg = "ml.jpg";         //
+    // Data Game (Bisa diubah manual jika copy-paste ke page game lain)
+    const gameName = "Mobile Legends"; 
+    const gameImg = "ml.jpg";          
 
-    // Tempel Data ke Modal (Tetap Ada)
+    // Update tampilan Modal Konfirmasi sebelum pindah halaman
     document.getElementById('modal-nominal').innerText = denomText;
     document.getElementById('modal-transaksi').innerText = priceText;
     document.getElementById('modal-total').innerText = priceText;
@@ -508,24 +517,21 @@ buyNowBtn.addEventListener('click', () => {
 
     confirmOverlay.style.display = 'flex';
 
-    // NAVIGASI FINAL PAY
-    const finalPayBtn = document.querySelector('.btn-final-pay');
-    finalPayBtn.onclick = function() {
-        // Sekarang mengirim Game & Image juga ke bayar.html
-        window.location.href = `bayar.html?id=${encodeURIComponent(idUser)}&item=${encodeURIComponent(denomText)}&harga=${encodeURIComponent(priceText)}&via=${encodeURIComponent(viaText)}&game=${encodeURIComponent(gameName)}&img=${encodeURIComponent(gameImg)}`;
+    // NAVIGASI FINAL KE PAGE BAYAR
+    const finalPayBtn = document.getElementById('finalPayLink');
+    finalPayBtn.onclick = function(e) {
+        e.preventDefault(); // Mencegah reload link default
+        const targetUrl = `bayar.html?id=${encodeURIComponent(idUser)}&item=${encodeURIComponent(denomText)}&harga=${encodeURIComponent(priceText)}&via=${encodeURIComponent(viaText)}&game=${encodeURIComponent(gameName)}&img=${encodeURIComponent(gameImg)}`;
+        window.location.href = targetUrl;
     };
 });
 
-  // 6. Tutup Modal
-  confirmOverlay.addEventListener('click', (e) => {
+// 6. Tutup Modal jika klik di luar area kartu
+confirmOverlay.addEventListener('click', (e) => {
     if (e.target === confirmOverlay) {
-      confirmOverlay.style.opacity = "0"; 
-      setTimeout(() => {
         confirmOverlay.style.display = "none";
-        confirmOverlay.style.opacity = "1";
-      }, 200);
     }
-  });
+});
 </script>
 </body>
 </html>
