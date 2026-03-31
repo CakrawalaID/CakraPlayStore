@@ -450,18 +450,40 @@
     }
   });
 
-  // 3. Validasi ID User & Buka Kunci Diamond/Metode
-  const userIdInput = document.getElementById('user-id');
-  const sectionDenom = document.getElementById('section-denom');
-  const sectionPayment = document.getElementById('section-payment');
+  // 3. Validasi ID User & Buka Kunci (VERSI FIX)
+const userIdInput = document.getElementById('user-id');
+const sectionDenom = document.getElementById('section-denom');
+const sectionPayment = document.getElementById('section-payment');
+const promoBtn = document.getElementById('promo-btn');
 
-  userIdInput.addEventListener('input', function() {
-    if (this.value.trim().length >= 5) {
-      sectionDenom.classList.remove('disabled-section');
-      sectionPayment.classList.remove('disabled-section');
+// Fungsi untuk cek status input
+function checkIdStatus() {
+    const idValue = userIdInput.value.trim();
+    
+    // Jika ID minimal 5 karakter, buka gemboknya
+    if (idValue.length >= 5) {
+        sectionDenom.classList.remove('disabled-section');
+        sectionPayment.classList.remove('disabled-section');
+        promoBtn.disabled = false; // Buka tombol kupon juga
+        
+        // Tambahkan efek transisi biar halus
+        sectionDenom.style.opacity = "1";
+        sectionDenom.style.filter = "grayscale(0)";
+        sectionPayment.style.opacity = "1";
+        sectionPayment.style.filter = "grayscale(0)";
     } else {
-      sectionDenom.classList.add('disabled-section');
-      sectionPayment.classList.add('disabled-section');
+        // Kunci lagi kalau ID dihapus/kurang dari 5
+        sectionDenom.classList.add('disabled-section');
+        sectionPayment.classList.add('disabled-section');
+        promoBtn.disabled = true;
+    }
+}
+
+// Pasang pendengar ketikan (input)
+userIdInput.addEventListener('input', checkIdStatus);
+
+// Panggil sekali saat page load (jika user pencet back tapi ID masih terisi)
+window.addEventListener('load', checkIdStatus);
     }
   });
 
