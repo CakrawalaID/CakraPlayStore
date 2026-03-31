@@ -365,29 +365,28 @@
     }, 1000);
 
     // --- INTEGRASI BACKEND (TAMBAHAN TANPA MENGUBAH KODE DI ATAS) ---
-    async function laporKeBackend() {
-        const payload = {
-            trxId: generatedTrxId,
-            idUser: userId,
-            zone: zoneId,
-            nickname: nickname,
-            game: gameName,
-            item: item,
-            harga: harga,
-            waktu: document.getElementById('res-waktu').innerText
-        };
+    async function kirimDataKeBackend() {
+    const payload = {
+        idUser: userId,
+        game: gameName,
+        item: item,
+        harga: harga,
+        via: "QRIS",
+        nickname: nickname
+    };
 
-        try {
-            await fetch('http://localhost:3000/api/transaksi', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
-            console.log("Data transaksi berhasil dikirim ke backend!");
-        } catch (err) {
-            console.log("Backend belum aktif, data tidak terkirim.");
-        }
+    try {
+        const response = await fetch('http://localhost:3000/api/transaksi', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+        const data = await response.json();
+        console.log("Server merespon:", data);
+    } catch (err) {
+        console.log("Server backend belum nyala, Bos!");
     }
+}
 
     // Jalankan pengiriman data saat halaman selesai dimuat
     laporKeBackend();
