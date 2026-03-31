@@ -1,557 +1,110 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Top Up Mobile Legends Termurah | CakraPlayStore</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <style>
-    /* CSS Rating & Bintang */
-    .star-rating {
-      display: flex;
-      flex-direction: row-reverse;
-      justify-content: flex-end;
-      gap: 2px;
-      margin-bottom: 10px;
-    }
-    .star-rating input { display: none; }
-    .star-rating label {
-      font-size: 28px;
-      color: #ccc;
-      cursor: pointer;
-      transition: color 0.2s;
-    }
-    .star-rating input:checked ~ label,
-    .star-rating label:hover,
-    .star-rating label:hover ~ label {
-      color: #FFC107;
-    }
-    .rating-number-style {
-      font-weight: bold;
-      color: #ff8c00;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top Up ML | CakraPlayStore</title>
 
-    /* GAYA HEADER BARU (SEPERTI GAMBAR 2) */
-    .step-header-modern {
-      background-color: #1a2333;
-      position: relative;
-      color: #ffffff;
-      padding: 15px 20px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      overflow: hidden;
-    }
-    .step-number-circle {
-      background-color: #ff5722;
-      color: #ffffff;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      z-index: 2;
-    }
-    .step-title-modern {
-      font-weight: bold;
-      font-size: 15px;
-      z-index: 2;
-      text-transform: uppercase;
-    }
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    /* TOMBOL BELI DENGAN ANIMASI ZOOM HALUS */
-    .buy-button-wrapper { 
-      width: 100%; 
-      margin-top: 10px; 
-    }
-
-    #buyNowBtn {
-      width: 100%;
-      background: #ff5722;
-      color: white;
-      border: none;
-      padding: 20px;
-      border-radius: 12px;
-      font-size: 18px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: transform 0.2s ease-in-out; 
-    }
-
-    #buyNowBtn:hover {
-      transform: scale(1.02);
-    }
-
-    #buyNowBtn:active {
-      transform: scale(0.98);
-    }
-    
-    .step-header-modern::after {
-      content: "";
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 100px;
-      height: 40px;
-      background-image: radial-gradient(#ffffff 1px, transparent 1px);
-      background-size: 8px 8px;
-      opacity: 0.1;
-    }
-
-    .disabled-section {
-      opacity: 0.3;
-      pointer-events: none;
-      filter: grayscale(1);
-      transition: 0.4s ease;
-    }
-
-    .step-promo-container {
-      padding: 25px;
-    }
-    .promo-input-group {
-      display: flex;
-      gap: 15px;
-      align-items: center;
-    }
-    .promo-input-group input {
-      flex: 1;
-      padding: 15px;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      outline: none;
-    }
-    .promo-input-group button {
-      padding: 12px 25px;
-      background: white;
-      border: 1.5px solid #ff5722;
-      color: #ff5722;
-      border-radius: 30px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    .promo-input-group button:hover {
-      background: #ff5722;
-      color: white;
-    }
-    .promo-error {
-      color: #cccccc;
-      font-size: 13px;
-      margin-top: 8px;
-    }
-
-    .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      display: none; 
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-
-    .modal-card {
-      background: white;
-      width: 90%;
-      max-width: 450px;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      animation: popIn 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    }
-
-    @keyframes popIn {
-      from { transform: scale(0.8); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-
-    .modal-body {
-      padding: 20px;
-    }
-
-    .modal-section-title {
-      font-weight: bold;
-      font-size: 15px;
-      margin-bottom: 12px;
-      color: #333;
-    }
-
-    .modal-row {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 8px;
-      font-size: 14px;
-    }
-
-    .modal-label { color: #777; }
-    .modal-value { font-weight: 500; color: #1a2333; }
-
-    .modal-divider {
-      border-top: 1px dashed #ddd;
-      margin: 15px 0;
-    }
-
-    .total-price-text {
-      font-weight: bold;
-      font-size: 18px;
-      color: #1a2333;
-    }
-
-    .btn-final-pay {
-      background-color: #ff5722;
-      color: white;
-      border: none;
-      width: 100%;
-      padding: 15px;
-      border-radius: 10px;
-      font-weight: bold;
-      font-size: 16px;
-      cursor: pointer;
-      margin-top: 15px;
-      transition: background 0.3s;
-    }
-
-    .btn-final-pay:hover { background-color: #e64a19; }
-  </style>
+<style>
+body{font-family:sans-serif;background:#f5f5f5;margin:0}
+.container{max-width:900px;margin:40px auto;background:#fff;padding:20px;border-radius:10px}
+.topup-item,.payment-method{
+  border:1px solid #ddd;
+  padding:12px;
+  margin:5px;
+  cursor:pointer;
+  border-radius:8px;
+}
+.active{border:2px solid #ff5722;background:#fff3f0}
+.disabled{opacity:.4;pointer-events:none}
+button{padding:15px;background:#ff5722;color:#fff;border:none;border-radius:8px;width:100%;cursor:pointer}
+</style>
 </head>
+
 <body>
 
-  <div class="sidebar">
-    <a href="index.html" class="menu">
-      <span class="material-icons">home</span>
-      <p>Home</p>
-    </a>
-    <a href="tf.html" class="menu">
-      <span class="material-icons">description</span>
-      <p>Transaksi</p>
-    </a>
-    <a href="kupon.html" class="menu">
-      <span class="material-icons">local_offer</span>
-      <p>Kupon</p>
-    </a>
-    <a href="hdh.html" class="menu">
-      <span class="material-icons">card_giftcard</span>
-      <p>Hadiahku</p>
-    </a>
-  </div>
+<div class="container">
 
-  <div id="particles-js"></div>
+<h2>Top Up Mobile Legends</h2>
 
-  <header class="navbar">
-    <div class="navbar-container">
-      <div class="spacer"></div>
-      <div class="logo">
-        <img src="logo.png" alt="CakraPlayStore" />
-      </div>
-      <div class="spacer"></div>
-      <div class="search-login">
-        <span class="material-icons search-icon">search</span>
-        <input type="text" id="searchInput" placeholder="Cari Game..." />
-        <span class="material-icons clear-icon" id="clearSearch">close</span>
-        <div id="searchResult" class="search-result"></div>
-      </div>
-      <div class="spacer"></div>
-    </div>
-  </header>
+<input type="text" id="user-id" placeholder="User ID"><br><br>
+<input type="text" id="server-id" placeholder="Server ID"><br><br>
 
-  <div class="user-icon">
-    <span class="material-icons">person</span>
-  </div>
+<h3>Pilih Diamond</h3>
+<div id="denom" class="disabled">
+  <div class="topup-item">5 Diamonds<br><small>Rp1.381</small></div>
+  <div class="topup-item">10 Diamonds<br><small>Rp3.002</small></div>
+  <div class="topup-item">15 Diamonds<br><small>Rp4.502</small></div>
+</div>
 
-  <div class="main-wrapper topup-page">
-    <div class="topup-container">
+<h3>Pilih Pembayaran</h3>
+<div id="payment" class="disabled">
+  <div class="payment-method">QRIS</div>
+  <div class="payment-method">Virtual Account</div>
+</div>
 
-      <aside class="topup-left">
-        <div class="game-card">
-          <div class="game-header">
-            <img src="ml.jpg" alt="Mobile Legends">
-            <div>
-              <small class="publisher">Moonton</small>
-              <h3>Mobile Legends: Bang Bang</h3>
-            </div>
-          </div>
+<br>
+<button id="buy">Beli Sekarang</button>
 
-          <p class="desc">
-            Top Up Mobile Legends hanya dalam hitungan detik. 
-            Masukkan ID dan Server Mobile Legends Anda. Pilih jumlah Diamond, 
-            selesaikan pembayaran, dan Diamond akan langsung masuk ke akun Anda.
-          </p>
+</div>
 
-          <div class="store-btn">
-            <button><span class="material-icons">smartphone</span> App Store</button>
-            <button><span class="material-icons">play_arrow</span> Google Play</button>
-          </div>
-
-          <div class="rating-card">
-            <h3>Ulasan dan Rating</h3>
-            <div class="rating">
-              <span class="material-icons" style="color: #ffc107;">star</span> 
-              <span id="current-rating-val" class="rating-number-style">4.8</span> / 5.0
-            </div>
-            <p>Berdasarkan banyak ulasan</p>
-          </div>
-
-          <form class="review-form" id="reviewForm">
-            <label>Rating:</label>
-            <div class="star-rating">
-              <input type="radio" id="star5" name="rating" value="5"><label for="star5" class="material-icons">star</label>
-              <input type="radio" id="star4" name="rating" value="4"><label for="star4" class="material-icons">star</label>
-              <input type="radio" id="star3" name="rating" value="3"><label for="star3" class="material-icons">star</label>
-              <input type="radio" id="star2" name="rating" value="2"><label for="star2" class="material-icons">star</label>
-              <input type="radio" id="star1" name="rating" value="1"><label for="star1" class="material-icons">star</label>
-            </div>
-            
-            <label for="user-review">Ulasan:</label>
-            <textarea id="user-review" name="review" rows="3" placeholder="Tulis ulasan kamu..."></textarea>
-
-            <button type="submit">
-              <span class="material-icons">send</span> Kirim
-            </button>
-          </form>
-        </div>
-      </aside>
-
-      <main class="topup-right">
-        <div class="step-card">
-          <div class="step-header"><span>1</span> MASUKKAN ID DAN SERVER ANDA</div>
-          <div class="form-box">
-            <input type="text" id="user-id" placeholder="User ID">
-            <input type="text" placeholder="Server ID">
-          </div>
-          <p class="info">Untuk menemukan ID dan Server Anda, buka profil di dalam game.</p>
-        </div>
-
-        <div class="step-card">
-          <div class="step-header-modern">
-            <div class="step-number-circle">2</div>
-            <div class="step-title-modern">PILIH JUMLAH DENOM</div>
-          </div>
-          
-          <div id="section-denom" class="topup-grid disabled-section">
-            <div class="topup-item">5 Diamonds<br><small>Rp1.381</small></div>
-            <div class="topup-item">10 Diamonds<br><small>Rp3.002</small></div>
-            <div class="topup-item">12 Diamonds<br><small>Rp3.501</small></div>
-            <div class="topup-item">14 Diamonds<br><small>Rp4.051</small></div>
-            <div class="topup-item">15 Diamonds<br><small>Rp4.502</small></div>
-            <div class="topup-item">17 Diamonds<br><small>Rp4.689</small></div>
-          </div>
-        </div>
-
-        <div class="step-card">
-          <div class="step-header"><span>3</span> PILIH METODE PEMBAYARAN</div>
-          
-          <div id="section-payment" class="disabled-section">
-            <div class="payment-method">QRIS <span>PROMO</span></div>
-            <div class="payment-method">Virtual Account <span>PROMO</span></div>
-            <div class="payment-method">Modern Store <span>PROMO</span></div>
-            <div class="payment-method">ATM BCA & Mandiri <span>PROMO</span></div>
-          </div>
-        </div>
-
-        <div class="step-card">
-          <div class="step-header-modern">
-            <div class="step-number-circle">4</div>
-            <div class="step-title-modern">Punya kupon?</div>
-          </div>
-          <div class="step-promo-container">
-            <div class="promo-input-group">
-              <input type="text" placeholder="Masukkan kupon jika ada">
-              <button type="button" id="promo-btn" class="promobtn" disabled>Gunakan kupon</button>
-            </div>
-            <p class="promo-error">Harap menginput kupon (opsional)</p>
-          </div>
-        </div>
-
-        <div class="buy-button-wrapper">
-            <button id="buyNowBtn">Beli Sekarang</button>
-        </div>
-      </main>
-
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="confirmOverlay">
-    <div class="modal-card">
-      <div class="step-header-modern">
-        <div class="step-number-circle">!</div>
-        <div class="step-title-modern">Konfirmasi Pembelian</div>
-      </div>
-      
-      <div class="modal-body">
-        <div class="modal-section-title">Detail Produk</div>
-        <div class="modal-row">
-          <span class="modal-label">Nominal</span>
-          <span id="modal-nominal" class="modal-value">-</span>
-        </div>
-
-        <div class="modal-divider"></div>
-
-        <div class="modal-section-title">Detail Bayar</div>
-        <div class="modal-row">
-          <span class="modal-label">Total transaksi</span>
-          <span id="modal-transaksi" class="modal-value">-</span>
-        </div>
-        <div class="modal-row">
-          <span class="modal-label">Total bayar</span>
-          <span id="modal-total" class="total-price-text">-</span>
-        </div>
-        <div class="modal-row">
-          <span class="modal-label">Bayar dengan</span>
-          <span id="modal-metode" class="modal-value">-</span>
-        </div>
-
-        <a href="bayar.html" id="finalPayLink" class="btn-final-pay" style="text-decoration: none; display: flex; align-items: center; justify-content: center;">
-          Bayar Sekarang
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <footer class="footer">
-    ©2026 CakraPlayStore
-  </footer>
-
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 <script>
-  // 1. Partikel Background
-  particlesJS("particles-js", {
-    particles: {
-      number: { value: 80 },
-      color: { value: "#000000" },
-      shape: { type: "circle" },
-      opacity: { value: 0.5 },
-      size: { value: 3 },
-      line_linked: { enable: true, distance: 150, color: "#000000", opacity: 0.4, width: 1 },
-      move: { enable: true, speed: 2 }
+
+// unlock
+const user = document.getElementById("user-id");
+const server = document.getElementById("server-id");
+const denom = document.getElementById("denom");
+const payment = document.getElementById("payment");
+
+user.addEventListener("input", ()=>{
+  if(user.value.length>=5){
+    denom.classList.remove("disabled");
+    payment.classList.remove("disabled");
+  } else {
+    denom.classList.add("disabled");
+    payment.classList.add("disabled");
+  }
+});
+
+// select
+function aktifkan(selector){
+  document.querySelectorAll(selector).forEach(el=>{
+    el.onclick=()=>{
+      document.querySelectorAll(selector).forEach(i=>i.classList.remove("active"));
+      el.classList.add("active");
     }
-  });
+  })
+}
+aktifkan(".topup-item");
+aktifkan(".payment-method");
 
-  // 2. Sistem Rating & LocalStorage
-  const displayRating = document.getElementById('current-rating-val');
-  const savedRating = localStorage.getItem('ratingCakra');
-  if (savedRating) displayRating.innerText = savedRating;
+// buy
+document.getElementById("buy").onclick=()=>{
 
-  document.getElementById('reviewForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const selectedStar = document.querySelector('input[name="rating"]:checked');
-    if (selectedStar) {
-      let finalRating = ((parseFloat(displayRating.innerText) + parseInt(selectedStar.value)) / 2).toFixed(1);
-      displayRating.innerText = finalRating;
-      localStorage.setItem('ratingCakra', finalRating);
-      alert("Terima kasih!");
-      this.reset();
-    }
-  });
+  const d = document.querySelector(".topup-item.active");
+  const p = document.querySelector(".payment-method.active");
 
-  // 3. Validasi ID User & Buka Kunci (VERSI FIX)
-const userIdInput = document.getElementById('user-id');
-const sectionDenom = document.getElementById('section-denom');
-const sectionPayment = document.getElementById('section-payment');
-const promoBtn = document.getElementById('promo-btn');
+  if(!d || !p){
+    alert("Pilih dulu!");
+    return;
+  }
 
-// Fungsi untuk cek status input
-function checkIdStatus() {
-    const idValue = userIdInput.value.trim();
-    
-    // Jika ID minimal 5 karakter, buka gemboknya
-    if (idValue.length >= 5) {
-        sectionDenom.classList.remove('disabled-section');
-        sectionPayment.classList.remove('disabled-section');
-        promoBtn.disabled = false; // Buka tombol kupon juga
-        
-        // Tambahkan efek transisi biar halus
-        sectionDenom.style.opacity = "1";
-        sectionDenom.style.filter = "grayscale(0)";
-        sectionPayment.style.opacity = "1";
-        sectionPayment.style.filter = "grayscale(0)";
-    } else {
-        // Kunci lagi kalau ID dihapus/kurang dari 5
-        sectionDenom.classList.add('disabled-section');
-        sectionPayment.classList.add('disabled-section');
-        promoBtn.disabled = true;
-    }
+  if(user.value.length<5 || server.value.length<2){
+    alert("ID tidak valid!");
+    return;
+  }
+
+  const item = d.innerHTML.split("<br>")[0];
+  const harga = d.querySelector("small").innerText;
+  const via = p.innerText;
+
+  window.location.href =
+  `bayar.html?id=${user.value}&server=${server.value}&item=${item}&harga=${harga}&via=${via}&game=Mobile Legends&img=ml.jpg`;
 }
 
-// Pasang pendengar ketikan (input)
-userIdInput.addEventListener('input', checkIdStatus);
-
-// Panggil sekali saat page load (jika user pencet back tapi ID masih terisi)
-window.addEventListener('load', checkIdStatus);
-
-  // 4. Efek Klik (Aktif) pada Item
-  function aktifkanKlik(selector) {
-    const items = document.querySelectorAll(selector);
-    items.forEach(item => {
-      item.addEventListener('click', function() {
-        items.forEach(i => i.classList.remove('active'));
-        this.classList.add('active');
-      });
-    });
-  }
-  aktifkanKlik('.topup-item');
-  aktifkanKlik('.payment-method');
-
-  // 5. Logika Tombol Beli & Pindah ke bayar.html (SINKRONISASI DATA)
-const buyNowBtn = document.getElementById('buyNowBtn');
-const confirmOverlay = document.getElementById('confirmOverlay');
-const userIdInput = document.getElementById('user-id');
-
-buyNowBtn.addEventListener('click', () => {
-    const selectedDenom = document.querySelector('.topup-item.active');
-    const selectedPayment = document.querySelector('.payment-method.active');
-    const idUser = userIdInput.value;
-
-    if (!idUser || idUser.trim().length < 5) {
-        alert("Silakan masukkan User ID yang valid terlebih dahulu!");
-        return;
-    }
-
-    if (!selectedDenom || !selectedPayment) {
-        alert("Silakan pilih Nominal dan Metode Pembayaran terlebih dahulu!");
-        return;
-    }
-
-    // Mengambil teks item (misal: 5 Diamonds) tanpa teks harga di bawahnya
-    const denomText = selectedDenom.childNodes[0].textContent.trim();
-    // Mengambil harga dari tag <small>
-    const priceText = selectedDenom.querySelector('small').innerText;
-    // Mengambil nama metode bayar (misal: QRIS)
-    const viaText = selectedPayment.childNodes[0].textContent.trim();
-
-    // Data Game (Bisa diubah manual jika copy-paste ke page game lain)
-    const gameName = "Mobile Legends"; 
-    const gameImg = "ml.jpg";          
-
-    // Update tampilan Modal Konfirmasi sebelum pindah halaman
-    document.getElementById('modal-nominal').innerText = denomText;
-    document.getElementById('modal-transaksi').innerText = priceText;
-    document.getElementById('modal-total').innerText = priceText;
-    document.getElementById('modal-metode').innerText = viaText;
-
-    confirmOverlay.style.display = 'flex';
-
-    // NAVIGASI FINAL KE PAGE BAYAR
-    const finalPayBtn = document.getElementById('finalPayLink');
-    finalPayBtn.onclick = function(e) {
-        e.preventDefault(); // Mencegah reload link default
-        const targetUrl = `bayar.html?id=${encodeURIComponent(idUser)}&item=${encodeURIComponent(denomText)}&harga=${encodeURIComponent(priceText)}&via=${encodeURIComponent(viaText)}&game=${encodeURIComponent(gameName)}&img=${encodeURIComponent(gameImg)}`;
-        window.location.href = targetUrl;
-    };
-});
-
-// 6. Tutup Modal jika klik di luar area kartu
-confirmOverlay.addEventListener('click', (e) => {
-    if (e.target === confirmOverlay) {
-        confirmOverlay.style.display = "none";
-    }
-});
 </script>
+
 </body>
 </html>
