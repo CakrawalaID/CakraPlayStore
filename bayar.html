@@ -97,6 +97,34 @@
     }
     .qr-frame img { width: 240px; height: 240px; }
 
+    .detail-produk-card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 20px 25px;
+      text-align: left;
+      margin-top: 20px;
+    }
+    .detail-produk-card h3 {
+      font-size: 18px;
+      margin: 0 0 20px 0;
+      color: #1e293b;
+      font-weight: 700;
+    }
+    .detail-row {
+      display: flex;
+      margin-bottom: 15px;
+      font-size: 15px;
+    }
+    .detail-label {
+      width: 150px;
+      color: #94a3b8; /* Warna abu-abu pudar sesuai gambar */
+    }
+    .detail-value {
+      color: #1e293b;
+      font-weight: 500;
+    }
+    
     @media (max-width: 768px) {
       .container-bayar { margin-left: 0; padding-top: 80px; }
     }
@@ -176,6 +204,35 @@
                 <img id="res-qr" src="" alt="QR Code">
             </div>
         </div>
+
+        <div class="detail-produk-card">
+            <h3>Detail Produk</h3>
+            
+            <div class="detail-row">
+                <div class="detail-label">Produk</div>
+                <div class="detail-value" id="res-game-detail">Free Fire</div>
+            </div>
+
+            <div class="detail-row">
+                <div class="detail-label">Nominal</div>
+                <div class="detail-value" id="res-item-detail">50 Diamonds</div>
+            </div>
+
+            <div class="detail-row">
+                <div class="detail-label">Nickname</div>
+                <div class="detail-value" id="res-nickname">R7.HAFIZD</div>
+            </div>
+
+            <div class="detail-row">
+                <div class="detail-label">User ID</div>
+                <div class="detail-value" id="res-id-detail">8224551716</div>
+            </div>
+
+            <div class="detail-row">
+                <div class="detail-label">Waktu Transaksi</div>
+                <div class="detail-value" id="res-waktu">-</div>
+            </div>
+        </div>
     </div>
   </div>
 
@@ -236,12 +293,38 @@
     const userId = params.get('id') || 'USER';
     const gameName = params.get('game') || 'Mobile Legends';
     const gameImg = params.get('img') || 'ml.jpg';
+    
+    // TAMBAHAN BARU: Ambil data Zone dan Nickname dari URL
+    const zoneId = params.get('zone') || ''; 
+    const nickname = params.get('nickname') || 'Pelanggan';
 
     // Update Tampilan
     document.getElementById('res-harga').innerText = harga;
     document.getElementById('res-item').innerText = item;
     document.querySelector('.prod-img').src = gameImg;
     document.querySelector('.prod-flex div div:last-child').innerText = gameName;
+
+    // TAMBAHAN BARU: Update isi Card Detail Produk di bawah barcode
+    if(document.getElementById('res-nickname')) {
+        document.getElementById('res-nickname').innerText = nickname;
+    }
+    if(document.getElementById('res-id-detail')) {
+        // Gabungkan ID dan Zone jika ada zone
+        document.getElementById('res-id-detail').innerText = zoneId ? `${userId} (${zoneId})` : userId;
+    }
+    if(document.getElementById('res-game-detail')) {
+        document.getElementById('res-game-detail').innerText = gameName;
+    }
+    if(document.getElementById('res-item-detail')) {
+        document.getElementById('res-item-detail').innerText = item;
+    }
+
+    // TAMBAHAN BARU: Logika Waktu Transaksi Otomatis
+    const sekarang = new Date();
+    const opsiWaktu = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+    if(document.getElementById('res-waktu')) {
+        document.getElementById('res-waktu').innerText = sekarang.toLocaleDateString('id-ID', opsiWaktu);
+    }
 
     // Update ID Transaksi
     document.getElementById('trx-id').innerText = "#P" + Math.floor(Math.random() * 1000000000000);
