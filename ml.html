@@ -495,6 +495,7 @@
   // 5. Logika Tombol Beli & Pindah ke bayar.html (TERUPDATE)
   const buyNowBtn = document.getElementById('buyNowBtn');
   const confirmOverlay = document.getElementById('confirmOverlay');
+  const serverIdInput = document.querySelectorAll('.form-box input')[1];
 
   buyNowBtn.addEventListener('click', () => {
       const selectedDenom = document.querySelector('.topup-item.active');
@@ -506,9 +507,14 @@
           return;
       }
 
+      const nickname = "CakraUser";
+    
       const denomText = selectedDenom.childNodes[0].textContent.trim();
       const priceText = selectedDenom.querySelector('small').textContent;
       const viaText = selectedPayment.childNodes[0].textContent.trim();
+
+      document.getElementById('modal-user-id').innerText = `${idUser} (${zoneId})`;
+      document.getElementById('modal-nickname').innerText = nickname;
 
       // Data Tambahan untuk dikirim
       const gameName = "Mobile Legends"; 
@@ -527,6 +533,7 @@
       finalPayBtn.onclick = function() {
           // Mengirim data ke bayar.html via URL Params
           window.location.href = `bayar.html?id=${encodeURIComponent(idUser)}&item=${encodeURIComponent(denomText)}&harga=${encodeURIComponent(priceText)}&via=${encodeURIComponent(viaText)}&game=${encodeURIComponent(gameName)}&img=${encodeURIComponent(gameImg)}`;
+          window.location.href = `bayar.html?id=${idUser}&zone=${zoneId}&nickname=${nickname}&item=${denomText}&harga=${priceText}&via=${viaText}&game=Mobile Legends&img=ml.jpg`;
       };
   });
 
