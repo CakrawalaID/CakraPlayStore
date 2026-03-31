@@ -204,25 +204,32 @@
       }
     });
 
-    // 2. Logika Data & QRIS (TERUPDATE)
+    // 2. Logika Menangkap Data dari URL & Generate QRIS
 const params = new URLSearchParams(window.location.search);
-const harga = params.get('harga') || 'Rp7.599';
-const item = params.get('item') || '50 Diamonds';
-const userId = params.get('id') || 'USER';
-const gameName = params.get('game') || 'Mobile Legends'; // Menangkap nama game
-const gameImg = params.get('img') || 'ml.jpg';           // Menangkap gambar game
+const harga = params.get('harga') || 'Rp0';
+const item = params.get('item') || 'Item Tidak Dipilih';
+const userId = params.get('id') || 'Unknown';
+const gameName = params.get('game') || 'Game';
+const gameImg = params.get('img') || 'ml.jpg'; 
 
-// Update Tampilan Otomatis sesuai pilihan Papa
+// Update Tampilan Berdasarkan Pilihan di Halaman Sebelumnya
 document.getElementById('res-harga').innerText = harga;
 document.getElementById('res-item').innerText = item;
-document.querySelector('.prod-img').src = gameImg; // Gambar berubah otomatis!
-document.querySelector('.prod-flex div div:last-child').innerText = gameName; // Teks game berubah!
+document.querySelector('.prod-img').src = gameImg; 
 
-// Update ID Transaksi
-document.getElementById('trx-id').innerText = "#P" + Math.floor(Math.random() * 1000000000000);
+// Update teks detail game (Mobile Legends / Nama Game lain)
+const gameDetailText = document.querySelector('.prod-flex div div:last-child');
+if(gameDetailText) gameDetailText.innerText = gameName;
 
-// QR Code Generator (Data Pembayaran Sesuai User & Harga)
-document.getElementById('res-qr').src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=PAY-${userId}-${harga}`;
+// Buat ID Transaksi Acak
+const randomTrx = "CP" + Math.floor(Math.random() * 1000000000);
+document.getElementById('trx-id').innerText = "#" + randomTrx;
+
+// Generate QR Code dinamis sesuai Harga & User ID
+// Menggunakan API QRServer untuk membuat QR gratis secara instan
+const qrElement = document.getElementById('res-qr');
+const qrData = `TRX-${randomTrx}-USER-${userId}-TOTAL-${harga}`;
+qrElement.src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(qrData)}`;
 
     // 3. Timer 30 Menit
     let time = 30 * 60;
