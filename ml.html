@@ -505,10 +505,14 @@
           alert("Silakan pilih Nominal dan Metode Pembayaran terlebih dahulu!");
           return;
       }
-    
+
       const denomText = selectedDenom.childNodes[0].textContent.trim();
       const priceText = selectedDenom.querySelector('small').textContent;
       const viaText = selectedPayment.childNodes[0].textContent.trim();
+
+      // Data Tambahan untuk dikirim
+      const gameName = "Mobile Legends"; 
+      const gameImg = "ml.jpg";          
 
       // Tempel Data ke Modal
       document.getElementById('modal-nominal').innerText = denomText;
