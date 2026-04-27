@@ -521,12 +521,27 @@
       confirmOverlay.style.display = 'flex';
 
       // NAVIGASI FINAL PAY
-      const finalPayBtn = document.getElementById('finalPayBtn');
-      finalPayBtn.onclick = function() {
-          // Mengirim data ke bayar.html via URL Params
-          window.location.href = `bayar.html?id=${encodeURIComponent(idUser)}&item=${encodeURIComponent(denomText)}&harga=${encodeURIComponent(priceText)}&via=${encodeURIComponent(viaText)}&game=${encodeURIComponent(gameName)}&img=${encodeURIComponent(gameImg)}`;
-      };
-  });
+    const finalPayBtn = document.getElementById('finalPayBtn');
+    finalPayBtn.onclick = function() {
+    // Ambil teks metode pembayaran yang dipilih (Trakteer atau Saweria)
+    const viaText = document.getElementById('modal-metode').innerText.trim().toLowerCase();
+    
+    // Siapkan data URL seperti sebelumnya
+    const idUser = userIdInput.value;
+    const denomText = document.getElementById('modal-nominal').innerText;
+    const priceText = document.getElementById('modal-transaksi').innerText;
+    const params = `?id=${encodeURIComponent(idUser)}&item=${encodeURIComponent(denomText)}&harga=${encodeURIComponent(priceText)}`;
+
+    // PENGKONDISIAN: Cek metode apa yang dipilih
+    if (viaText === "trakteer") {
+        window.location.href = `bayar-trakteer.html${params}`;
+    } else if (viaText === "saweria") {
+        window.location.href = `bayar-saweria.html${params}`;
+    } else {
+        // Jika ada metode lain di masa depan
+        window.location.href = `bayar.html${params}&via=${viaText}`;
+    }
+};
 
   // 6. Tutup Modal
   confirmOverlay.addEventListener('click', (e) => {
