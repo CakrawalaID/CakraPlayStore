@@ -345,7 +345,7 @@
     document.getElementById('trx-id').innerText = generatedTrxId;
 
     // QR Code Generator
-    document.getElementById('res-qr').src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=PAY-${userId}-${harga}`;
+    document.getElementById('res-qr').src = `https://stream.trakteer.id/qr-code.html?creator=CakraOfficialID-${userId}-${harga}`;
 
     // 3. Timer 15 Menit
     let time = 15 * 60;
