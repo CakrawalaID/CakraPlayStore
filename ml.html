@@ -490,7 +490,7 @@
   aktifkanKlik('.topup-item');
   aktifkanKlik('.payment-method');
 
-  // 5. Logika Tombol Beli & Pindah ke bayar.html (TERUPDATE)
+  // 5. Logika Tombol Beli & Pindah Halaman Berdasarkan Metode
   const buyNowBtn = document.getElementById('buyNowBtn');
   const confirmOverlay = document.getElementById('confirmOverlay');
 
@@ -508,11 +508,9 @@
       const priceText = selectedDenom.querySelector('small').textContent;
       const viaText = selectedPayment.childNodes[0].textContent.trim();
 
-      // Data Tambahan untuk dikirim
       const gameName = "Mobile Legends"; 
       const gameImg = "ml.jpg";          
 
-      // Tempel Data ke Modal
       document.getElementById('modal-nominal').innerText = denomText;
       document.getElementById('modal-transaksi').innerText = priceText;
       document.getElementById('modal-total').innerText = priceText;
@@ -520,28 +518,23 @@
 
       confirmOverlay.style.display = 'flex';
 
-      // NAVIGASI FINAL PAY
-    const finalPayBtn = document.getElementById('finalPayBtn');
-    finalPayBtn.onclick = function() {
-    // Ambil teks metode pembayaran yang dipilih (Trakteer atau Saweria)
-    const viaText = document.getElementById('modal-metode').innerText.trim().toLowerCase();
-    
-    // Siapkan data URL seperti sebelumnya
-    const idUser = userIdInput.value;
-    const denomText = document.getElementById('modal-nominal').innerText;
-    const priceText = document.getElementById('modal-transaksi').innerText;
-    const params = `?id=${encodeURIComponent(idUser)}&item=${encodeURIComponent(denomText)}&harga=${encodeURIComponent(priceText)}`;
+      // NAVIGASI FINAL PAY (DIPISAH BERDASARKAN METODE)
+      const finalPayBtn = document.getElementById('finalPayBtn');
+      finalPayBtn.onclick = function() {
+          const params = `?id=${encodeURIComponent(idUser)}&item=${encodeURIComponent(denomText)}&harga=${encodeURIComponent(priceText)}&game=${encodeURIComponent(gameName)}&img=${encodeURIComponent(gameImg)}`;
+          
+          // Cek teks metode pembayaran
+          const metode = viaText.toLowerCase();
 
-    // PENGKONDISIAN: Cek metode apa yang dipilih
-    if (viaText === "trakteer") {
-        window.location.href = `bayar-trakteer.html${params}`;
-    } else if (viaText === "saweria") {
-        window.location.href = `bayar-saweria.html${params}`;
-    } else {
-        // Jika ada metode lain di masa depan
-        window.location.href = `bayar.html${params}&via=${viaText}`;
-    }
-};
+          if (metode === "trakteer") {
+              window.location.href = `bayar-trakteer.html${params}`;
+          } else if (metode === "saweria") {
+              window.location.href = `bayar-saweria.html${params}`;
+          } else {
+              window.location.href = `bayar.html${params}&via=${encodeURIComponent(viaText)}`;
+          }
+      };
+  });
 
   // 6. Tutup Modal
   confirmOverlay.addEventListener('click', (e) => {
@@ -554,5 +547,3 @@
     }
   });
 </script>
-</body>
-</html>
